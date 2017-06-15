@@ -1,21 +1,21 @@
 User Stories
 1: user login page
-As a user, I want to access my account, so I can find my items.
+As a user, I want to access my account, so that I can find my items.
 2: user registration page
-As a user, I want to create an account, so I can use the app to find my items
+As a user, I want to create an account, so that I can use the app to find my items
 3: user report lost item
-As a user, I want to report a lost item, so I can possibly find my item
+As a user, I want to report a lost item, so that I can possibly find my item
 4: user report found item
-As a user, I want to report that I found an item, so it can be returned to its owner
-5: google map display of items
-As a user, I want to see a map of the lost item, so I can retrieve my lost item
+As a user, I want to report that I found an item, so that I can be return it to its owner
+5: google map display of items 
+As a user, I want to see a map of the lost item, so that I can retrieve my lost item
 6: status of lost items
-As a user, I want to see if my items were found, so I can see if I can retreive them yet
+As a user, I want to see if my items were found, so that I can see if I can retreive them yet
 7: user can contact other users
-As a user, I want to contact the person who found my item, so I can confirm it is my item and can retrieve it
+As a user, I want to contact the person who found my item, so that I can confirm it is my item and can retrieve it
 8: user search for items
-As a user, I want to search through the lost items, so I can identitfy if it is my lost item
+As a user, I want to search through the lost items, so that I can identitfy if it is my lost item
 9: user logout feature
-As a user, I want to be able to log out of the app, so others cannot access my account information
+As a user, I want to be able to log out of the app, so that I can ensure the safety of my account
 10: settings page
-As a user, I want to be able to change my settings, so I can decide my notifications and personal information
+As a user, I want to be able to change my settings, so that I can decide my notifications and personal information
