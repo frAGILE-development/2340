@@ -1,0 +1,24 @@
+Jordan Shartar
+
+1: user login page
+As a user, I want to access my account, so I can find my items.
+
+Scenario 1: Login information is correct
+Given the user already has an account
+
+When the user inputs the correct username and password
+Then the login page should login to the account 
+    and proceed to the status of items page
+   
+Scenario 2: Login information is incorrect
+Given there is a database of registered accounts
+
+when the user inputs incorrect username and/or password
+Then an error message should display 
+    and should remain on the login screen.
+
+Scenario 3: create an account is clicked
+given the user does not have an account
+
+When the user clicks on create an account
+Then it should go to a user registration page
