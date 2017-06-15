@@ -17,8 +17,3 @@ when the user inputs incorrect username and/or password
 Then an error message should display 
     and should remain on the login screen.
 
-Scenario 3: create an account is clicked
-given the user does not have an account
-
-When the user clicks on create an account
-Then it should go to a user registration page
