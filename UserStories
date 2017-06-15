@@ -19,3 +19,7 @@ As a user, I want to search through the lost items, so that I can identitfy if i
 As a user, I want to be able to log out of the app, so that I can ensure the safety of my account
 10: settings page
 As a user, I want to be able to change my settings, so that I can decide my notifications and personal information
+11: user donate items
+As a user, I want to be able to donate items, so that others can recieve aid during a disaster
+12: user request donation
+As a user, I want to be able to request a donation, so that I can get the resources I lack after a disaster
