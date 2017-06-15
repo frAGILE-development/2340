@@ -23,3 +23,5 @@ As a user, I want to be able to change my settings, so that I can decide my noti
 As a user, I want to be able to donate items, so that others can recieve aid during a disaster
 12: user request donation
 As a user, I want to be able to request a donation, so that I can get the resources I lack after a disaster
+13: admin account manipulation
+As an admin, I want to be able to add, remove, lock and unlock accounts, so that I can decide the status of the user accounts
