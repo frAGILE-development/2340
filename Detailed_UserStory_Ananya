@@ -1,0 +1,31 @@
+6: Status of Lost Items
+As a user, I want to see if my items were found, so that I can see if I can retrieve them yet
+
+TASKS:
+
+1. Create a front-end view page displaying a user's lost items and their statuses
+
+2. If the item has been found, create a page with details about who found it, where it was found etc. 
+
+3. Link the item on the status page to its information page
+
+4. Create a controller to fetch the data to be loaded on the found item info page
+
+ACCEPTANCE SCENARIOS:
+
+Scenario 1: 
+Given that the lost item has been found, when the user opens the status page, then the item should be marked as found and be clickable taking them to the details page(who found it, where it was found etc.) of the item.
+
+Scenario 2:
+Given that the lost item has not been found, when the user opens the status page, then the item should be marked not found and be not clickable.
+
+DONE DONE CRITERIA:
+
+1. User opens the status page and all his/her lost items show up
+
+2. If the item has been found, the user is able to click on it
+
+3. When the user clicks on it, he/she is taken to another page which shows information about who/where it was found
+
+4. Correct data about "finder" loads on the page
+
