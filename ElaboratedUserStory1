@@ -3,6 +3,12 @@ Jordan Shartar
 1: user login page
 As a user, I want to access my account, so I can find my items.
 
+TASKS:
+1. create a page which the user can input their username and password
+2. create a controller to log into the app
+
+ACCEPTANCE SCENARIOS:
+
 Scenario 1: Login information is correct
 Given the user already has an account
 
@@ -16,4 +22,12 @@ Given there is a database of registered accounts
 when the user inputs incorrect username and/or password
 Then an error message should display 
     and should remain on the login screen.
+    
+DONE DONE CRITERIA:
+
+1. User enters their login information
+
+2. if the information in an valid account with correct login information, the user is logged into the app
+
+3. when the user clicks on login, the user is taken to another page with access to the apps features
 
