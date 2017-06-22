@@ -1,0 +1,39 @@
+Ves Grantcharov
+
+2: User Registration
+
+As a user, I need to create an account, so I can join the app.
+
+tasks:
+-create a registration page where the user can input their email, desired username and password.
+-create a controller to create an account
+
+
+scenario 1:
+give: email is valid (of form [string]@[string].[string]), password meets standard (6 characters or longer), and desired username does not already belong to an account.
+
+When the user meets these criteria, then an account should be created for them and proceed to show them the log in page
+
+
+scenario 2:
+given: email is not of valid form
+
+When the user puts in an email that can't work, they should be shown a cleared registration page with a notification that the email inputted is not valid
+
+
+scenario 3:
+given: password is too short
+
+When the user puts in a password that is too short, they should be shown a cleared registration page with a notification that the password inputted is too short
+
+
+scenario 4:
+given: username already exists for another account
+
+When the user puts in a username that is already taken, they should be shown a cleared registration page with a notification that the username is already taken
+
+
+Done Done criteria:
+-User enters their account information
+-If the information is valid, an account is created for the user
+-When the user clicks register, the information is saved in the database and the user is taken to the log in page
