@@ -6,6 +6,8 @@ import java.util.List;
 /**
  * Created by bwatson35 on 6/25/17.
  * Based heavily on the model for Lab 3
+ *
+ * Keeps track of a list of users at the moment
  */
 
 public class Model {

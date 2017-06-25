@@ -9,7 +9,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.ananya.findr.R;
-
+import Model.User;
+import Model.Model;
 /**
  * Created by Ananya on 6/21/17.
  */
@@ -35,9 +36,12 @@ public class Login extends AppCompatActivity {
             public void onClick(View view) {
                 EditText username = (EditText) findViewById(R.id.name);
                 EditText password = (EditText) findViewById(R.id.pass);
+                Model model = Model.getInstance();
+                User lookup = model.getUserByUsername(username.getText().toString());
 
-
-                if (username.getText().toString().equals("user") && password.getText().toString().equals("pass")) {
+                if (username.getText().toString().equals("user") && password.getText().toString().equals("pass") ||
+                        username.getText().toString().equals(lookup.getUsername())
+                                && password.getText().toString().equals(lookup.getPassword())) {
                     Intent intent = new Intent(Login.this, Application.class);
                     startActivity(intent);
                 } else {
