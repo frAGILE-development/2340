@@ -7,19 +7,13 @@ import java.util.Arrays;
 import java.util.List;
 /**
  * Created by bwatson35 on 6/25/17.
+ * Information Holder - represents a single user in model.
+ * Was modeled in part on the student class from Lab 3.
+ * We are passing this object in a bundle between intents, so we implement
+ * the Parcelable interface.
  */
 
 public class User implements Parcelable{
-
-
-    /**
-     * Created by Bryce Watson on 6/25/17.
-     *
-     * Information Holder - represents a single user in model.
-     * Was modeled in part on the student class from Lab 3.
-     * We are passing this object in a bundle between intents, so we implement
-     * the Parcelable interface.
-     */
 
         //instance variables
         private int _id;
