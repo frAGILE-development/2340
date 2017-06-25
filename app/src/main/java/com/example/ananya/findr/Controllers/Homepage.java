@@ -25,6 +25,14 @@ public class Homepage extends AppCompatActivity {
         Button signin = (Button) findViewById(R.id.signin);
         Button register = (Button) findViewById(R.id.register);
 
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Homepage.this, Register.class);
+                startActivity(intent);
+            }
+        });
+
         signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

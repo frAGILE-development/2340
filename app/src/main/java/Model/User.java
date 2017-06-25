@@ -3,12 +3,10 @@ package Model;
 import android.os.Parcelable;
 import android.os.Parcel;
 
-import java.util.Arrays;
-import java.util.List;
 /**
  * Created by bwatson35 on 6/25/17.
  * Information Holder - represents a single user in model.
- * Was modeled in part on the student class from Lab 3.
+ * Is modeled in part on the student class from Lab 3.
  * We are passing this object in a bundle between intents, so we implement
  * the Parcelable interface.
  */
@@ -23,6 +21,7 @@ public class User implements Parcelable{
         private String _email;
         private String _phoneNumber;
         private Boolean _admin;
+        private String _username;
 
         //derived instance vars
         private String _lastFirst;
@@ -37,8 +36,9 @@ public class User implements Parcelable{
          * @param phoneNumber their phone number
          * @param admin whether or not they are an administrator
          */
-        public User(String firstName, String lastName, String password, String email,
+        public User(String username, String firstName, String lastName, String password, String email,
                        String phoneNumber, Boolean admin) {
+            _username = username;
             _firstName = firstName;
             _lastName = lastName;
             _lastFirst = lastName + ", " + firstName;
@@ -54,12 +54,16 @@ public class User implements Parcelable{
          * This constructor only for GUI use in edit/new user dialog
          */
         public User() {
-            this("George" , "P. Burdell", "password", "george@gatech.edu", "0123456789", false);
+            this("GeorgePBurdell", "George" , "P. Burdell", "password", "george@gatech.edu", "0123456789", false);
         }
 
         /* **********************
          * Getters and setters
          */
+
+        public String getUsername() { return _username; }
+        public void setUsername(String s) { _username = s; }
+
         public String getFirstName() { return _firstName; }
         public void setFirstName(String s) { _firstName = s; }
 
@@ -74,8 +78,10 @@ public class User implements Parcelable{
             _lastName = last;
         }
 
-        //TODO:no setter for password at the moment
+
         public String getPassword() { return _password; }
+        public void setPassword(String s) { _password = s; }
+
 
         public String getEmail() { return _email; }
         public void setEmail(String s) { _email = s; }

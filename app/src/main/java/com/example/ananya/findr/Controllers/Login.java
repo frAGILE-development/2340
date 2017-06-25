@@ -35,6 +35,8 @@ public class Login extends AppCompatActivity {
             public void onClick(View view) {
                 EditText username = (EditText) findViewById(R.id.name);
                 EditText password = (EditText) findViewById(R.id.pass);
+
+
                 if (username.getText().toString().equals("user") && password.getText().toString().equals("pass")) {
                     Intent intent = new Intent(Login.this, Application.class);
                     startActivity(intent);
