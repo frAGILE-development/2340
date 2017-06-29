@@ -3,6 +3,9 @@ package Model;
 import android.os.Parcelable;
 import android.os.Parcel;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * Created by bwatson35 on 6/25/17.
  * Information Holder - represents a single user in model.
@@ -12,7 +15,7 @@ import android.os.Parcel;
  */
 
 public class User implements Parcelable{
-
+        public static List<String> accountType = Arrays.asList("Admin", "Normal");
         //instance variables
         private int _id;
         private String _firstName;
@@ -90,8 +93,25 @@ public class User implements Parcelable{
         public void setPhoneNumber(String s) { _phoneNumber = s; }
 
         public Boolean isAdmin() { return _admin; }
+        public String getAdmin() {
+            if (_admin == true) {
+                return accountType.get(0);
+            } else {
+                return accountType.get(1);
+            }
+        }
         public void makeAdmin() { _admin = true; }
         public void demoteToUser() { _admin = false; }
+        
+        public static int findPosition(String code) {
+            int i = 0;
+            while (i < accountType.size()) {
+                if (code.equals(accountType.get(i))) {
+                    return i;
+                }
+            }
+            return 0;
+        }
 
 
         /**
