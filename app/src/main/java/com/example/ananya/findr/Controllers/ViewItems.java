@@ -10,11 +10,14 @@ import android.widget.Toast;
 import Model.Model;
 import com.example.ananya.findr.R;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 /**
  * Created by Ananya on 6/29/17.
  */
 
-public class ViewItems extends AppCompatActivity {
+public class ViewItems<T extends Comparable<? super T>> extends AppCompatActivity {
     ListView listView ;
 
     @Override
@@ -32,9 +35,9 @@ public class ViewItems extends AppCompatActivity {
         // Third parameter - ID of the TextView to which the data is written
         // Forth - the Array of data
         Model model = Model.getInstance();
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, android.R.id.text1, model.getLostItemStrings());
+        Object[] list = model.getLostItems().toArray();
+        ArrayAdapter<Object> adapter = new ArrayAdapter<Object>(this,
+                android.R.layout.simple_list_item_1, android.R.id.text1, list);
 
 
         // Assign adapter to ListView

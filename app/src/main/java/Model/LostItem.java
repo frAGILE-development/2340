@@ -43,7 +43,7 @@ public class LostItem implements Parcelable {
      */
     @Override
     public String toString() {
-        return "Lost Item: " + _name + " Description: " + _description + " Address: " + _address;
+        return "Lost Item: " + _name + "\n"+ "Description: " + _description + "\n" + "Address: " + _address;
     }
 
     /* *********************************
