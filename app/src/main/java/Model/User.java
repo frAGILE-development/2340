@@ -25,6 +25,7 @@ public class User implements Parcelable{
         private String _phoneNumber;
         private Boolean _admin;
         private String _username;
+        private String _adminType;
 
         //derived instance vars
         private String _lastFirst;
@@ -40,7 +41,7 @@ public class User implements Parcelable{
          * @param admin whether or not they are an administrator
          */
         public User(String username, String firstName, String lastName, String password, String email,
-                       String phoneNumber, Boolean admin) {
+                       String phoneNumber, Boolean admin, String type) {
             _username = username;
             _firstName = firstName;
             _lastName = lastName;
@@ -50,6 +51,7 @@ public class User implements Parcelable{
             _email = email;
             _phoneNumber = phoneNumber;
             _admin = admin;
+            _adminType = type;
         }
 
         /**
@@ -57,7 +59,7 @@ public class User implements Parcelable{
          * This constructor only for GUI use in edit/new user dialog
          */
         public User() {
-            this("GeorgePBurdell", "George" , "P. Burdell", "password", "george@gatech.edu", "0123456789", false);
+            this("GeorgePBurdell", "George" , "P. Burdell", "password", "george@gatech.edu", "0123456789", false, accountType.get(1));
         }
 
         /* **********************
@@ -94,14 +96,13 @@ public class User implements Parcelable{
 
         public Boolean isAdmin() { return _admin; }
         public String getAdmin() {
-            if (_admin == true) {
-                return accountType.get(0);
-            } else {
-                return accountType.get(1);
-            }
+            return _adminType;
         }
         public void makeAdmin() { _admin = true; }
         public void demoteToUser() { _admin = false; }
+        public void set_adminType(String type) {
+            _adminType = type;
+        }
         
         public static int findPosition(String code) {
             int i = 0;
