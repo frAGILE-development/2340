@@ -22,7 +22,7 @@ public class Model {
     /** the currently selected user, defaults to the first one */
     private User _currentUser;
     private LostItem _currentItem;
-    private final User theNullUser = new User("Null", "No", "Name", "passw0rd", "null@gatech.edu", "0000000000", false);
+    private final User theNullUser = new User("Null", "No", "Name", "passw0rd", "null@gatech.edu", "0000000000", false, User.accountType.get(1));
     private final LostItem theNullItem = new LostItem("NULL", "NULL", "NULL", new User());
 
     /**
