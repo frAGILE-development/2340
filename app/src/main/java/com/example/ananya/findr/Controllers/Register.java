@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.widget.Spinner;
+import android.widget.ArrayAdapter;
 
 import com.example.ananya.findr.R;
 import Model.User;
@@ -22,12 +24,6 @@ public class Register extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        
-        accountTypeSpinner = (Spinner) findViewById(R.id.spinner);
-        ArrayAdapter<String> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item,
-                User.accountType);
-        accountTypeSpinner.setAdapter(adapter);
-
         Button register = (Button) findViewById(R.id.button_register);
         Button cancel = (Button) findViewById(R.id.button_cancel);
 
@@ -52,8 +48,7 @@ public class Register extends AppCompatActivity {
                 EditText lastName = (EditText) findViewById(R.id.editText_lastName);
                 EditText email = (EditText) findViewById(R.id.editText_email);
                 EditText phone = (EditText) findViewById(R.id.editText_phone);
-                accountTypeSpinner.setSelection(User.findPosition(_user.getAdmin()));
-
+                EditText admin = (EditText) findViewById(R.id.editText_admin);
                 //password confirmation check
                 if (!password1.getText().toString().equals(password2.getText().toString())) {
                     Toast.makeText(Register.this, "Can't Register: Your passwords do not match", Toast.LENGTH_SHORT).show();
@@ -80,9 +75,8 @@ public class Register extends AppCompatActivity {
                     _user.setFullName(firstName.getText().toString(), lastName.getText().toString());
                     _user.setPassword(password2.getText().toString());
                     _user.setEmail(email.getText().toString());
-                    _user.set_adminType((String) accountTypeSpinner.getSelectedItem());
-                    
-                    if (accountTypeSpinner.getSelectedItem().equals(User.accountType.get(0))) {
+
+                    if (admin.getText().toString().equalsIgnoreCase("admin")) {
                         _user.makeAdmin();
                     } else {
                         _user.demoteToUser();

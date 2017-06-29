@@ -98,6 +98,7 @@ public class User implements Parcelable{
         public String getAdmin() {
             return _adminType;
         }
+
         public void makeAdmin() { _admin = true; }
         public void demoteToUser() { _admin = false; }
         public void set_adminType(String type) {

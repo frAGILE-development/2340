@@ -155,12 +155,14 @@
             android:textColor="@android:color/background_dark"
             android:textSize="24sp" />
 
-        <Spinner
-            android:id="@+id/spinner"
+        <EditText
+            android:id="@+id/editText_admin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="7.67"
-            android:spinnerMode="dropdown" />
+            android:layout_weight="0.05"
+            android:ems="10"
+            android:hint="User or Admin"
+            android:inputType="text" />
 
         <Space
             android:layout_width="match_parent"
