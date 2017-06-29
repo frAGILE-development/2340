@@ -26,22 +26,6 @@ public class ViewItems extends AppCompatActivity {
         // Get ListView object from xml
         listView = (ListView) findViewById(R.id.list);
 
-        // Defined Array values to show in ListView
-        String[] values = new String[] { "Android List View",
-                "Adapter implementation",
-                "Simple List View In Android",
-                "Create List View Android",
-                "Android Example",
-                "List View Source Code",
-                "List View Array Adapter",
-                "Android Example List View",
-                "abcc",
-                "def",
-                "ghi",
-                "jkl",
-                "mno"
-        };
-
         // Define a new Adapter
         // First parameter - Context
         // Second parameter - Layout for the row
