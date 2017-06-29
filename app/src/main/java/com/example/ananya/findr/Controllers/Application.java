@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.ananya.findr.R;
+import com.example.ananya.findr.Controllers.AddLostItem;
 
 /**
  * Created by Ananya on 6/22/17.
@@ -18,6 +19,15 @@ public class Application extends AppCompatActivity {
         setContentView(R.layout.activity_application);
 
         Button logout = (Button) findViewById(R.id.logout);
+        Button addLostItem = (Button) findViewById(R.id.AddLostItem);
+
+        addLostItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Application.this, AddLostItem.class);
+                startActivity(intent);
+            }
+        });
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override

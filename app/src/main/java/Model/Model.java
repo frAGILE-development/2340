@@ -18,19 +18,19 @@ public class Model {
 
     /** holds the list of all users */
     private List<User> _users;
-
+    private List<LostItem> _items;
     /** the currently selected user, defaults to the first one */
     private User _currentUser;
-
+    private LostItem _currentItem;
     private final User theNullUser = new User("Null", "No", "Name", "passw0rd", "null@gatech.edu", "0000000000", false);
-
+    private final LostItem theNullItem = new LostItem("NULL", "NULL", "NULL", new User());
 
     /**
      * make a new model
      */
     public Model() {
         _users = new ArrayList<>();
-
+        _items = new ArrayList<>();
         //comment this out after full app developed
         //loadDummyData();
     }
@@ -40,6 +40,13 @@ public class Model {
      * @return a list of the users in the app
      */
     public List<User> getUsers() { return _users; }
+
+    /**
+     * get the users
+     * @return a list of the users in the app
+     */
+    public List<LostItem> getLostItems() { return _items; }
+
 
     /**
      * add a user to the app.  checks if the user is already entered
@@ -58,12 +65,32 @@ public class Model {
     }
 
     /**
+     * add a lost item to the app.  checks if the lost item is already entered
+     *
+     * uses O(n) linear search for course
+     *
+     * @param item  the user to be added
+     * @return true if added, false if a duplicate
+     */
+    public boolean addItem(LostItem item) {
+        for (LostItem c : _items ) {
+            if (c.equals(item)) return false;
+        }
+        _items.add(item);
+        return true;
+    }
+
+    /**
      *
      * @return  the currently selected course
      */
     public User getCurrentUser() { return _currentUser;}
 
     public void setCurrentUser(User user) { _currentUser = user; }
+
+    public LostItem getCurrentItem() { return _currentItem;}
+
+    public void setCurrentItem(LostItem item) { _currentItem = item; }
 
     /**
      * Return a course that has matching number.
