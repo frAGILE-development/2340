@@ -87,7 +87,7 @@ public class Register extends AppCompatActivity {
                         _user.setPhoneNumber(phone.getText().toString().replaceAll("\\D+", ""));
                         //uses regex to pull non digits out of the string, if not null
                     }
-                    if (_user.getAdmin().equals("Admin")) {
+                    if (_user.getAdmin().equals(User.accountType.get(0)) {
                         _user.makeAdmin();
                     } else {
                         _user.demoteToUser();
