@@ -80,18 +80,20 @@ public class Register extends AppCompatActivity {
                     _user.setFullName(firstName.getText().toString(), lastName.getText().toString());
                     _user.setPassword(password2.getText().toString());
                     _user.setEmail(email.getText().toString());
-
+                    _user.set_adminType((String) accountTypeSpinner.getSelectedItem());
+                    
+                    if (accountTypeSpinner.getSelectedItem().equals(User.accountType.get(0))) {
+                        _user.makeAdmin();
+                    } else {
+                        _user.demoteToUser();
+                    }
                     if (phone.getText().toString().equals(null)) {
                         _user.setPhoneNumber("0000000000");
                     } else {
                         _user.setPhoneNumber(phone.getText().toString().replaceAll("\\D+", ""));
                         //uses regex to pull non digits out of the string, if not null
                     }
-                    if (accountTypeSpinner.getSelectedItem() == User.accountType.get(0)) {
-                        _user.makeAdmin();
-                    } else {
-                        _user.demoteToUser();
-                    }
+                  
                     model.addUser(_user);
 
                     Intent intent = new Intent(Register.this, Application.class);
