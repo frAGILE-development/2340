@@ -47,7 +47,15 @@ public class Model {
      */
     public List<LostItem> getLostItems() { return _items; }
 
+    public String[] getLostItemStrings() {
+        String[] list = new String[_items.size()];
 
+        for(int i = 0; i < _items.size(); i++) {
+            list[i] = _items.get(i).getName();
+        }
+
+        return list;
+    }
     /**
      * add a user to the app.  checks if the user is already entered
      *

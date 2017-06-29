@@ -22,7 +22,7 @@ public class LostItem implements Parcelable {
 
     //default constructor
     public LostItem() {
-        this("Deafault Item", "No description", "221 Baker St", new User());
+        this("Default Item", "No description", "221 Baker St", new User());
     }
 
     public String getName() { return _name; }
