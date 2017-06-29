@@ -20,6 +20,7 @@ public class Application extends AppCompatActivity {
 
         Button logout = (Button) findViewById(R.id.logout);
         Button addLostItem = (Button) findViewById(R.id.AddLostItem);
+        Button lostitems = (Button) findViewById(R.id.lostitems);
 
         addLostItem.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,6 +34,14 @@ public class Application extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Application.this, Homepage.class);
+                startActivity(intent);
+            }
+        });
+
+        lostitems.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Application.this, ViewItems.class);
                 startActivity(intent);
             }
         });

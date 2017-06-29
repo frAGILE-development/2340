@@ -32,4 +32,13 @@
         android:text="Add lost Item"
         android:layout_below="@+id/textView2"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/lostitems"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/AddLostItem"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="13dp"
+        android:text="LOST ITEMS" />
 </RelativeLayout>

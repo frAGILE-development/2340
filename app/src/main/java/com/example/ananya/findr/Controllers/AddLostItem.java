@@ -1,5 +1,6 @@
 package com.example.ananya.findr.Controllers;
 
+import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -17,7 +18,7 @@ import Model.LostItem;
  * Created by Bryce on 6/29/2017.
  */
 
-public class AddLostItem  extends AppCompatActivity{
+public class AddLostItem  extends ListActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
