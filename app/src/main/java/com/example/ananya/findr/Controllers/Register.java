@@ -17,9 +17,16 @@ import Model.Model;
  */
 
 public class Register extends AppCompatActivity {
+    private Spinner accountTypeSpinner;
+    
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        
+        accountTypeSpinner = (Spinner) findViewById(R.id.spinner);
+        ArrayAdapter<String> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item,
+                User.accountType);
+        accountTypeSpinner.setAdapter(adapter);
 
         Button register = (Button) findViewById(R.id.button_register);
         Button cancel = (Button) findViewById(R.id.button_cancel);
@@ -45,6 +52,7 @@ public class Register extends AppCompatActivity {
                 EditText lastName = (EditText) findViewById(R.id.editText_lastName);
                 EditText email = (EditText) findViewById(R.id.editText_email);
                 EditText phone = (EditText) findViewById(R.id.editText_phone);
+                accountTypeSpinner.setSelection(User.findPosition(_user.getAdmin()));
 
                 //password confirmation check
                 if (!password1.getText().toString().equals(password2.getText().toString())) {
@@ -78,6 +86,11 @@ public class Register extends AppCompatActivity {
                     } else {
                         _user.setPhoneNumber(phone.getText().toString().replaceAll("\\D+", ""));
                         //uses regex to pull non digits out of the string, if not null
+                    }
+                    if (_user.getAdmin().equals("Admin")) {
+                        _user.makeAdmin();;
+                    } else {
+                        _user.demoteToUser();
                     }
                     model.addUser(_user);
 
