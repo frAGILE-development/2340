@@ -88,7 +88,7 @@ public class Register extends AppCompatActivity {
                         //uses regex to pull non digits out of the string, if not null
                     }
                     if (_user.getAdmin().equals("Admin")) {
-                        _user.makeAdmin();;
+                        _user.makeAdmin();
                     } else {
                         _user.demoteToUser();
                     }
