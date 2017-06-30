@@ -4,12 +4,10 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 /**
- * Created by Bryce on 6/29/2017.
- *
- * An information holder for lost items
+ * Created by bwatson35 on 6/29/17.
  */
 
-public class LostItem extends Item implements Parcelable {
+public class FoundItem extends Item implements Parcelable {
 
     //instance variables
     private String _name;
@@ -25,7 +23,7 @@ public class LostItem extends Item implements Parcelable {
      * @param address     the address of where the item was found
      * @param owner       the user under which the item was originally entered
      */
-    public LostItem(String name, String description, String address, User owner) {
+    public FoundItem(String name, String description, String address, User owner) {
         super(name, description, address, owner);
         _name = super.getName();
         _description = super.getDescription();
@@ -36,7 +34,7 @@ public class LostItem extends Item implements Parcelable {
     /**
      * the Default contructor. For GUI use only
      */
-    public LostItem() {
+    public FoundItem() {
         this("Default Item", "No description", "221 Baker St", new User());
     }
 
@@ -111,7 +109,7 @@ public class LostItem extends Item implements Parcelable {
      */
     @Override
     public String toString() {
-        return "Lost Item: " + _name + "\n" + "Description: " + _description + "\n" + "Address: " + _address;
+        return "Found Item: " + _name + "\n" + "Description: " + _description + "\n" + "Address: " + _address;
     }
 
     /* *********************************
@@ -119,7 +117,7 @@ public class LostItem extends Item implements Parcelable {
      *
      */
 
-    private LostItem(Parcel in) {
+    private FoundItem(Parcel in) {
         _name = in.readString();
         _description = in.readString();
         _address = in.readString();
@@ -142,14 +140,15 @@ public class LostItem extends Item implements Parcelable {
         //dest.writeInt(_id);
     }
 
-    public static final Parcelable.Creator<LostItem> CREATOR
-            = new Parcelable.Creator<LostItem>() {
-        public LostItem createFromParcel(Parcel in) {
-            return new LostItem(in);
+    public static final Parcelable.Creator<FoundItem> CREATOR
+            = new Parcelable.Creator<FoundItem>() {
+        public FoundItem createFromParcel(Parcel in) {
+            return new FoundItem(in);
         }
 
-        public LostItem[] newArray(int size) {
-            return new LostItem[size];
+        public FoundItem[] newArray(int size) {
+            return new FoundItem[size];
         }
     };
+
 }

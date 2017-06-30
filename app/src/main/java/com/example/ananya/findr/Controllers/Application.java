@@ -4,10 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 
 import com.example.ananya.findr.R;
-import com.example.ananya.findr.Controllers.AddLostItem;
 
 /**
  * Created by Ananya on 6/22/17.
@@ -21,8 +21,11 @@ public class Application extends AppCompatActivity {
         Button logout = (Button) findViewById(R.id.logout);
         Button addLostItem = (Button) findViewById(R.id.AddLostItem);
         Button lostitems = (Button) findViewById(R.id.lostitems);
+        Button addFoundItem = (Button) findViewById(R.id.button_addFoundItem);
+        Button foundItems = (Button) findViewById(R.id.button_foundItemsList);
 
-        addLostItem.setOnClickListener(new View.OnClickListener() {
+
+        addLostItem.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Application.this, AddLostItem.class);
@@ -30,7 +33,15 @@ public class Application extends AppCompatActivity {
             }
         });
 
-        logout.setOnClickListener(new View.OnClickListener() {
+        addFoundItem.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Application.this, AddFoundItem.class);
+                startActivity(intent);
+            }
+        });
+
+        logout.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Application.this, Homepage.class);
@@ -38,10 +49,18 @@ public class Application extends AppCompatActivity {
             }
         });
 
-        lostitems.setOnClickListener(new View.OnClickListener() {
+        lostitems.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Application.this, ViewItems.class);
+                Intent intent = new Intent(Application.this, ViewLostItems.class);
+                startActivity(intent);
+            }
+        });
+
+        foundItems.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Application.this, ViewFoundItems.class);
                 startActivity(intent);
             }
         });

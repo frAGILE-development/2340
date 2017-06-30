@@ -5,30 +5,45 @@
     android:layout_height="match_parent">
 
     <Button
-        android:text="Logout"
+        android:id="@+id/logout"
+        style="@style/Widget.AppCompat.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/logout"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="18dp" />
+        android:layout_marginBottom="18dp"
+        android:background="@color/colorAccent"
+        android:elevation="0dp"
+        android:text="Logout"
+        android:textColor="@android:color/background_light" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="21dp"
         android:text="Time to find your stuff! Describe the item that you lost"
         android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Found an Item? Register it here"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:layout_below="@+id/lostitems"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/AddLostItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="18dp"
         android:text="Add lost Item"
         android:layout_below="@+id/textView2"
         android:layout_centerHorizontal="true" />
@@ -40,5 +55,23 @@
         android:layout_below="@+id/AddLostItem"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="13dp"
-        android:text="LOST ITEMS" />
+        android:text="LOST ITEMs list" />
+
+    <Button
+        android:id="@+id/button_foundItemsList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_addFoundItem"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp"
+        android:text="Found ITEMs list" />
+
+    <Button
+        android:id="@+id/button_addFoundItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Add found Item"
+        android:layout_below="@+id/textView12"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

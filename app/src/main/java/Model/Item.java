@@ -4,13 +4,12 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 /**
- * Created by Bryce on 6/29/2017.
+ * Created by bwatson35 on 6/29/17.
  *
- * An information holder for lost items
+ * The parent class of both the lost and found items
  */
 
-public class LostItem extends Item implements Parcelable {
-
+public class Item implements Parcelable {
     //instance variables
     private String _name;
     private String _description;
@@ -25,18 +24,17 @@ public class LostItem extends Item implements Parcelable {
      * @param address     the address of where the item was found
      * @param owner       the user under which the item was originally entered
      */
-    public LostItem(String name, String description, String address, User owner) {
-        super(name, description, address, owner);
-        _name = super.getName();
-        _description = super.getDescription();
-        _address = super.getAddress();
-        _owner = super.getOwner();
+    public Item(String name, String description, String address, User owner) {
+        _name = name;
+        _description = description;
+        _address = address;
+        _owner = owner;
     }
 
     /**
      * the Default contructor. For GUI use only
      */
-    public LostItem() {
+    public Item() {
         this("Default Item", "No description", "221 Baker St", new User());
     }
 
@@ -45,7 +43,7 @@ public class LostItem extends Item implements Parcelable {
      * @return the name of the item
      */
     public String getName() {
-        return super.getName();
+        return _name;
     }
 
     /**
@@ -53,7 +51,7 @@ public class LostItem extends Item implements Parcelable {
      * @param s the string of the new name of the item
      */
     public void setName(String s) {
-        super.setName(s);
+        _name = s;
     }
 
     /**
@@ -61,7 +59,7 @@ public class LostItem extends Item implements Parcelable {
      * @return the description of the lost item
      */
     public String getDescription() {
-        return super.getDescription();
+        return _description;
     }
 
     /**
@@ -69,7 +67,7 @@ public class LostItem extends Item implements Parcelable {
      * @param s the description to be set
      */
     public void setDescription(String s) {
-        super.setDescription(s);
+        _description = s;
     }
 
     /**
@@ -77,7 +75,7 @@ public class LostItem extends Item implements Parcelable {
      * @return the address of the item
      */
     public String getAddress() {
-        return super.getAddress();
+        return _address;
     }
 
     /**
@@ -85,7 +83,7 @@ public class LostItem extends Item implements Parcelable {
      * @param s the new address
      */
     public void setAddress(String s) {
-        super.setAddress(s);
+        _address = s;
     }
 
     /**
@@ -93,7 +91,7 @@ public class LostItem extends Item implements Parcelable {
      * @return the owner of the item
      */
     public User getOwner() {
-        return super.getOwner();
+        return _owner;
     }
 
     /**
@@ -101,7 +99,7 @@ public class LostItem extends Item implements Parcelable {
      * @param u the new owner of the lost item
      */
     public void setOwner(User u) {
-        super.setOwner(u);
+        _owner = u;
     }
 
     /**
@@ -111,7 +109,7 @@ public class LostItem extends Item implements Parcelable {
      */
     @Override
     public String toString() {
-        return "Lost Item: " + _name + "\n" + "Description: " + _description + "\n" + "Address: " + _address;
+        return "Item: " + _name + "\n" + "Description: " + _description + "\n" + "Address: " + _address;
     }
 
     /* *********************************
@@ -119,7 +117,7 @@ public class LostItem extends Item implements Parcelable {
      *
      */
 
-    private LostItem(Parcel in) {
+    private Item(Parcel in) {
         _name = in.readString();
         _description = in.readString();
         _address = in.readString();
@@ -142,14 +140,14 @@ public class LostItem extends Item implements Parcelable {
         //dest.writeInt(_id);
     }
 
-    public static final Parcelable.Creator<LostItem> CREATOR
-            = new Parcelable.Creator<LostItem>() {
-        public LostItem createFromParcel(Parcel in) {
-            return new LostItem(in);
+    public static final Parcelable.Creator<Item> CREATOR
+            = new Parcelable.Creator<Item>() {
+        public Item createFromParcel(Parcel in) {
+            return new Item(in);
         }
 
-        public LostItem[] newArray(int size) {
-            return new LostItem[size];
+        public Item[] newArray(int size) {
+            return new Item[size];
         }
     };
 }

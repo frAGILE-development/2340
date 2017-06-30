@@ -2,7 +2,7 @@ package Model;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import Model.FoundItem;
 /**
  * Created by bwatson35 on 6/25/17.
  * Based heavily on the model for Lab 3
@@ -17,32 +17,39 @@ public class Model {
      */
     private static final Model _instance = new Model();
 
+    /**
+     * Returns a singleton instance of the model
+     * @return an instance of the model
+     */
     public static Model getInstance() {
         return _instance;
     }
 
     /**
-     * holds the list of all users
+     * holds the list of all users, lost & found items
      */
     private List<User> _users;
-    private List<LostItem> _items;
+    private List<LostItem> _lostItems;
+    private List<FoundItem> _foundItems;
     /**
      * the currently selected user, defaults to the first one
      */
     private User _currentUser;
     //the currently selected lost item
-    private LostItem _currentItem;
+    private LostItem _currentLostItem;
+    private FoundItem _currentFoundItem;
 
     //Null Users and items
     private final User theNullUser = new User("Null", "No", "Name", "passw0rd", "null@gatech.edu", "0000000000", false, User.accountType.get(1));
-    private final LostItem theNullItem = new LostItem("NULL", "NULL", "NULL", new User());
-
+    private final LostItem theNullLostItem = new LostItem("NULL", "NULL", "NULL", new User());
+    private final FoundItem theNullFoundItem = new FoundItem("NULL", "NULL", "NULL", new User());
     /**
      * makes a new model
      */
     public Model() {
         _users = new ArrayList<>();
-        _items = new ArrayList<>();
+        _lostItems = new ArrayList<>();
+        _foundItems = new ArrayList<>();
         //comment this out after full app developed
         //loadDummyData();
     }
@@ -57,12 +64,21 @@ public class Model {
     }
 
     /**
-     * get the users
+     * get the lost items
      *
-     * @return a list of the users in the app
+     * @return a list of the lost items for that user
      */
     public List<LostItem> getLostItems() {
-        return _items;
+        return _lostItems;
+    }
+
+    /**
+     * get the found items
+     *
+     * @return a list of the found items for that user
+     */
+    public List<FoundItem> getFoundItems() {
+        return _foundItems;
     }
 
     /**
@@ -71,14 +87,16 @@ public class Model {
      * @return a list of the names of items in the model
      */
     public String[] getLostItemStrings() {
-        String[] list = new String[_items.size()];
+        String[] list = new String[_lostItems.size()];
 
-        for (int i = 0; i < _items.size(); i++) {
-            list[i] = _items.get(i).getName();
+        for (int i = 0; i < _lostItems.size(); i++) {
+            list[i] = _lostItems.get(i).getName();
         }
 
         return list;
     }
+    
+    
 
     /**
      * add a user to the app.  checks if the user is already entered
@@ -104,11 +122,27 @@ public class Model {
      * @param item the user to be added
      * @return true if added, false if a duplicate
      */
-    public boolean addItem(LostItem item) {
-        for (LostItem c : _items) {
+    public boolean addLostItem(LostItem item) {
+        for (LostItem c : _lostItems) {
             if (c.equals(item)) return false;
         }
-        _items.add(item);
+        _lostItems.add(item);
+        return true;
+    }
+
+    /**
+     * add a found item to the app.  checks if the found item is already entered
+     * <p>
+     * uses O(n) linear search for course
+     *
+     * @param item the found item to be added
+     * @return true if added, false if a duplicate
+     */
+    public boolean addFoundItem(FoundItem item) {
+        for (FoundItem c : _foundItems) {
+            if (c.equals(item)) return false;
+        }
+        _foundItems.add(item);
         return true;
     }
 
@@ -133,17 +167,35 @@ public class Model {
      *
      * @return the current lost item
      */
-    public LostItem getCurrentItem() {
-        return _currentItem;
+    public LostItem getCurrentLostItem() {
+        return _currentLostItem;
     }
 
     /**
-     * sets the current item
+     * sets the current lost item
      *
      * @param item the current item to be set
      */
-    public void setCurrentItem(LostItem item) {
-        _currentItem = item;
+    public void setCurrentLostItem(LostItem item) {
+        _currentLostItem = item;
+    }
+
+    /**
+     * gets the current found item
+     *
+     * @return the current found item
+     */
+    public FoundItem getCurrentFoundItem() {
+        return _currentFoundItem;
+    }
+
+    /**
+     * sets the current found item
+     *
+     * @param item the current found item to be set
+     */
+    public void setCurrentFoundItem(FoundItem item) {
+        _currentFoundItem = item;
     }
 
     /**

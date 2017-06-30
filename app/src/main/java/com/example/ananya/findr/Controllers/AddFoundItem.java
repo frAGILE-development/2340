@@ -9,19 +9,19 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.ananya.findr.R;
-import Model.User;
+
+import Model.FoundItem;
 import Model.Model;
-import Model.LostItem;
 
 /**
  * Created by Bryce on 6/29/2017.
  */
 
-public class AddLostItem  extends AppCompatActivity{
+public class AddFoundItem extends AppCompatActivity{
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_addlostitem);
+        setContentView(R.layout.activity_addfounditem);
 
         Button ok = (Button) findViewById(R.id.ok);
         Button cancel = (Button) findViewById(R.id.cancel);
@@ -29,7 +29,7 @@ public class AddLostItem  extends AppCompatActivity{
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(AddLostItem.this, Application.class);
+                Intent intent = new Intent(AddFoundItem.this, Application.class);
                 startActivity(intent);
             }
         });
@@ -44,16 +44,16 @@ public class AddLostItem  extends AppCompatActivity{
 
                 if (name.getText().toString().equals(null) || description.getText().toString().equals(null) ||
                         address.getText().toString().equals(null)) {
-                    Toast.makeText(AddLostItem.this, "Must input something into all text fields", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddFoundItem.this, "Must input something into all text fields", Toast.LENGTH_SHORT).show();
                     errorFlag = true;
                 }
 
                 if (!errorFlag) {
                     Model model = Model.getInstance();
-                    LostItem item = new LostItem(name.getText().toString(), description.getText().toString(),
+                    FoundItem item = new FoundItem(name.getText().toString(), description.getText().toString(),
                             address.getText().toString(), model.getCurrentUser());
-                    model.addLostItem(item);
-                    Intent intent = new Intent(AddLostItem.this, Application.class);
+                    model.addFoundItem(item);
+                    Intent intent = new Intent(AddFoundItem.this, Application.class);
                     startActivity(intent);
 
                 }

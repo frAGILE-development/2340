@@ -50,7 +50,21 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.ananya.findr.Controllers.ViewItems"
+            android:name="com.example.ananya.findr.Controllers.ViewLostItems"
+            android:label="Findr">
+            <intent-filter>
+                <action android:name="android.intent.action.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.ananya.findr.Controllers.AddFoundItem"
+            android:label="Findr">
+            <intent-filter>
+                <action android:name="android.intent.action.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.ananya.findr.Controllers.ViewFoundItems"
             android:label="Findr">
             <intent-filter>
                 <action android:name="android.intent.action.DEFAULT" />
