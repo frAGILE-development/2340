@@ -8,11 +8,21 @@ import android.os.Parcelable;
  */
 
 public class LostItem implements Parcelable {
+
+    //instance variables
     private String _name;
     private String _description;
     private String _address;
     private User _owner;
 
+    /**
+     * The constructor for the Lost Item class
+     *
+     * @param name        the name of the item
+     * @param description the decription of the lost item
+     * @param address     the address of where the item was found
+     * @param owner       the user under which the item was originally entered
+     */
     public LostItem(String name, String description, String address, User owner) {
         _name = name;
         _description = description;
@@ -20,30 +30,85 @@ public class LostItem implements Parcelable {
         _owner = owner;
     }
 
-    //default constructor
+    /**
+     * the Default contructor. For GUI use only
+     */
     public LostItem() {
         this("Default Item", "No description", "221 Baker St", new User());
     }
 
-    public String getName() { return _name; }
-    public void setName(String s) { _name = s; }
-
-    public String getDescription() { return _description; }
-    public void setDescription(String s) { _description = s; }
-
-    public String getAddress() { return _address; }
-    public void setAddress(String s) { _address = s; }
-
-    public User getOwner() { return _owner; }
-    public void setOwner(User u) { _owner = u; }
+    /**
+     * Gets the item's name
+     * @return the name of the item
+     */
+    public String getName() {
+        return _name;
+    }
 
     /**
-     *Prints the users full name, email, phone number, and whether they have admin access
+     * Sets the name of the item
+     * @param s the string of the new name of the item
+     */
+    public void setName(String s) {
+        _name = s;
+    }
+
+    /**
+     * Gets the description of the item
+     * @return the description of the lost item
+     */
+    public String getDescription() {
+        return _description;
+    }
+
+    /**
+     * Sets the description of the lost item
+     * @param s the description to be set
+     */
+    public void setDescription(String s) {
+        _description = s;
+    }
+
+    /**
+     * Gets the address as a string of where the item was found
+     * @return the address of the item
+     */
+    public String getAddress() {
+        return _address;
+    }
+
+    /**
+     * Sets a new address of where the lost item was originally found
+     * @param s the new address
+     */
+    public void setAddress(String s) {
+        _address = s;
+    }
+
+    /**
+     * Gets the current user under which the lost item has been filed
+     * @return the owner of the item
+     */
+    public User getOwner() {
+        return _owner;
+    }
+
+    /**
+     * Sets a new owner of the lost item. Use with caution
+     * @param u the new owner of the lost item
+     */
+    public void setOwner(User u) {
+        _owner = u;
+    }
+
+    /**
+     * Prints the users full name, email, phone number, and whether they have admin access
+     *
      * @return the display string representation
      */
     @Override
     public String toString() {
-        return "Lost Item: " + _name + "\n"+ "Description: " + _description + "\n" + "Address: " + _address;
+        return "Lost Item: " + _name + "\n" + "Description: " + _description + "\n" + "Address: " + _address;
     }
 
     /* *********************************

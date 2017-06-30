@@ -16,6 +16,14 @@ import Model.Model;
 
 /**
  * Created by bwatson35 on 6/25/17.
+ * Controller for registering a new User
+ *
+ * Ensures 3 things about the account created:
+ * 1. Username and password are at least 6 characters
+ * 2. Username, password, and Email are all not NULL
+ * 3. Passwords in both fields match
+ *
+ * If admin field is left blank, it will default to a regular user
  */
 
 public class Register extends AppCompatActivity {
