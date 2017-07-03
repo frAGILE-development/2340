@@ -24,6 +24,7 @@ public class Application extends AppCompatActivity {
         Button addFoundItem = (Button) findViewById(R.id.button_addFoundItem);
         Button foundItems = (Button) findViewById(R.id.button_foundItemsList);
         Button search = (Button) findViewById(R.id.Search);
+        Button map = (Button) findViewById(R.id.button_map);
 
         addLostItem.setOnClickListener(new OnClickListener() {
             @Override
@@ -69,6 +70,14 @@ public class Application extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Application.this, ViewFoundItems.class);
+                startActivity(intent);
+            }
+        });
+
+        map.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Application.this, MapsActivity.class);
                 startActivity(intent);
             }
         });

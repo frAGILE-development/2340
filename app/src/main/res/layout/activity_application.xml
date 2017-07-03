@@ -43,7 +43,7 @@
         android:id="@+id/AddLostItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="11dp"
         android:text="Add lost Item"
         android:layout_below="@+id/textView2"
         android:layout_centerHorizontal="true" />
@@ -52,19 +52,17 @@
         android:id="@+id/lostitems"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="LOST ITEMs list"
         android:layout_below="@+id/AddLostItem"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="13dp"
-        android:text="LOST ITEMs list" />
+        android:layout_alignEnd="@+id/button_addFoundItem" />
 
     <Button
         android:id="@+id/button_foundItemsList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Found ITEMs list"
         android:layout_below="@+id/button_addFoundItem"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="19dp"
-        android:text="Found ITEMs list" />
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/button_addFoundItem"
@@ -79,8 +77,16 @@
         android:id="@+id/Search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Search"
         android:layout_below="@+id/button_foundItemsList"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
-        android:text="Search" />
+        android:layout_alignStart="@+id/logout" />
+
+    <Button
+        android:id="@+id/button_map"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Map (BETA)"
+        android:layout_below="@+id/Search"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
