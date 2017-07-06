@@ -112,6 +112,7 @@ public class Item implements Parcelable {
         return "Item: " + _name + "\n" + "Description: " + _description + "\n" + "Address: " + _address;
     }
 
+
     /* *********************************
      * These methods are required by the parcelable interface
      *

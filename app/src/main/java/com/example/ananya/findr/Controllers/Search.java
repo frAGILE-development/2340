@@ -6,7 +6,7 @@ import android.os.Bundle;
 import com.example.ananya.findr.R;
 
 import java.util.ArrayList;
-
+import Model.Item;
 import Model.LostItem;
 import Model.FoundItem;
 import Model.Model;
@@ -25,8 +25,9 @@ public class Search extends AppCompatActivity implements android.widget.SearchVi
     ListAdapter adapter;
     FoundAdapter adapter2;
     android.widget.SearchView editsearch;
-    ArrayList<LostItem> arraylist = new ArrayList<LostItem>();
+    ArrayList<LostItem> lostList = new ArrayList<LostItem>();
     ArrayList<FoundItem> foundList = new ArrayList<FoundItem>();
+    ArrayList<Item> totalList = new ArrayList<Item>();
     Model model = Model.getInstance();
 
     @Override
@@ -34,42 +35,65 @@ public class Search extends AppCompatActivity implements android.widget.SearchVi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-        // Generate sample data
+       //  Generate sample data
 
-//       String[] nameList = new String[]{"A Tale of 2 Cities", "A Hitchhiker's Guide to the Galaxy",
-//                "The Lord of the Rings", "Never Let Me Go", "The Things They Carried",
-//                "The Three Body Problem", "1984", "Brave New World",
-//                "Animal Farm","Dune","The Princess Bride"};
+       String[] lostNameList = new String[]{"A Tale of 2 Cities", "A Hitchhiker's Guide to the Galaxy",
+                "The Lord of the Rings", "The Things They Carried",
+                "The Three Body Problem"};
+       String[] foundNameList = new String[]{"1984", "Brave New World",
+                "Animal Farm","Dune","The Princess Bride"};
 
         // Locate the ListView in listview_main.xml
         list = (ListView) findViewById(R.id.list_view);
         list_found = (ListView) findViewById(R.id.list_view);
-//        for (int i = 0; i < nameList.length; i++) {
-//            // Binds all strings into an array
-//            model.addLostItem(new LostItem(nameList[i], "book", "somewhere", model.getCurrentUser()));
-//            model.setCurrentLostItem(new LostItem(nameList[i], "book", "somewhere", model.getCurrentUser()));
-//            //arraylist.add(model.getCurrentLostItem());
-//        }
 
-        arraylist.addAll(model.getLostItems());
+        for (int i = 0; i < lostNameList.length; i++) {
+            // Binds all strings into an array
+            model.addLostItem(new LostItem(lostNameList[i], "book", "somewhere", model.getCurrentUser()));
+            model.setCurrentLostItem(new LostItem(lostNameList[i], "book", "somewhere", model.getCurrentUser()));
+            //comment this out below along with its sister comment to turn on name generation
+            lostList.add(model.getCurrentLostItem());
+        }
+
+        for (int i = 0; i < foundNameList.length; i++) {
+            // Binds all strings into an array
+            model.addFoundItem(new FoundItem(foundNameList[i], "book", "somewhere", model.getCurrentUser()));
+            model.setCurrentFoundItem(new FoundItem(foundNameList[i], "book", "somewhere", model.getCurrentUser()));
+            //comment this out below along with its sister comment to turn on name generation
+            foundList.add(model.getCurrentFoundItem());
+        }
+
+        lostList.addAll(model.getLostItems());
         foundList.addAll(model.getFoundItems());
+        totalList.addAll(model.getAllItems());
         // Pass results to ListViewAdapter Class
-        adapter = new ListAdapter(this, arraylist);
+        adapter = new ListAdapter(this, totalList);
         adapter2 = new FoundAdapter(this, foundList);
+        adapter = new ListAdapter(this, totalList);
         // Binds the Adapter to the ListView
         list.setAdapter(adapter);
-        list_found.setAdapter(adapter2);
+        //list_found.setAdapter(adapter2);
         // Locate the EditText in listview_main.xml
         editsearch = (android.widget.SearchView) findViewById(R.id.search);
         editsearch.setOnQueryTextListener(this);
     }
 
+    /**
+     * On text submit
+     * @param query
+     * @return
+     */
     @Override
     public boolean onQueryTextSubmit(String query) {
 
         return false;
     }
 
+    /**
+     * On addition or subtraction of new characters in the query
+     * @param newText
+     * @return
+     */
     @Override
     public boolean onQueryTextChange(String newText) {
         String text = newText;

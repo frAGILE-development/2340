@@ -12,6 +12,7 @@ import java.util.Locale;
 import com.example.ananya.findr.R;
 import Model.Model;
 import Model.LostItem;
+import Model.Item;
 
 public class ListAdapter extends BaseAdapter {
 
@@ -19,14 +20,14 @@ public class ListAdapter extends BaseAdapter {
 
     Context mContext;
     LayoutInflater inflater;
-    private List<LostItem> namesList = null;
-    private ArrayList<LostItem> arraylist;
+    private List<Item> namesList = null;
+    private ArrayList<Item> arraylist;
 
-    public ListAdapter(Context context, List<LostItem> namesList) {
+    public ListAdapter(Context context, List<Item> namesList) {
         mContext = context;
         this.namesList = namesList;
         inflater = LayoutInflater.from(mContext);
-        this.arraylist = new ArrayList<LostItem>();
+        this.arraylist = new ArrayList<Item>();
         this.arraylist.addAll(namesList);
     }
 
@@ -73,7 +74,7 @@ public class ListAdapter extends BaseAdapter {
         if (charText.length() == 0) {
             namesList.addAll(arraylist);
         } else {
-            for (LostItem wp : arraylist) {
+            for (Item wp : arraylist) {
                 if (wp.getName().toLowerCase(Locale.getDefault()).contains(charText)) {
                     namesList.add(wp);
                 }

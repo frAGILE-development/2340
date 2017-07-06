@@ -3,11 +3,11 @@
     android:layout_height="fill_parent"
     android:padding="10dp">
 
-    <TextView
-        android:id="@+id/nameLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Lost Item: " />
+    <!--<TextView-->
+        <!--android:id="@+id/nameLabel"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Lost Item: " />-->
 
     <TextView
         android:id="@+id/name"

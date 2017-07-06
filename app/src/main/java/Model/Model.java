@@ -6,7 +6,6 @@ import Model.FoundItem;
 /**
  * Created by bwatson35 on 6/25/17.
  * Based heavily on the model for Lab 3
- * <p>
  * Keeps track of a list of users at the moment
  */
 
@@ -211,6 +210,19 @@ public class Model {
         }
         return theNullUser;
     }
+
+    /**
+     *Gets both lost and found items in one list
+     * @return a combined list of both items
+     */
+    public ArrayList getAllItems() {
+        ArrayList list = new ArrayList<Item>();
+        list.addAll(_lostItems);
+        list.addAll(_foundItems);
+        return list;
+    }
+
+
 
 
 }
