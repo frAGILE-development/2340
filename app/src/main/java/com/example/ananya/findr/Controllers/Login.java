@@ -30,12 +30,12 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         Button login = (Button) findViewById(R.id.login);
-        Button cancel = (Button) findViewById(R.id.cancel);
+        Button register = (Button) findViewById(R.id.register);
 
-        cancel.setOnClickListener(new View.OnClickListener() {
+        register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Login.this, Homepage.class);
+                Intent intent = new Intent(Login.this, Register.class);
                 startActivity(intent);
             }
         });

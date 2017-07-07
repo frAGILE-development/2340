@@ -38,7 +38,7 @@ public class Register extends AppCompatActivity {
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Register.this, Homepage.class);
+                Intent intent = new Intent(Register.this, Login.class);
                 startActivity(intent);
             }
         });
@@ -102,12 +102,6 @@ public class Register extends AppCompatActivity {
                     startActivity(intent);
 
                 }
-
-
-
-
-
-
 //                if (username.getText().toString().equals("user") && password.getText().toString().equals("pass")) {
 //                    Intent intent = new Intent(Login.this, Application.class);
 //                    startActivity(intent);

@@ -1,7 +1,9 @@
 package com.example.ananya.findr.Controllers;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -39,25 +41,12 @@ public class ViewLostItems<T extends Comparable<? super T>> extends AppCompatAct
         listView.setAdapter(adapter);
 
 //        // ListView Item Click Listener
-//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//
+//        listView.setOnClickListener(new View.OnClickListener() {
 //            @Override
-//            public void onItemClick(AdapterView<?> parent, View view,
-//                                    int position, long id) {
-//
-//                // ListView Clicked item index
-//                int itemPosition     = position;
-//
-//                // ListView Clicked item value
-//                String  itemValue    = (String) listView.getItemAtPosition(position);
-//
-//                // Show Alert
-//                Toast.makeText(getApplicationContext(),
-//                        "Position :"+itemPosition+"  ListItem : " +itemValue , Toast.LENGTH_LONG)
-//                        .show();
-//
+//            public void onClick(View view) {
+//                Intent intent = new Intent(ViewLostItems.this, ItemDetails.class);
+//                startActivity(intent);
 //            }
-//
 //        });
     }
 }

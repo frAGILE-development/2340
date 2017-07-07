@@ -1,92 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <FloatingActionButton.FloatingActionsMenu
+        android:id="@+id/multiple_actions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        fab:fab_addButtonColorNormal="@color/colorPrimaryDark"
+        fab:fab_addButtonColorPressed="@color/white_pressed"
+        fab:fab_addButtonPlusIconColor="@color/white"
+        fab:fab_labelStyle="@style/menu_labels_style"
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginEnd="16dp" >
+
+
+    </FloatingActionButton.FloatingActionsMenu>
 
     <Button
         android:id="@+id/logout"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="18dp"
-        android:background="@color/colorAccent"
+        android:backgroundTint="@color/colorAccent"
         android:elevation="0dp"
         android:text="Logout"
-        android:textColor="@android:color/background_light" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="21dp"
-        android:text="Time to find your stuff! Describe the item that you lost"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Found an Item? Register it here"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:layout_below="@+id/lostitems"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:id="@+id/AddLostItem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="11dp"
-        android:text="Add lost Item"
-        android:layout_below="@+id/textView2"
-        android:layout_centerHorizontal="true" />
+        android:textColor="@android:color/background_light"
+        android:layout_alignBottom="@+id/multiple_actions"
+        android:layout_toStartOf="@+id/button_map"
+        android:layout_marginEnd="24dp" />
 
     <Button
         android:id="@+id/lostitems"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="LOST ITEMs list"
-        android:layout_below="@+id/AddLostItem"
-        android:layout_alignEnd="@+id/button_addFoundItem" />
+        android:text="LOST ITEMs"
+        android:layout_marginTop="15dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/admin" />
 
     <Button
         android:id="@+id/button_foundItemsList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Found ITEMs list"
-        android:layout_below="@+id/button_addFoundItem"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:id="@+id/button_addFoundItem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="Add found Item"
-        android:layout_below="@+id/textView12"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:id="@+id/Search"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="Search"
-        android:layout_below="@+id/button_foundItemsList"
-        android:layout_alignStart="@+id/logout" />
+        android:text="Found ITEMs"
+        android:layout_above="@+id/button_map"
+        android:layout_toEndOf="@+id/button_map" />
 
     <Button
         android:id="@+id/button_map"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Map (BETA)"
-        android:layout_below="@+id/Search"
+        android:layout_marginTop="35dp"
+        android:layout_below="@+id/lostitems"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/admin"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/logout"
+        android:layout_alignEnd="@+id/logout"
+        android:layout_marginBottom="15dp"
+        android:backgroundTint="@android:color/holo_blue_bright"
+        android:text="Admin"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused" />
+
+
 </RelativeLayout>

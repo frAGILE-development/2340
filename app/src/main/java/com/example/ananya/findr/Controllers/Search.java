@@ -37,34 +37,34 @@ public class Search extends AppCompatActivity implements android.widget.SearchVi
 
        //  Generate sample data
 
-       String[] lostNameList = new String[]{"A Tale of 2 Cities", "A Hitchhiker's Guide to the Galaxy",
-                "The Lord of the Rings", "The Things They Carried",
-                "The Three Body Problem"};
-       String[] foundNameList = new String[]{"1984", "Brave New World",
-                "Animal Farm","Dune","The Princess Bride"};
-
-        // Locate the ListView in listview_main.xml
+//       String[] lostNameList = new String[]{"A Tale of 2 Cities", "A Hitchhiker's Guide to the Galaxy",
+//                "The Lord of the Rings", "The Things They Carried",
+//                "The Three Body Problem"};
+//       String[] foundNameList = new String[]{"1984", "Brave New World",
+//                "Animal Farm","Dune","The Princess Bride"};
+//
+//        // Locate the ListView in listview_main.xml
         list = (ListView) findViewById(R.id.list_view);
         list_found = (ListView) findViewById(R.id.list_view);
+//
+//        for (int i = 0; i < lostNameList.length; i++) {
+//            // Binds all strings into an array
+//            model.addLostItem(new LostItem(lostNameList[i], "book", "somewhere", model.getCurrentUser()));
+//            model.setCurrentLostItem(new LostItem(lostNameList[i], "book", "somewhere", model.getCurrentUser()));
+//            //comment this out below along with its sister comment to turn on name generation
+//            lostList.add(model.getCurrentLostItem());
+//        }
+//
+//        for (int i = 0; i < foundNameList.length; i++) {
+//            // Binds all strings into an array
+//            model.addFoundItem(new FoundItem(foundNameList[i], "book", "somewhere", model.getCurrentUser()));
+//            model.setCurrentFoundItem(new FoundItem(foundNameList[i], "book", "somewhere", model.getCurrentUser()));
+//            //comment this out below along with its sister comment to turn on name generation
+//            foundList.add(model.getCurrentFoundItem());
+//        }
 
-        for (int i = 0; i < lostNameList.length; i++) {
-            // Binds all strings into an array
-            model.addLostItem(new LostItem(lostNameList[i], "book", "somewhere", model.getCurrentUser()));
-            model.setCurrentLostItem(new LostItem(lostNameList[i], "book", "somewhere", model.getCurrentUser()));
-            //comment this out below along with its sister comment to turn on name generation
-            lostList.add(model.getCurrentLostItem());
-        }
-
-        for (int i = 0; i < foundNameList.length; i++) {
-            // Binds all strings into an array
-            model.addFoundItem(new FoundItem(foundNameList[i], "book", "somewhere", model.getCurrentUser()));
-            model.setCurrentFoundItem(new FoundItem(foundNameList[i], "book", "somewhere", model.getCurrentUser()));
-            //comment this out below along with its sister comment to turn on name generation
-            foundList.add(model.getCurrentFoundItem());
-        }
-
-        lostList.addAll(model.getLostItems());
-        foundList.addAll(model.getFoundItems());
+//        lostList.addAll(model.getLostItems());
+//        foundList.addAll(model.getFoundItems());
         totalList.addAll(model.getAllItems());
         // Pass results to ListViewAdapter Class
         adapter = new ListAdapter(this, totalList);
