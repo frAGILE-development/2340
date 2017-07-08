@@ -10,6 +10,7 @@ import android.widget.Button;
 
 import FloatingActionButton.FloatingActionsMenu;
 import FloatingActionButton.FloatingActionButton;
+import Model.Model;
 
 import com.example.ananya.findr.R;
 import com.example.ananya.findr.Controllers.Admin;
@@ -20,6 +21,7 @@ import com.example.ananya.findr.Controllers.Admin;
 
 public class Application extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
+        Model model = Model.getInstance();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_application);
 
@@ -36,6 +38,10 @@ public class Application extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        if (!model.getCurrentUser().isAdmin()) {
+            admin.setVisibility(admin.GONE);
+        }
 
         admin.setOnClickListener(new OnClickListener() {
             @Override

@@ -39,10 +39,10 @@ public class User implements Parcelable {
      * @param password    their password
      * @param email       their email address
      * @param phoneNumber their phone number
-     * @param admin       whether or not they are an administrator
+     * @param type
      */
     public User(String username, String firstName, String lastName, String password, String email,
-                String phoneNumber, Boolean admin, String type) {
+                String phoneNumber, String type) {
         _username = username;
         _firstName = firstName;
         _lastName = lastName;
@@ -51,8 +51,13 @@ public class User implements Parcelable {
         _password = password;
         _email = email;
         _phoneNumber = phoneNumber;
-        _admin = admin;
         _adminType = type;
+        if(type.equalsIgnoreCase("admin")) {
+            _admin = true;
+        } else {
+            _admin = false;
+        }
+
     }
 
     /**
@@ -60,7 +65,7 @@ public class User implements Parcelable {
      * This constructor only for GUI use in edit/new user dialog
      */
     public User() {
-        this("GeorgePBurdell", "George", "P. Burdell", "password", "george@gatech.edu", "0123456789", false, accountType.get(1));
+        this("GeorgePBurdell", "George", "P. Burdell", "password", "george@gatech.edu", "0123456789", accountType.get(1));
     }
 
         /* **********************
@@ -126,7 +131,7 @@ public class User implements Parcelable {
 
     /**
      * returns a string formatted [First Name] [Last Name]
-     * @return
+     * @return _fullname
      */
     public String getFullName() {
         return _fullName;
@@ -140,6 +145,8 @@ public class User implements Parcelable {
     public void setFullName(String first, String last) {
         _firstName = first;
         _lastName = last;
+        _fullName = "first " + "last";
+        _lastFirst = "last, " + "first";
     }
 
     /**
@@ -246,8 +253,8 @@ public class User implements Parcelable {
      */
     @Override
     public String toString() {
-        return "User: " + _fullName + " Email: " + _email + " Phone: " + _phoneNumber
-                + " Admin : " + _admin;
+        return "User: " + _fullName + "\nEmail: " + _email + "\nPhone: " + _phoneNumber
+                + "\nAdmin : " + _admin;
     }
 
 

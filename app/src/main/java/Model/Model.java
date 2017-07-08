@@ -39,7 +39,7 @@ public class Model {
     private FoundItem _currentFoundItem;
 
     //Null Users and items
-    private final User theNullUser = new User("Null", "No", "Name", "passw0rd", "null@gatech.edu", "0000000000", false, User.accountType.get(1));
+    private final User theNullUser = new User("Null", "No", "Name", "passw0rd", "null@gatech.edu", "0000000000", User.accountType.get(1));
     private final LostItem theNullLostItem = new LostItem("NULL", "NULL", "NULL", new User());
     private final FoundItem theNullFoundItem = new FoundItem("NULL", "NULL", "NULL", new User());
     /**

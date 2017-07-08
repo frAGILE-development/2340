@@ -47,7 +47,6 @@ public class Register extends AppCompatActivity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                User _user = new User();
                 Boolean errorFlag = false;
                 EditText username = (EditText) findViewById(R.id.editText_username);
                 EditText password1 = (EditText) findViewById(R.id.editText_password);
@@ -69,7 +68,7 @@ public class Register extends AppCompatActivity {
                     errorFlag = true;
                 }
 
-                //checks if both username and password are > 8 chars
+                //checks if both username and password are > 6 chars
                 if (username.getText().toString().length() < 6 || password1.getText().toString().length() < 6 ||
                         password2.getText().toString().length() < 6) {
                     Toast.makeText(Register.this, "Can't Register: Username and password must be at least 6 characters", Toast.LENGTH_SHORT).show();
@@ -79,16 +78,23 @@ public class Register extends AppCompatActivity {
                 //user is registered and added to the model
                 if (!errorFlag) {
                     Model model = Model.getInstance();
+                    User _user = new User();
+                    //set username
                     _user.setUsername(username.getText().toString());
+                    //actual name
                     _user.setFullName(firstName.getText().toString(), lastName.getText().toString());
+                    //set password
                     _user.setPassword(password2.getText().toString());
+                    //set email
                     _user.setEmail(email.getText().toString());
+
 
                     if (admin.getText().toString().equalsIgnoreCase("admin")) {
                         _user.makeAdmin();
                     } else {
                         _user.demoteToUser();
                     }
+
                     if (phone.getText().toString().equals(null)) {
                         _user.setPhoneNumber("0000000000");
                     } else {
@@ -97,7 +103,7 @@ public class Register extends AppCompatActivity {
                     }
                   
                     model.addUser(_user);
-
+                    model.setCurrentUser(_user);
                     Intent intent = new Intent(Register.this, Application.class);
                     startActivity(intent);
 

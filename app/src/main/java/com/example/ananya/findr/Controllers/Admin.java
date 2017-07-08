@@ -44,7 +44,7 @@ public class Admin extends AppCompatActivity {
         //get button ids
         Button generate = (Button) findViewById(R.id.generate);
         Button back = (Button) findViewById(R.id.back);
-
+        Button viewUsers = (Button) findViewById(R.id.viewUsers);
 
 
         generate.setOnClickListener(new View.OnClickListener() {
@@ -76,6 +76,15 @@ public class Admin extends AppCompatActivity {
                     foundList.add(model.getCurrentFoundItem());
                 }
                 Toast.makeText(Admin.this, "Sample data successfully generated", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        viewUsers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Admin.this, ViewUsers.class);
+                startActivity(intent);
+
             }
         });
 

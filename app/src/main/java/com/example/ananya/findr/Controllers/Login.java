@@ -25,10 +25,11 @@ import Model.Model;
  */
 
 public class Login extends AppCompatActivity {
+    Boolean firstTime;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        firstTime = true;
         Button login = (Button) findViewById(R.id.login);
         Button register = (Button) findViewById(R.id.register);
 
@@ -48,12 +49,21 @@ public class Login extends AppCompatActivity {
                 Model model = Model.getInstance();
                 User lookup = model.getUserByUsername(username.getText().toString());
 
-                if (username.getText().toString().equals("user") && password.getText().toString().equals("pass") ||
-                        username.getText().toString().equals(lookup.getUsername())
-                                && password.getText().toString().equals(lookup.getPassword())) {
+                if ( username.getText().toString().equals(lookup.getUsername())
+                        && password.getText().toString().equals(lookup.getPassword())) {
+                    model.setCurrentUser(model.getUserByUsername(username.getText().toString()));
                     Intent intent = new Intent(Login.this, Application.class);
                     startActivity(intent);
-                } else {
+                } else if (username.getText().toString().equals("user") && password.getText().toString().equals("pass") || !firstTime) {
+                    User defaultUser = (new User("user", "Default", "User", "pass", "defaultUser@gatech.edu",
+                           "000000000", "Admin"));
+                    model.addUser(defaultUser);
+                    model.setCurrentUser(defaultUser);
+                    Intent intent = new Intent(Login.this, Application.class);
+                    startActivity(intent);
+                }
+                    else
+                 {
                     Toast.makeText(Login.this, "Bad Login: Wrong Credentials", Toast.LENGTH_SHORT).show();
                 }
             }
