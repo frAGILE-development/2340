@@ -17,17 +17,20 @@ import Model.Item;
  */
 
 public class ItemDetails extends AppCompatActivity {
-    final Model model = Model.getInstance();
-    Item item = model.getCurrentLostItem();
-    Button back = (Button)findViewById(R.id.back);
+
 
     public void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_item_details);
         super.onCreate(savedInstanceState);
 
+        final Model model = Model.getInstance();
+        Item item = model.getCurrentItem();
+        Button back = (Button)findViewById(R.id.back);
+
         TextView name_text = (TextView) findViewById(R.id.text_view_name);
         TextView description_text = (TextView) findViewById(R.id.text_view_description);
-        TextView address_text = (TextView) findViewById(R.id.text_view_description);
+        TextView address_text = (TextView) findViewById(R.id.text_view_address);
+
         name_text.setText(item.getName());
         description_text.setText(item.getDescription());
         address_text.setText(item.getAddress());

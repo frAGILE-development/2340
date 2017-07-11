@@ -1,4 +1,5 @@
 package com.example.ananya.findr.Controllers;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -15,6 +16,8 @@ import Model.Model;
  * Created by bwatson35 on 6/29/17.
  */
 
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 public class Search extends AppCompatActivity implements android.widget.SearchView.OnQueryTextListener {
@@ -45,7 +48,7 @@ public class Search extends AppCompatActivity implements android.widget.SearchVi
 //
 //        // Locate the ListView in listview_main.xml
         list = (ListView) findViewById(R.id.list_view);
-        list_found = (ListView) findViewById(R.id.list_view);
+        //list_found = (ListView) findViewById(R.id.list_view);
 //
 //        for (int i = 0; i < lostNameList.length; i++) {
 //            // Binds all strings into an array
@@ -67,8 +70,8 @@ public class Search extends AppCompatActivity implements android.widget.SearchVi
 //        foundList.addAll(model.getFoundItems());
         totalList.addAll(model.getAllItems());
         // Pass results to ListViewAdapter Class
-        adapter = new ListAdapter(this, totalList);
-        adapter2 = new FoundAdapter(this, foundList);
+//        adapter = new ListAdapter(this, totalList);
+//        adapter2 = new FoundAdapter(this, foundList);
         adapter = new ListAdapter(this, totalList);
         // Binds the Adapter to the ListView
         list.setAdapter(adapter);
@@ -76,6 +79,18 @@ public class Search extends AppCompatActivity implements android.widget.SearchVi
         // Locate the EditText in listview_main.xml
         editsearch = (android.widget.SearchView) findViewById(R.id.search);
         editsearch.setOnQueryTextListener(this);
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapter, View v, int position, long id) {
+                String name = (String) adapter.getItemAtPosition(position);
+                Model model = Model.getInstance();
+                Item item = model.getItemByName(name);
+                model.setCurrentItem(item);
+                Intent intent = new Intent(Search.this, ItemDetails.class);
+                //based on item add info to intent
+                startActivity(intent);
+            }
+        });
     }
 
     /**
@@ -100,4 +115,6 @@ public class Search extends AppCompatActivity implements android.widget.SearchVi
         adapter.filter(text);
         return false;
     }
+
+
 }

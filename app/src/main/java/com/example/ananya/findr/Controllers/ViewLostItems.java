@@ -4,18 +4,24 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import Model.Model;
+import Model.LostItem;
+
 import com.example.ananya.findr.R;
+
+import java.util.List;
 
 /**
  * Created by Ananya on 6/29/17.
  */
 
 public class ViewLostItems<T extends Comparable<? super T>> extends AppCompatActivity {
-    ListView listView ;
+    ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,18 +41,21 @@ public class ViewLostItems<T extends Comparable<? super T>> extends AppCompatAct
         Object[] list = model.getLostItems().toArray();
         ArrayAdapter<Object> adapter = new ArrayAdapter<Object>(this,
                 android.R.layout.simple_list_item_1, android.R.id.text1, list);
-
-
         // Assign adapter to ListView
         listView.setAdapter(adapter);
 
-//        // ListView Item Click Listener
-//        listView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(ViewLostItems.this, ItemDetails.class);
-//                startActivity(intent);
-//            }
-//        });
+
+        // ListView Item Click Listener
+        listView.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapter, View v, int position, long id) {
+                LostItem item = (LostItem) adapter.getItemAtPosition(position);
+                Model model = Model.getInstance();
+                model.setCurrentItem(item);
+                Intent intent = new Intent(ViewLostItems.this, ItemDetails.class);
+                //based on item add info to intent
+                startActivity(intent);
+            }
+        });
     }
 }

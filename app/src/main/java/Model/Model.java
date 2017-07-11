@@ -37,6 +37,7 @@ public class Model {
     //the currently selected lost item
     private LostItem _currentLostItem;
     private FoundItem _currentFoundItem;
+    private Item _currentItem;
 
     //Null Users and items
     private final User theNullUser = new User("Null", "No", "Name", "passw0rd", "null@gatech.edu", "0000000000", User.accountType.get(1));
@@ -198,7 +199,24 @@ public class Model {
     }
 
     /**
-     * Return a course that has matching number.
+     * gets the current item
+     *
+     * @return the current item
+     */
+    public Item getCurrentItem() {
+        return _currentItem;
+    }
+
+    /**
+     * sets the current item
+     *
+     * @param item the current item to be set
+     */
+    public void setCurrentItem(Item item) {
+        _currentItem = item;
+    }
+    /**
+     * Return a user that has matching number.
      * This uses an O(n) linear search.
      *
      * @param username the username of the user to find
@@ -211,6 +229,22 @@ public class Model {
         return theNullUser;
     }
 
+    /**
+     * Return a user that has matching number.
+     * This uses an O(n) linear search.
+     *
+     * @param name the username of the user to find
+     * @return the user with that username or the NullUser if no such user exists.
+     */
+    public Item getItemByName(String name) {
+        for (FoundItem c : _foundItems) {
+            if (c.getName().equals(name)) return c;
+        }
+        for (LostItem c : _lostItems) {
+            if (c.getName().equals(name)) return c;
+        }
+        return theNullLostItem;
+    }
     /**
      *Gets both lost and found items in one list
      * @return a combined list of both items
