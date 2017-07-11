@@ -9,9 +9,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+
+import FloatingActionButton.FloatingActionButton;
 import Model.Model;
 import Model.LostItem;
-
+import FloatingActionButton.*;
 import com.example.ananya.findr.R;
 
 import java.util.List;
@@ -57,5 +59,52 @@ public class ViewLostItems<T extends Comparable<? super T>> extends AppCompatAct
                 startActivity(intent);
             }
         });
+
+        //Floating action button set up
+        FloatingActionButton lostItem = new FloatingActionButton(getBaseContext());
+        lostItem.setIcon(R.drawable.ic_action_lost_item);
+        lostItem.setTitle("Add a lost item");
+        lostItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ViewLostItems.this, AddLostItem.class);
+                startActivity(intent);
+
+            }
+        });
+
+        FloatingActionButton foundItem = new FloatingActionButton(getBaseContext());
+        foundItem.setIcon(R.drawable.ic_action_found_item);
+        foundItem.setTitle("Add a found item");
+        foundItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ViewLostItems.this, AddFoundItem.class);
+                startActivity(intent);
+
+            }
+        });
+
+        FloatingActionButton searchButton = new FloatingActionButton(getBaseContext());
+        searchButton.setIcon(R.drawable.ic_action_search);
+        //searchButton.setColorNormal(R.color.white);
+        searchButton.setColorPressed(R.color.white_pressed);
+        searchButton.setTitle("Search");
+
+
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ViewLostItems.this, Search.class);
+                startActivity(intent);
+
+            }
+        });
+
+        //menu holding the actions
+        final FloatingActionsMenu menuMultipleActions = (FloatingActionsMenu) findViewById(R.id.multiple_actions);
+        menuMultipleActions.addButton(searchButton);
+        menuMultipleActions.addButton(lostItem);
+        menuMultipleActions.addButton(foundItem);
     }
 }

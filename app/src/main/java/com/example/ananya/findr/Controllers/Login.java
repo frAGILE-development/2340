@@ -57,6 +57,7 @@ public class Login extends AppCompatActivity {
                 } else if (username.getText().toString().equals("user") && password.getText().toString().equals("pass") || !firstTime) {
                     User defaultUser = (new User("user", "Default", "User", "pass", "defaultUser@gatech.edu",
                            "000000000", "Admin"));
+                    firstTime = true;
                     model.addUser(defaultUser);
                     model.setCurrentUser(defaultUser);
                     Intent intent = new Intent(Login.this, Application.class);
