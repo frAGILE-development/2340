@@ -1,19 +1,26 @@
 package com.example.ananya.findr.Controllers;
-
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import java.util.List;
+
 import com.example.ananya.findr.R;
+import Model.*;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    private ModelFacade mFacade;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +30,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        mFacade = ModelFacade.getInstance();
+
     }
 
 
@@ -38,10 +48,74 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        // Setting a click event handler for the map
+        mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
 
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+            @Override
+            public void onMapClick(LatLng latLng) {
+
+
+
+                // Creating a marker
+                MarkerOptions markerOptions = new MarkerOptions();
+
+                // Setting the position for the marker
+                markerOptions.position(latLng);
+
+
+
+                // Clears the previously touched position
+                // mMap.clear();
+                mFacade.addReport("newly added", "Bobs Place", new Location(latLng.latitude, latLng.longitude));
+
+                // Setting the title for the marker.
+                // This will be displayed on taping the marker
+                markerOptions.title(mFacade.getLastReport().getName());
+                markerOptions.snippet(mFacade.getLastReport().getDescription());
+
+                // Animating to the touched position
+                mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
+
+                // Placing a marker on the touched position
+                mMap.addMarker(markerOptions);
+            }
+        });
+
+        List<Report> reportList = mFacade.getReports();
+        for (Report r : reportList) {
+            LatLng loc = new LatLng(r.getLatitude(), r.getLongitude());
+            mMap.addMarker(new MarkerOptions().position(loc).title(r.getName()).snippet(r.getDescription()));
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
+        }
+
+        mMap.setInfoWindowAdapter(new CustomInfoWindowAdapter());
     }
+
+    class CustomInfoWindowAdapter implements GoogleMap.InfoWindowAdapter {
+
+        private final View myContentsView;
+
+        CustomInfoWindowAdapter(){
+            myContentsView = getLayoutInflater().inflate(R.layout.custom_info_contents, null);
+        }
+
+        @Override
+        public View getInfoContents(Marker marker) {
+
+            TextView tvTitle = ((TextView)myContentsView.findViewById(R.id.title));
+            tvTitle.setText(marker.getTitle());
+            TextView tvSnippet = ((TextView)myContentsView.findViewById(R.id.snippet));
+            tvSnippet.setText(marker.getSnippet());
+
+            return myContentsView;
+        }
+
+        @Override
+        public View getInfoWindow(Marker marker) {
+            // TODO Auto-generated method stub
+            return null;
+        }
+
+    }
+
 }
