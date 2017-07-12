@@ -14,6 +14,7 @@ public class FoundItem extends Item implements Parcelable {
     private String _description;
     private String _address;
     private User _owner;
+    private String type = "Found Item";
 
     /**
      * The constructor for the Lost Item class
@@ -101,6 +102,11 @@ public class FoundItem extends Item implements Parcelable {
     public void setOwner(User u) {
         super.setOwner(u);
     }
+
+    public String getType() {
+        return type;
+    }
+
 
     /**
      * Prints the users full name, email, phone number, and whether they have admin access

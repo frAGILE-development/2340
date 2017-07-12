@@ -15,7 +15,7 @@ public class Item implements Parcelable {
     private String _description;
     private String _address;
     private User _owner;
-
+    private String _type;
     /**
      * The constructor for the Lost Item class
      *
@@ -112,6 +112,14 @@ public class Item implements Parcelable {
         return "Item: " + _name + "\n" + "Description: " + _description + "\n" + "Address: " + _address;
     }
 
+    public String getType() {
+        if (this.getClass().isInstance(FoundItem.class)) {
+            _type = "Found Item";
+        } else {
+            _type = "Lost Item";
+        }
+        return _type;
+    }
 
     /* *********************************
      * These methods are required by the parcelable interface
