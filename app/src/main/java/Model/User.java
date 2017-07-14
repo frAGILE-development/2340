@@ -30,7 +30,7 @@ public class User implements Parcelable {
     //derived instance vars
     private String _lastFirst;
     private String _fullName;
-
+    private Boolean _lockoutStatus = false;
     /**
      * Constructor for the user class
      *
@@ -243,6 +243,28 @@ public class User implements Parcelable {
             }
         }
         return 0;
+    }
+
+    /**
+     * returns whether the user is banned or not
+     * @return
+     */
+    public Boolean getLockoutStatus() {
+        return _lockoutStatus;
+    }
+
+    /**
+     * prevents the user form logging in
+     */
+    public void ban() {
+        _lockoutStatus = true;
+    }
+
+    /**
+     * allows the user to login again
+     */
+    public void unban() {
+        _lockoutStatus = false;
     }
 
 

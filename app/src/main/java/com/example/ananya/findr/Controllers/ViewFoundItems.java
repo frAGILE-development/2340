@@ -88,12 +88,40 @@ public class ViewFoundItems<T extends Comparable<? super T>> extends AppCompatAc
         //searchButton.setColorNormal(R.color.white);
         searchButton.setColorPressed(R.color.white_pressed);
         searchButton.setTitle("Search");
-
-
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ViewFoundItems.this, Search.class);
+                startActivity(intent);
+
+            }
+        });
+
+        //Lost Items menu
+        FloatingActionButton foundItemsList = new FloatingActionButton(getBaseContext());
+        foundItemsList.setIcon(R.drawable.ic_action_name_item_list);
+//        searchButton.setColorNormal(R.color.white);
+//        foundItemsList.setColorPressed(R.color.white_pressed);
+        foundItemsList.setTitle("Lost Items List");
+        foundItemsList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ViewFoundItems.this, ViewLostItems.class);
+                startActivity(intent);
+
+            }
+        });
+
+        //Home Items menu
+        FloatingActionButton home = new FloatingActionButton(getBaseContext());
+        home.setIcon(R.drawable.ic_home);
+//        searchButton.setColorNormal(R.color.white);
+//        foundItemsList.setColorPressed(R.color.white_pressed);
+        home.setTitle("Home");
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ViewFoundItems.this, Application.class);
                 startActivity(intent);
 
             }
@@ -104,5 +132,9 @@ public class ViewFoundItems<T extends Comparable<? super T>> extends AppCompatAc
         menuMultipleActions.addButton(searchButton);
         menuMultipleActions.addButton(lostItem);
         menuMultipleActions.addButton(foundItem);
+        menuMultipleActions.addButton(foundItemsList);
+        menuMultipleActions.addButton(home);
+
+
     }
 }

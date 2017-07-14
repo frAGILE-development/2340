@@ -29,7 +29,7 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        firstTime = true;
+
         Button login = (Button) findViewById(R.id.login);
         Button register = (Button) findViewById(R.id.register);
 
@@ -44,20 +44,26 @@ public class Login extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Boolean error = false;
                 EditText username = (EditText) findViewById(R.id.name);
                 EditText password = (EditText) findViewById(R.id.pass);
                 Model model = Model.getInstance();
                 User lookup = model.getUserByUsername(username.getText().toString());
-
+                if (lookup != null ) {
+                    if(lookup.getLockoutStatus()) {
+                        error = true;
+                        Toast.makeText(Login.this, "Bad Login: Account Locked", Toast.LENGTH_SHORT).show();
+                    }
+                }
                 if ( username.getText().toString().equals(lookup.getUsername())
-                        && password.getText().toString().equals(lookup.getPassword())) {
+                        && password.getText().toString().equals(lookup.getPassword()) &
+                        !error) {
                     model.setCurrentUser(model.getUserByUsername(username.getText().toString()));
                     Intent intent = new Intent(Login.this, Application.class);
                     startActivity(intent);
-                } else if (username.getText().toString().equals("user") && password.getText().toString().equals("pass") || !firstTime) {
+                } else if (username.getText().toString().equals("user") && password.getText().toString().equals("pass")) {
                     User defaultUser = (new User("user", "Default", "User", "pass", "defaultUser@gatech.edu",
                            "000000000", "Admin"));
-                    firstTime = true;
                     model.addUser(defaultUser);
                     model.setCurrentUser(defaultUser);
                     Intent intent = new Intent(Login.this, Application.class);

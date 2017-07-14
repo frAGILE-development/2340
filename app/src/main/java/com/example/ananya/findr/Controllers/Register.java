@@ -78,16 +78,9 @@ public class Register extends AppCompatActivity {
                 //user is registered and added to the model
                 if (!errorFlag) {
                     Model model = Model.getInstance();
-                    User _user = new User();
-                    //set username
-                    _user.setUsername(username.getText().toString());
-                    //actual name
-                    _user.setFullName(firstName.getText().toString(), lastName.getText().toString());
-                    //set password
-                    _user.setPassword(password2.getText().toString());
-                    //set email
-                    _user.setEmail(email.getText().toString());
-
+                    User _user = new User(username.getText().toString(), firstName.getText().toString(),
+                            lastName.getText().toString(), password2.getText().toString(),
+                            email.getText().toString(), "0000000000", "admin" );
 
                     if (admin.getText().toString().equalsIgnoreCase("admin")) {
                         _user.makeAdmin();

@@ -61,6 +61,7 @@ public class ViewLostItems<T extends Comparable<? super T>> extends AppCompatAct
         });
 
         //Floating action button set up
+        //Lost item
         FloatingActionButton lostItem = new FloatingActionButton(getBaseContext());
         lostItem.setIcon(R.drawable.ic_action_lost_item);
         lostItem.setTitle("Add a lost item");
@@ -73,6 +74,7 @@ public class ViewLostItems<T extends Comparable<? super T>> extends AppCompatAct
             }
         });
 
+        //Found item menu
         FloatingActionButton foundItem = new FloatingActionButton(getBaseContext());
         foundItem.setIcon(R.drawable.ic_action_found_item);
         foundItem.setTitle("Add a found item");
@@ -85,17 +87,45 @@ public class ViewLostItems<T extends Comparable<? super T>> extends AppCompatAct
             }
         });
 
+        //Search menu
         FloatingActionButton searchButton = new FloatingActionButton(getBaseContext());
         searchButton.setIcon(R.drawable.ic_action_search);
         //searchButton.setColorNormal(R.color.white);
         searchButton.setColorPressed(R.color.white_pressed);
         searchButton.setTitle("Search");
-
-
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ViewLostItems.this, Search.class);
+                startActivity(intent);
+
+            }
+        });
+
+        //Found Items menu
+        FloatingActionButton lostItemsList = new FloatingActionButton(getBaseContext());
+        lostItemsList.setIcon(R.drawable.ic_action_name_item_list);
+        //foundItemsList.setColorPressed(R.color.white_pressed);
+        lostItemsList.setTitle("Found Items List");
+        lostItemsList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ViewLostItems.this, ViewFoundItems.class);
+                startActivity(intent);
+
+            }
+        });
+
+        //Home Items menu
+        FloatingActionButton home = new FloatingActionButton(getBaseContext());
+        home.setIcon(R.drawable.ic_home);
+//        searchButton.setColorNormal(R.color.white);
+//        foundItemsList.setColorPressed(R.color.white_pressed);
+        home.setTitle("Home");
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ViewLostItems.this, Application.class);
                 startActivity(intent);
 
             }
@@ -106,5 +136,7 @@ public class ViewLostItems<T extends Comparable<? super T>> extends AppCompatAct
         menuMultipleActions.addButton(searchButton);
         menuMultipleActions.addButton(lostItem);
         menuMultipleActions.addButton(foundItem);
+        menuMultipleActions.addButton(lostItemsList);
+        menuMultipleActions.addButton(home);
     }
 }

@@ -101,6 +101,14 @@
                 <action android:name="android.intent.action.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Controllers.UserDetails"
+            android:label="User Details">
+            <intent-filter>
+                <action android:name="android.intent.action.DEFAULT" />
+            </intent-filter>
+        </activity>
+
 
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.

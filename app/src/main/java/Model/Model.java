@@ -30,6 +30,7 @@ public class Model {
     private List<User> _users;
     private List<LostItem> _lostItems;
     private List<FoundItem> _foundItems;
+    private List<User> _bannedUsers;
     /**
      * the currently selected user, defaults to the first one
      */
@@ -50,6 +51,7 @@ public class Model {
         _users = new ArrayList<>();
         _lostItems = new ArrayList<>();
         _foundItems = new ArrayList<>();
+        _bannedUsers = new ArrayList<>();
         //comment this out after full app developed
         //loadDummyData();
     }
@@ -61,6 +63,60 @@ public class Model {
      */
     public List<User> getUsers() {
         return _users;
+    }
+
+    /**
+     * returns a list of users whose accounts have been locked
+     * @return a list of banned users
+     */
+    public List<User> getBannedUsers() {
+        return _bannedUsers;
+    }
+
+    /**
+     * add a banned user to the app.  checks if the user is already entered
+     * <p>
+     * uses O(n) linear search for course
+     *
+     * @param user the user to be added
+     * @return true if added, false if a duplicate
+     */
+    public boolean addBannedUser(User user) {
+        for (User c : _bannedUsers) {
+            if (c.equals(user)) return false;
+        }
+        _bannedUsers.add(user);
+        return true;
+    }
+
+    /**
+     * removes a banned user.  checks if the user is already entered
+     * <p>
+     * uses O(n) linear search for course
+     *
+     * @param user the user to be removed
+     * @return true if removed, false not there
+     */
+    public boolean removeBannedUser(User user) {
+        for (User c : _bannedUsers) {
+            if (c.equals(user)){
+                _bannedUsers.remove(c);
+                return true;
+            };
+        }
+    return false;
+    }
+
+    /**
+     * returns true if the user is banned, false otherwise
+     * @param user the user to check its lockout status
+     * @return
+     */
+    public boolean isBannedUser(User user) {
+        for (User c : _bannedUsers) {
+            if (c.equals(user)) return true;
+        }
+        return false;
     }
 
     /**
