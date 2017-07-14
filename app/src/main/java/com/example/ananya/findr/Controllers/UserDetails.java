@@ -25,7 +25,6 @@ public class UserDetails extends AppCompatActivity {
 
         final Model model = Model.getInstance();
         User user = model.getCurrentUser();
-        Button back = (Button) findViewById(R.id.back);
         Button ban = (Button) findViewById(R.id.button_ban);
         Button unban = (Button) findViewById(R.id.button_unban);
 
@@ -82,13 +81,5 @@ public class UserDetails extends AppCompatActivity {
             }
         });
 
-
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(UserDetails.this, ViewUsers.class);
-                startActivity(intent);
-            }
-        });
     }
 }

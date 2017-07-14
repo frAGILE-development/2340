@@ -56,6 +56,15 @@ public class Admin extends AppCompatActivity {
                 String[] foundNameList = new String[]{"1984", "Brave New World",
                         "Animal Farm","Dune","The Princess Bride"};
 
+                User user1 = new User("user1", "Eren", "Jaegar", "aot", "user1@gatech.edu", "0123456789", "user");
+                User user2 = new User("user2", "Mikasa", "Ackerman", "aot", "user2@gatech.edu", "0123456789", "admin");
+                User user3 = new User("user3", "Levi", "Ackerman", "aot", "user3@gatech.edu", "0123456789", "admin");
+                User user4 = new User("user4", "Reiner", "Braun", "aot", "user4@gatech.edu", "0123456789", "user");
+                model.addUser(user1);
+                model.addUser(user2);
+                model.addUser(user3);
+                model.addUser(user4);
+
                 // Locate the ListView in listview_main.xml
                 list = (ListView) findViewById(R.id.list_view);
                 list_found = (ListView) findViewById(R.id.list_view);
@@ -75,6 +84,7 @@ public class Admin extends AppCompatActivity {
                     //comment this out below along with its sister comment to turn on name generation
                     foundList.add(model.getCurrentFoundItem());
                 }
+
                 Toast.makeText(Admin.this, "Sample data successfully generated", Toast.LENGTH_SHORT).show();
             }
         });

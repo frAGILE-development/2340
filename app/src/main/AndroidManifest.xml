@@ -96,7 +96,7 @@
         </activity>
         <activity
             android:name=".Controllers.ViewUsers"
-            android:label="Admin Settings">
+            android:label="Account Management">
             <intent-filter>
                 <action android:name="android.intent.action.DEFAULT" />
             </intent-filter>

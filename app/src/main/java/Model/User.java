@@ -68,6 +68,14 @@ public class User implements Parcelable {
         this("GeorgePBurdell", "George", "P. Burdell", "password", "george@gatech.edu", "0123456789", accountType.get(1));
     }
 
+    /**
+     * Two param constructor -- only for login record keeping
+     * This constructor only for GUI use in edit/new user dialog
+     */
+    public User(String username, String password) {
+        this(username, "George", "P. Burdell", password , "george@gatech.edu", "0123456789", accountType.get(1));
+    }
+
         /* **********************
          * Getters and setters
          */
