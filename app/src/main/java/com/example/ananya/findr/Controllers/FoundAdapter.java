@@ -65,6 +65,8 @@ public class FoundAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) view.getTag();
         }
+        TextView textView=(TextView) view.findViewById(android.R.id.text1);
+        textView.setTextColor((R.color.white));
         // Set the results into TextViews
         holder.name.setText(namesList.get(position).getName());
         return view;

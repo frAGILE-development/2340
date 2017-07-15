@@ -9,6 +9,10 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:textColorHint">@color/hint_color</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:actionMenuTextColor">#000000</item>
+        <item name="android:itemBackground">@color/colorPrimary</item>
+
     </style>
 
     <style name="menu_labels_style">

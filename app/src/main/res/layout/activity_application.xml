@@ -73,7 +73,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="14dp"
         android:backgroundTint="@android:color/background_light"
-        android:text="Found ITEMs" />
+        android:text="Found ITEMs"
+        android:textColor="@android:color/black" />
 
     <Button
         android:id="@+id/button_map"
@@ -83,7 +84,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
         android:backgroundTint="@android:color/background_light"
-        android:text="Map" />
+        android:text="Map"
+        android:textColor="@android:color/black" />
 
     <Button
         android:id="@+id/admin"

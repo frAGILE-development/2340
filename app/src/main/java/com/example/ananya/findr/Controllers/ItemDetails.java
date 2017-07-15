@@ -30,7 +30,7 @@ public class ItemDetails extends AppCompatActivity {
         TextView name_text = (TextView) findViewById(R.id.text_view_name);
         TextView description_text = (TextView) findViewById(R.id.text_view_description);
         TextView address_text = (TextView) findViewById(R.id.text_view_address);
-        TextView type_text = (TextView) findViewById(R.id.textView_type);
+        TextView type_text = (TextView) findViewById(R.id.text_view_type);
         name_text.setText(item.getName());
         description_text.setText(item.getDescription());
         address_text.setText(item.getAddress());

@@ -2,6 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+
     android:weightSum="1">
 
     <TextView
@@ -10,7 +12,7 @@
         android:layout_height="wrap_content"
         android:text="Name"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@android:color/background_dark" />
+        android:textColor="@color/background" />
 
     <TextView
         android:id="@+id/text_view_name"
@@ -25,7 +27,7 @@
         android:layout_height="wrap_content"
         android:text="Username"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@android:color/background_dark" />
+        android:textColor="@color/background" />
 
     <TextView
         android:id="@+id/text_view_username"
@@ -40,7 +42,7 @@
         android:layout_height="wrap_content"
         android:text="Password"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@android:color/background_dark" />
+        android:textColor="@color/background" />
 
     <TextView
         android:id="@+id/text_view_password"
@@ -55,7 +57,7 @@
         android:layout_height="wrap_content"
         android:text="Email"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@android:color/background_dark" />
+        android:textColor="@color/background" />
 
     <TextView
         android:id="@+id/text_view_email"
@@ -70,7 +72,7 @@
         android:layout_height="wrap_content"
         android:text="Phone Number"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@android:color/background_dark" />
+        android:textColor="@color/background" />
 
     <TextView
         android:id="@+id/text_view_phone"
@@ -85,7 +87,7 @@
         android:layout_height="wrap_content"
         android:text="Admin Status"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@android:color/background_dark" />
+        android:textColor="@color/background" />
 
     <TextView
         android:id="@+id/text_view_admin"
@@ -100,7 +102,7 @@
         android:layout_height="wrap_content"
         android:text="Account Locked?"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@android:color/background_dark" />
+        android:textColor="@color/background" />
 
     <TextView
         android:id="@+id/text_view_lockout"

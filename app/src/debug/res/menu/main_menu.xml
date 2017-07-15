@@ -2,8 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/save_lost_items"
-        android:title="Save Lost Items"
-        />
+        android:checkable="false"
+        android:title="Save Lost Items" />
     <item
         android:id="@+id/save_found_items"
         android:title="Save Found Items"
@@ -11,6 +11,7 @@
     <item
         android:id="@+id/save_binary"
         android:title="Save Binary"
+
         />
     <item
         android:id="@+id/save_json"
