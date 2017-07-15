@@ -28,6 +28,7 @@ public class LostItem extends Item implements Parcelable, Serializable {
      * @param address     the address of where the item was found
      */
     public LostItem(String name, String description, String address){
+        super(name, description, address);
         _name = name;
         _description = description;
         _address = address;

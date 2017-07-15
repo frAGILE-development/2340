@@ -10,6 +10,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import FloatingActionButton.FloatingActionsMenu;
 import FloatingActionButton.FloatingActionButton;
@@ -19,6 +21,7 @@ import Model.Persistence.ManagementFacade;
 import com.example.ananya.findr.R;
 
 import java.io.File;
+import java.util.ArrayList;
 
 /**
  * Created by Ananya on 6/22/17.
@@ -33,13 +36,19 @@ public class Application extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle(getTitle());
-
+        ///////////////////////////////////////////////////////////////////////////
+        //Buttons
+        ////////////////////////////////////////////////////////////////////////////
         Button logout = (Button) findViewById(R.id.logout);
         Button lostitems = (Button) findViewById(R.id.lostitems);
         Button foundItems = (Button) findViewById(R.id.button_foundItemsList);
         Button map = (Button) findViewById(R.id.button_map);
         Button admin = (Button) findViewById(R.id.admin);
+        Button generate = (Button) findViewById(R.id.generate);
 
+        ////////////////////////////////////////////////////////////////////////////
+        //Intents
+        ////////////////////////////////////////////////////////////////////////////
         logout.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -84,6 +93,58 @@ public class Application extends AppCompatActivity {
             }
         });
 
+        //Generate Sample Data
+        generate.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ArrayList<LostItem> lostList = new ArrayList<LostItem>();
+                ArrayList<FoundItem> foundList = new ArrayList<FoundItem>();
+                ManagementFacade mf = ManagementFacade.getInstance();
+                Model model = Model.getInstance();
+                String[] lostNameList = new String[]{"A Tale of 2 Cities", "A Hitchhiker's Guide to the Galaxy",
+                        "The Lord of the Rings", "The Things They Carried",
+                        "The Three Body Problem"};
+                String[] foundNameList = new String[]{"1984", "Brave New World",
+                        "Animal Farm","Dune","The Princess Bride"};
+
+                User user1 = new User("user1", "Eren", "Jaegar", "aot", "user1@gatech.edu", "0123456789", "user");
+                User user2 = new User("user2", "Mikasa", "Ackerman", "aot", "user2@gatech.edu", "0123456789", "admin");
+                User user3 = new User("user3", "Levi", "Ackerman", "aot", "user3@gatech.edu", "0123456789", "admin");
+                User user4 = new User("user4", "Reiner", "Braun", "aot", "user4@gatech.edu", "0123456789", "user");
+                model.addUser(user1);
+                model.addUser(user2);
+                model.addUser(user3);
+                model.addUser(user4);
+
+                for (int i = 0; i < lostNameList.length; i++) {
+                    // Binds all strings into an array
+                    model.addLostItem(new LostItem(lostNameList[i], "book", "somewhere"));
+                    model.setCurrentLostItem(new LostItem(lostNameList[i], "book", "somewhere"));
+                    //comment this out below along with its sister comment to turn on name generation
+                    lostList.add(model.getCurrentLostItem());
+                    LostItem item = model.getCurrentLostItem();
+                    mf.addLostItem(item);
+
+                }
+
+                for (int i = 0; i < foundNameList.length; i++) {
+                    // Binds all strings into an array
+                    model.addFoundItem(new FoundItem(foundNameList[i], "book", "somewhere"));
+                    model.setCurrentFoundItem(new FoundItem(foundNameList[i], "book", "somewhere"));
+                    //comment this out below along with its sister comment to turn on name generation
+                    foundList.add(model.getCurrentFoundItem());
+                    FoundItem item = model.getCurrentFoundItem();
+                    mf.addFoundItem(item);
+
+                }
+
+                Toast.makeText(Application.this, "Sample data successfully generated", Toast.LENGTH_SHORT).show();
+            }
+        });
+        //////////////////////////////////////////////////////////////////////////////
+        //Floating Action Button
+        //////////////////////////////////////////////////////////////////////////////
+        //Add Lost item button
         FloatingActionButton lostItem = new FloatingActionButton(getBaseContext());
         lostItem.setIcon(R.drawable.ic_action_lost_item);
         lostItem.setTitle("Add a lost item");
@@ -95,7 +156,7 @@ public class Application extends AppCompatActivity {
 
             }
         });
-
+        //Add found item button
         FloatingActionButton foundItem = new FloatingActionButton(getBaseContext());
         foundItem.setIcon(R.drawable.ic_action_found_item);
         foundItem.setTitle("Add a found item");
@@ -107,14 +168,12 @@ public class Application extends AppCompatActivity {
 
             }
         });
-
+        //Search button
         FloatingActionButton searchButton = new FloatingActionButton(getBaseContext());
         searchButton.setIcon(R.drawable.ic_action_search);
         //searchButton.setColorNormal(R.color.white);
         searchButton.setColorPressed(R.color.white_pressed);
         searchButton.setTitle("Search");
-
-
         searchButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -124,7 +183,7 @@ public class Application extends AppCompatActivity {
             }
         });
 
-        //menu holding the actions
+        //Menu Object
         final FloatingActionsMenu menuMultipleActions = (FloatingActionsMenu) findViewById(R.id.multiple_actions);
         menuMultipleActions.addButton(searchButton);
         menuMultipleActions.addButton(lostItem);

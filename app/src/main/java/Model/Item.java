@@ -26,7 +26,7 @@ public class Item implements Parcelable, Serializable {
      * @param address     the address of where the item was found
      * @param owner       the user under which the item was originally entered
      */
-    public Item(String name, String description, String address, User owner, String type) {
+    public Item(String name, String description, String address, User owner) {
         _name = name;
         _description = description;
         _address = address;

@@ -4,7 +4,10 @@
     xmlns:fab="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    >
+
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
@@ -27,9 +30,9 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        fab:fab_addButtonColorNormal="@color/colorPrimaryDark"
+        fab:fab_addButtonColorNormal="@color/white"
         fab:fab_addButtonColorPressed="@color/white_pressed"
-        fab:fab_addButtonPlusIconColor="@color/white"
+        fab:fab_addButtonPlusIconColor="@color/colorPrimaryDark"
         fab:fab_labelStyle="@style/menu_labels_style"
         android:layout_marginBottom="16dp"
         android:layout_marginRight="16dp"
@@ -55,28 +58,32 @@
         android:id="@+id/lostitems"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="LOST ITEMs"
-        android:layout_marginTop="12dp"
+        android:layout_alignEnd="@+id/button_map"
         android:layout_below="@+id/app_bar"
-        android:layout_alignEnd="@+id/button_map" />
+        android:layout_marginTop="12dp"
+        android:backgroundTint="@color/white"
+        android:text="LOST ITEMs"
+        android:textColor="@android:color/background_dark" />
 
     <Button
         android:id="@+id/button_foundItemsList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Found ITEMs"
-        android:layout_marginTop="14dp"
         android:layout_below="@+id/lostitems"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp"
+        android:backgroundTint="@android:color/background_light"
+        android:text="Found ITEMs" />
 
     <Button
         android:id="@+id/button_map"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Map (BETA)"
-        android:layout_marginTop="16dp"
         android:layout_below="@+id/button_foundItemsList"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@android:color/background_light"
+        android:text="Map (BETA)" />
 
     <Button
         android:id="@+id/admin"
@@ -84,11 +91,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/logout"
-        android:layout_alignEnd="@+id/logout"
-        android:layout_marginBottom="15dp"
-        android:backgroundTint="@android:color/holo_blue_bright"
+        android:layout_alignStart="@+id/logout"
+        android:layout_marginBottom="13dp"
+        android:backgroundTint="@android:color/holo_orange_dark"
         android:text="Admin"
-        android:textColor="@color/common_google_signin_btn_text_dark_focused" />
+        android:textColor="@color/common_google_signin_btn_text_dark_default" />
+
+    <Button
+        android:id="@+id/generate"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@android:color/holo_green_dark"
+        android:text="Gen Data"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        android:layout_marginBottom="14dp"
+        android:layout_above="@+id/admin"
+        android:layout_alignStart="@+id/admin" />
 
 
 </RelativeLayout>

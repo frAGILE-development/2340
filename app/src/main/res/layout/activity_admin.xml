@@ -39,5 +39,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/colorAccent"
-        android:text="Back" />
+        android:text="Back"
+        android:textColor="@color/common_google_signin_btn_text_dark_default" />
 </LinearLayout>

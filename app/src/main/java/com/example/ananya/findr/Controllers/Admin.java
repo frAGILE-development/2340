@@ -74,6 +74,7 @@ public class Admin extends AppCompatActivity {
 
                 for (int i = 0; i < lostNameList.length; i++) {
                     // Binds all strings into an array
+
                     model.addLostItem(new LostItem(lostNameList[i], "book", "somewhere"));
                     model.setCurrentLostItem(new LostItem(lostNameList[i], "book", "somewhere"));
                     //comment this out below along with its sister comment to turn on name generation

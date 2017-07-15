@@ -31,6 +31,7 @@ public class Model {
     private List<LostItem> _lostItems;
     private List<FoundItem> _foundItems;
     private List<User> _bannedUsers;
+    private List<Item> _total_item_list;
     /**
      * the currently selected user, defaults to the first one
      */
@@ -322,6 +323,24 @@ public class Model {
         return theNullUser;
     }
 
+    public static ArrayList<Item> convertToItem(List<FoundItem> found, List<LostItem> lost) {
+        ArrayList<Item> list = new ArrayList<Item>();
+        for (FoundItem f: found) {
+            Item newItem = new Item();
+            newItem.setName(f.getName());
+            newItem.setAddress(f.getAddress());
+            newItem.setDescription(f.getDescription());
+            System.out.println(newItem);
+            list.add(newItem);
+        }
+        for (LostItem l: lost) {
+            Item newItem = new Item(l.getName(), l.getDescription(), l.getAddress());
+            list.add(newItem);
+        }
+        System.out.println("Size of list converted: " + list.size());
+        return list;
+    }
+
     /**
      * Return a user that has matching number.
      * This uses an O(n) linear search.
@@ -343,10 +362,7 @@ public class Model {
      * @return a combined list of both items
      */
     public ArrayList getAllItems() {
-        ArrayList list = new ArrayList<Item>();
-        list.addAll(_lostItems);
-        list.addAll(_foundItems);
-        return list;
+        return convertToItem(_foundItems, _lostItems);
     }
 
 

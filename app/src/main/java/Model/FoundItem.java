@@ -27,6 +27,7 @@ public class FoundItem extends Item implements Parcelable, Serializable {
      * @param address     the address of where the item was found
      */
     public FoundItem(String name, String description, String address){
+        super(name, description, address);
         _name = name;
         _description = description;
         _address = address;
