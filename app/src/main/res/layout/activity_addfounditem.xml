@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@color/colorPrimaryDark"
     android:layout_height="match_parent"
     android:weightSum="1">
 
@@ -11,14 +12,15 @@
         android:layout_height="wrap_content"
         android:text="Name of Item"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@android:color/background_dark" />
+        android:textColor="@color/background" />
 
     <EditText
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textColor="@color/white" />
 
     <TextView
         android:id="@+id/textView7"
@@ -26,14 +28,15 @@
         android:layout_height="wrap_content"
         android:text="Item Description"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@android:color/background_dark" />
+        android:textColor="@color/background" />
 
     <EditText
         android:id="@+id/description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textMultiLine" />
+        android:inputType="textMultiLine"
+        android:textColor="@color/white" />
 
     <TextView
         android:id="@+id/textView8"
@@ -41,7 +44,7 @@
         android:layout_height="wrap_content"
         android:text="Add a Picture"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@android:color/background_dark" />
+        android:textColor="@color/background" />
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -55,21 +58,22 @@
         android:layout_height="wrap_content"
         android:text="Address of where it was found"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@android:color/background_dark" />
+        android:textColor="@color/background" />
 
     <EditText
         android:id="@+id/address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPostalAddress" />
+        android:inputType="textPostalAddress"
+        android:textColor="@color/white" />
 
     <Button
         android:id="@+id/ok"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/colorPrimary"
+        android:backgroundTint="@android:color/holo_green_dark"
         android:text="OK" />
 
     <Button
