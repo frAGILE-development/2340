@@ -1,4 +1,6 @@
-package Model;
+package Model.Maps;
+
+import Model.Model;
 
 /**
  * Created by bwatson35 on 7/11/17.

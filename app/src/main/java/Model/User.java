@@ -3,6 +3,8 @@ package Model;
 import android.os.Parcelable;
 import android.os.Parcel;
 
+import java.io.PrintWriter;
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
 
@@ -14,7 +16,7 @@ import java.util.List;
  * the Parcelable interface.
  */
 
-public class User implements Parcelable {
+public class User implements Parcelable , Serializable {
     public static List<String> accountType = Arrays.asList("Admin", "Normal");
     //instance variables
     private int _id;
@@ -331,6 +333,52 @@ public class User implements Parcelable {
             return new User[size];
         }
     };
+
+    /**
+     * Save this class in a custom save format
+     * I chose to use tab (\t) to make line splitting easy for loading
+     * If your data had tabs, you would need something else as a delimiter
+     *
+     * @param writer the file to write this student to
+     */
+    public void saveAsText(PrintWriter writer) {
+        System.out.println("Saving User: " + _fullName);
+        writer.println(_firstName + "\t" + _lastName + "\t" + _password + "\t" + _email
+        + "\t" + _phoneNumber + "\t" + _adminType);
+    }
+
+    /**
+     * Constructor for the user class
+     *
+     * @param firstName   the user's first name
+     * @param lastName    the user's last name
+     * @param password    their password
+     * @param email       their email address
+     * @param phoneNumber their phone number
+     * @param type
+     */
+
+    /**
+     * This is a static factory method that constructs a student given a text line in the correct format.
+     * It assumes that a student is in a single string with each attribute separated by a tab character
+     * The order of the data is assumed to be:
+     *
+     * 0 - name
+     * 1 - user id
+     * 2 - id code
+     * 3 - email
+     * 4 - password
+     *
+     * @param line  the text line containing the data
+     * @return the student object
+     */
+    public static User parseEntry(String line) {
+        assert line != null;
+        String[] tokens = line.split("\t");
+        assert tokens.length == 6;
+        User u = new User(tokens[0], tokens[1], tokens[2], tokens[3],tokens[4], tokens[5], tokens[6] );
+        return u;
+    }
 
 
 }

@@ -2,6 +2,8 @@ package Model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import java.io.Serializable;
+import java.io.PrintWriter;
 
 /**
  * Created by bwatson35 on 6/29/17.
@@ -9,7 +11,7 @@ import android.os.Parcelable;
  * The parent class of both the lost and found items
  */
 
-public class Item implements Parcelable {
+public class Item implements Parcelable, Serializable {
     //instance variables
     private String _name;
     private String _description;
@@ -24,7 +26,7 @@ public class Item implements Parcelable {
      * @param address     the address of where the item was found
      * @param owner       the user under which the item was originally entered
      */
-    public Item(String name, String description, String address, User owner) {
+    public Item(String name, String description, String address, User owner, String type) {
         _name = name;
         _description = description;
         _address = address;
@@ -32,10 +34,23 @@ public class Item implements Parcelable {
     }
 
     /**
+     * The constructor for the Lost Item class
+     *
+     * @param name        the name of the item
+     * @param description the decription of the lost item
+     * @param address     the address of where the item was found
+     */
+    public Item(String name, String description, String address) {
+        _name = name;
+        _description = description;
+        _address = address;
+    }
+
+    /**
      * the Default contructor. For GUI use only
      */
     public Item() {
-        this("Default Item", "No description", "221 Baker St", new User());
+        this("Default Item", "No description", "221 Baker St");
     }
 
     /**
@@ -159,4 +174,39 @@ public class Item implements Parcelable {
             return new Item[size];
         }
     };
+
+    /**
+     * Save this class in a custom save format
+     * I chose to use tab (\t) to make line splitting easy for loading
+     * If your data had tabs, you would need something else as a delimiter
+     *
+     * @param writer the file to write this student to
+     */
+    public void saveAsText(PrintWriter writer) {
+        System.out.println("Saving item: " + _name);
+        writer.println(_name + "\t" + _description + "\t" + _address);
+    }
+
+    /**
+     * This is a static factory method that constructs a student given a text line in the correct format.
+     * It assumes that a student is in a single string with each attribute separated by a tab character
+     * The order of the data is assumed to be:
+     *
+     * 0 - name
+     * 1 - user id
+     * 2 - id code
+     * 3 - email
+     * 4 - password
+     *
+     * @param line  the text line containing the data
+     * @return the student object
+     */
+    public static Item parseEntry(String line) {
+        assert line != null;
+        String[] tokens = line.split("\t");
+        assert tokens.length == 3;
+        LostItem s = new LostItem(tokens[0], tokens[1], tokens[2]);
+
+        return s;
+    }
 }

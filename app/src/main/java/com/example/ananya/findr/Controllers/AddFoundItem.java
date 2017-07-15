@@ -12,6 +12,8 @@ import com.example.ananya.findr.R;
 
 import Model.FoundItem;
 import Model.Model;
+import Model.Persistence.ItemManager;
+import Model.Persistence.ManagementFacade;
 
 /**
  * Created by Bryce on 6/29/2017.
@@ -50,9 +52,11 @@ public class AddFoundItem extends AppCompatActivity{
 
                 if (!errorFlag) {
                     Model model = Model.getInstance();
+                    ManagementFacade mf = ManagementFacade.getInstance();
                     FoundItem item = new FoundItem(name.getText().toString(), description.getText().toString(),
-                            address.getText().toString(), model.getCurrentUser());
+                            address.getText().toString());
                     model.addFoundItem(item);
+                    mf.addFoundItem(item.getName(), item.getDescription(), item.getAddress());
                     Intent intent = new Intent(AddFoundItem.this, Application.class);
                     startActivity(intent);
 

@@ -6,6 +6,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
     <FloatingActionButton.FloatingActionsMenu
         android:id="@+id/multiple_actions"
         android:layout_width="wrap_content"
@@ -42,27 +56,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="LOST ITEMs"
-        android:layout_marginTop="13dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/button_map" />
+        android:layout_marginTop="12dp"
+        android:layout_below="@+id/app_bar"
+        android:layout_alignEnd="@+id/button_map" />
 
     <Button
         android:id="@+id/button_foundItemsList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Found ITEMs"
+        android:layout_marginTop="14dp"
         android:layout_below="@+id/lostitems"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="12dp" />
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/button_map"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Map (BETA)"
+        android:layout_marginTop="16dp"
         android:layout_below="@+id/button_foundItemsList"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="12dp" />
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/admin"

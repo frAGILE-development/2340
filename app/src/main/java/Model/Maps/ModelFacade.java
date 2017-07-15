@@ -1,5 +1,4 @@
-package Model;
-
+package Model.Maps;
 import java.util.List;
 
 /**
@@ -11,11 +10,9 @@ public class ModelFacade {
     public static ModelFacade getInstance() { return INSTANCE; }
 
     private ReportManager _reportManager;
-    private UserManager _userManager;
 
     private ModelFacade() {
         _reportManager = new ReportManager();
-        _userManager = new UserManager();
     }
 
     public void addReport(String title, String desc, Location loc) {
@@ -28,7 +25,4 @@ public class ModelFacade {
         return _reportManager.getLastReport();
     }
 
-    public boolean doLogin(String uid, String pass) {
-        return _userManager.tryLogin(uid, pass);
-    }
 }

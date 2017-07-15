@@ -42,8 +42,8 @@ public class Model {
 
     //Null Users and items
     private final User theNullUser = new User("Null", "No", "Name", "passw0rd", "null@gatech.edu", "0000000000", User.accountType.get(1));
-    private final LostItem theNullLostItem = new LostItem("NULL", "NULL", "NULL", new User());
-    private final FoundItem theNullFoundItem = new FoundItem("NULL", "NULL", "NULL", new User());
+    private final LostItem theNullLostItem = new LostItem("NULL", "NULL", "NULL");
+    private final FoundItem theNullFoundItem = new FoundItem("NULL", "NULL", "NULL");
     /**
      * makes a new model
      */
@@ -89,6 +89,7 @@ public class Model {
         return true;
     }
 
+
     /**
      * removes a banned user.  checks if the user is already entered
      * <p>
@@ -117,6 +118,18 @@ public class Model {
             if (c.equals(user)) return true;
         }
         return false;
+    }
+
+    public User getNullUser() {
+        return theNullUser;
+    }
+
+    public FoundItem getNullFoundItem() {
+        return theNullFoundItem;
+    }
+
+    public LostItem getNullLostItem() {
+        return theNullLostItem;
     }
 
     /**
@@ -183,6 +196,30 @@ public class Model {
             if (c.equals(item)) return false;
         }
         _lostItems.add(item);
+        return true;
+    }
+
+    /**
+     * add an item to the app.  checks if the lost item is already entered
+     * <p>
+     * uses O(n) linear search for course
+     *
+     * @param item the user to be added
+     * @return true if added, false if a duplicate
+     */
+    public boolean addItem(Item item) {
+        for (Item c : _lostItems) {
+            if (c.equals(item)) return false;
+        }
+        for (Item c : _foundItems) {
+            if (c.equals(item)) return false;
+        }
+        System.out.println(item.getType());
+        if (item.getType().equals("Found Item")) {
+            _foundItems.add(new FoundItem(item.getName(), item.getDescription(), item.getAddress()));
+        } else {
+            _lostItems.add(new LostItem(item.getName(), item.getDescription(), item.getAddress()));
+        }
         return true;
     }
 

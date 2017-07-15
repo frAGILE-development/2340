@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.ananya.findr.R;
+
+import Model.Persistence.ManagementFacade;
 import Model.User;
 import Model.Model;
 import Model.LostItem;
@@ -50,9 +52,12 @@ public class AddLostItem  extends AppCompatActivity{
 
                 if (!errorFlag) {
                     Model model = Model.getInstance();
+                    ManagementFacade mf = ManagementFacade.getInstance();
                     LostItem item = new LostItem(name.getText().toString(), description.getText().toString(),
-                            address.getText().toString(), model.getCurrentUser());
+                            address.getText().toString());
+                    item.setOwner(model.getCurrentUser());
                     model.addLostItem(item);
+                    mf.addLostItem(item.getName(), item.getDescription(), item.getAddress());
                     Intent intent = new Intent(AddLostItem.this, Application.class);
                     startActivity(intent);
 
