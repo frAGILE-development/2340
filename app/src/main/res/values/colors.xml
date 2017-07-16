@@ -13,4 +13,5 @@
     <color name="blue_semi_transparent">#805677fc</color>
     <color name="blue_semi_transparent_pressed">#80738ffe</color>
     <color name="hint_color">#fafafa</color>
+    <color name="black">#000000</color>
 </resources>
