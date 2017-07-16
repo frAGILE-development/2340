@@ -270,11 +270,11 @@ public class ManagementFacade {
     }
 
     public void addLostItem(LostItem item) {
-        im.addLostItem(item.getName(), item.getDescription(), item.getAddress());
+        im.addLostItem(item);
     }
 
     public void addFoundItem(FoundItem item) {
-        im.addFoundItem(item.getName(), item.getDescription(), item.getAddress());
+        im.addFoundItem(item);
     }
 
     public void removeItem(Item item) {

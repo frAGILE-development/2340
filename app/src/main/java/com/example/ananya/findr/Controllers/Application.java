@@ -121,9 +121,8 @@ public class Application extends AppCompatActivity {
                     model.addLostItem(new LostItem(lostNameList[i], "book", "somewhere"));
                     model.setCurrentLostItem(new LostItem(lostNameList[i], "book", "somewhere"));
                     //comment this out below along with its sister comment to turn on name generation
-//                    lostList.add(model.getCurrentLostItem());
-//                    LostItem item = model.getCurrentLostItem();
-
+                    lostList.add(model.getCurrentLostItem());
+                    mf.addLostItem(model.getCurrentLostItem());
                 }
 
                 for (int i = 0; i < foundNameList.length; i++) {
@@ -132,8 +131,7 @@ public class Application extends AppCompatActivity {
                     model.setCurrentFoundItem(new FoundItem(foundNameList[i], "book", "somewhere"));
                     //comment this out below along with its sister comment to turn on name generation
                     foundList.add(model.getCurrentFoundItem());
-//                    FoundItem item = model.getCurrentFoundItem();
-//                    mf.addFoundItem(item);
+                    mf.addFoundItem(model.getCurrentFoundItem());
 
                 }
 
@@ -229,6 +227,8 @@ public class Application extends AppCompatActivity {
                 file2 = new File(this.getFilesDir(), ManagementFacade.OTHER_DEFAULT_TEXT_FILE_NAME);
                 //"Other default" is found items
                 mf.loadText(file, file2);
+                Toast.makeText(Application.this, "Data loaded from text", Toast.LENGTH_SHORT).show();
+                return true;
 //            case R.id.load_lost_items:
 //                file = new File(this.getFilesDir(), ManagementFacade.DEFAULT_TEXT_FILE_NAME);
 //                mf.loadText(file);
@@ -259,6 +259,7 @@ public class Application extends AppCompatActivity {
             case R.id.save_all_items:
                 file = new File(this.getFilesDir(), ManagementFacade.DEFAULT_TEXT_FILE_NAME);
                 file2 = new File(this.getFilesDir(), ManagementFacade.OTHER_DEFAULT_TEXT_FILE_NAME);
+                Toast.makeText(Application.this, "Data saved to text", Toast.LENGTH_SHORT).show();
                 return mf.saveText(file, file2);
             default:
                 return super.onOptionsItemSelected(item);
