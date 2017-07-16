@@ -11,6 +11,8 @@ import android.widget.Spinner;
 import android.widget.ArrayAdapter;
 
 import com.example.ananya.findr.R;
+
+import Model.Persistence.ManagementFacade;
 import Model.User;
 import Model.Model;
 
@@ -78,6 +80,7 @@ public class Register extends AppCompatActivity {
                 //user is registered and added to the model
                 if (!errorFlag) {
                     Model model = Model.getInstance();
+                    ManagementFacade mf = ManagementFacade.getInstance();
                     User _user = new User(username.getText().toString(), firstName.getText().toString(),
                             lastName.getText().toString(), password2.getText().toString(),
                             email.getText().toString(), "0000000000", "admin" );
@@ -97,6 +100,7 @@ public class Register extends AppCompatActivity {
                   
                     model.addUser(_user);
                     model.setCurrentUser(_user);
+                    mf.addUser(_user);
                     Intent intent = new Intent(Register.this, Application.class);
                     startActivity(intent);
 

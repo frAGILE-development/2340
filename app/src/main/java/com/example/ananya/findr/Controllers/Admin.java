@@ -67,6 +67,10 @@ public class Admin extends AppCompatActivity {
                 model.addUser(user2);
                 model.addUser(user3);
                 model.addUser(user4);
+                mf.addUser(user1);
+                mf.addUser(user2);
+                mf.addUser(user3);
+                mf.addUser(user4);
 
                 // Locate the ListView in listview_main.xml
                 list = (ListView) findViewById(R.id.list_view);
