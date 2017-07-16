@@ -121,9 +121,8 @@ public class Application extends AppCompatActivity {
                     model.addLostItem(new LostItem(lostNameList[i], "book", "somewhere"));
                     model.setCurrentLostItem(new LostItem(lostNameList[i], "book", "somewhere"));
                     //comment this out below along with its sister comment to turn on name generation
-                    lostList.add(model.getCurrentLostItem());
-                    LostItem item = model.getCurrentLostItem();
-                    mf.addLostItem(item);
+//                    lostList.add(model.getCurrentLostItem());
+//                    LostItem item = model.getCurrentLostItem();
 
                 }
 
@@ -133,8 +132,8 @@ public class Application extends AppCompatActivity {
                     model.setCurrentFoundItem(new FoundItem(foundNameList[i], "book", "somewhere"));
                     //comment this out below along with its sister comment to turn on name generation
                     foundList.add(model.getCurrentFoundItem());
-                    FoundItem item = model.getCurrentFoundItem();
-                    mf.addFoundItem(item);
+//                    FoundItem item = model.getCurrentFoundItem();
+//                    mf.addFoundItem(item);
 
                 }
 
