@@ -126,19 +126,19 @@ public class ManagementFacade {
         return true;
     }
 
-    public boolean loadFoundItemText(File file) {
-        try {
-            //make an input object for reading
-            BufferedReader reader = new BufferedReader(new FileReader(file));
-            im.loadFoundItemsFromText(reader);
-
-        } catch (FileNotFoundException e) {
-            Log.e("ModelSingleton", "Failed to open text file for loading!");
-            return false;
-        }
-
-        return true;
-    }
+//    public boolean loadFoundItemText(File file) {
+//        try {
+//            //make an input object for reading
+//            BufferedReader reader = new BufferedReader(new FileReader(file));
+//            im.loadFoundItemsFromText(reader);
+//
+//        } catch (FileNotFoundException e) {
+//            Log.e("ModelSingleton", "Failed to open text file for loading!");
+//            return false;
+//        }
+//
+//        return true;
+//    }
 
     public boolean loadJson(File file) {
         try {

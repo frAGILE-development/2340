@@ -357,6 +357,21 @@ public class Model {
         }
         return theNullLostItem;
     }
+
+    /**
+     * Completely wipes everything in the model
+     */
+    public void nuclearMeltdown() {
+        _users = new ArrayList<>();
+        _lostItems = new ArrayList<>();
+        _foundItems = new ArrayList<>();
+        _bannedUsers = new ArrayList<>();
+        _total_item_list = new ArrayList<>();
+        LostItem _currentLostItem = theNullLostItem;
+        FoundItem _currentFoundItem = theNullFoundItem;
+        Item _currentItem = theNullLostItem;
+    }
+
     /**
      *Gets both lost and found items in one list
      * @return a combined list of both items

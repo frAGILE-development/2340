@@ -46,7 +46,7 @@ public class Admin extends AppCompatActivity {
         Button generate = (Button) findViewById(R.id.generate);
         Button back = (Button) findViewById(R.id.back);
         Button viewUsers = (Button) findViewById(R.id.viewUsers);
-
+        Button delete = (Button) findViewById(R.id.button_delete);
 
         generate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,6 +96,15 @@ public class Admin extends AppCompatActivity {
                 }
 
                 Toast.makeText(Admin.this, "Sample data successfully generated", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Model model = new Model().getInstance();
+                model.nuclearMeltdown();
+                Toast.makeText(Admin.this, "Data erased", Toast.LENGTH_SHORT).show();
             }
         });
 

@@ -8,7 +8,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Generates a list of lost and found items and users"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textColor="@android:color/black" />
 
     <Button
         android:id="@+id/generate"
@@ -20,11 +21,29 @@
         android:textAlignment="center" />
 
     <TextView
+        android:id="@+id/textView13"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Wipe the back end clean"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_dark" />
+
+    <Button
+        android:id="@+id/button_delete"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@android:color/holo_red_dark"
+        android:text="Erase all data"
+        android:textAlignment="center" />
+
+    <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="A list of all users currently in the system"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textColor="@android:color/background_dark" />
 
     <Button
         android:id="@+id/viewUsers"
