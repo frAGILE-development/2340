@@ -41,7 +41,7 @@ public class User implements Parcelable , Serializable {
      * @param password    their password
      * @param email       their email address
      * @param phoneNumber their phone number
-     * @param type
+     * @param type        admin or not
      */
     public User(String username, String firstName, String lastName, String password, String email,
                 String phoneNumber, String type) {
@@ -343,7 +343,7 @@ public class User implements Parcelable , Serializable {
      */
     public void saveAsText(PrintWriter writer) {
         System.out.println("Saving User: " + _fullName);
-        writer.println(_firstName + "\t" + _lastName + "\t" + _password + "\t" + _email
+        writer.println(_username + "\t" +_firstName + "\t" + _lastName + "\t" + _password + "\t" + _email
         + "\t" + _phoneNumber + "\t" + _adminType);
     }
 
@@ -375,8 +375,8 @@ public class User implements Parcelable , Serializable {
     public static User parseEntry(String line) {
         assert line != null;
         String[] tokens = line.split("\t");
-        assert tokens.length == 6;
-        User u = new User(tokens[0], tokens[1], tokens[2], tokens[3],tokens[4], tokens[5], tokens[6] );
+        assert tokens.length == 7;
+        User u = new User(tokens[0], tokens[1], tokens[2], tokens[3],tokens[4], tokens[5], tokens[6]);
         return u;
     }
 

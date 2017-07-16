@@ -115,6 +115,10 @@ public class Application extends AppCompatActivity {
                 model.addUser(user2);
                 model.addUser(user3);
                 model.addUser(user4);
+                mf.addUser(user1);
+                mf.addUser(user2);
+                mf.addUser(user3);
+                mf.addUser(user4);
 
                 for (int i = 0; i < lostNameList.length; i++) {
                     // Binds all strings into an array
@@ -176,7 +180,6 @@ public class Application extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(Application.this, Search.class);
                 startActivity(intent);
-
             }
         });
 
@@ -205,6 +208,7 @@ public class Application extends AppCompatActivity {
         ManagementFacade mf = ManagementFacade.getInstance();
         File file;
         File file2;
+        File file3;
         /**
          * I know switch statements are usually bad, but there in this case it is required
          * by the api design.
@@ -225,8 +229,9 @@ public class Application extends AppCompatActivity {
             case R.id.load_all_items://Currently load all items
                 file = new File(this.getFilesDir(), ManagementFacade.DEFAULT_TEXT_FILE_NAME);
                 file2 = new File(this.getFilesDir(), ManagementFacade.OTHER_DEFAULT_TEXT_FILE_NAME);
+                file3 = new File(this.getFilesDir(), ManagementFacade.USER_FILE_NAME);
                 //"Other default" is found items
-                mf.loadText(file, file2);
+                mf.loadText(file, file2, file3);
                 Toast.makeText(Application.this, "Data loaded from text", Toast.LENGTH_SHORT).show();
                 return true;
 //            case R.id.load_lost_items:
@@ -259,8 +264,9 @@ public class Application extends AppCompatActivity {
             case R.id.save_all_items:
                 file = new File(this.getFilesDir(), ManagementFacade.DEFAULT_TEXT_FILE_NAME);
                 file2 = new File(this.getFilesDir(), ManagementFacade.OTHER_DEFAULT_TEXT_FILE_NAME);
+                file3 = new File(this.getFilesDir(), ManagementFacade.USER_FILE_NAME);
                 Toast.makeText(Application.this, "Data saved to text", Toast.LENGTH_SHORT).show();
-                return mf.saveText(file, file2);
+                return mf.saveText(file, file2, file3);
             default:
                 return super.onOptionsItemSelected(item);
         }

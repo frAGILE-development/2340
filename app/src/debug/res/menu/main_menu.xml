@@ -11,15 +11,15 @@
     <item
         android:id="@+id/save_all_items"
         android:checkable="false"
-        android:title="Save All Items" />
+        android:title="Save Text" />
     <item
         android:id="@+id/save_binary"
-        android:title="Save Binary"
+        android:title="Save Binary (BETA)"
 
         />
     <item
         android:id="@+id/save_json"
-        android:title="Save Json"
+        android:title="Save Json (BETA)"
         />
     <!--<item-->
         <!--android:id="@+id/load_lost_items"-->
@@ -28,15 +28,15 @@
 
     <item
         android:id="@+id/load_all_items"
-        android:title="Load All Items"
+        android:title="Load Text"
         />
     <item
         android:id="@+id/load_binary"
-        android:title="Load Binary"
+        android:title="Load Binary (BETA)"
     />
     <item
         android:id="@+id/load_json"
-        android:title="Load Json"
+        android:title="Load Json (BETA)"
         />
 
 </menu>

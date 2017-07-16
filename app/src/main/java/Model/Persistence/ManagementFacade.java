@@ -26,6 +26,7 @@ public class ManagementFacade {
     public final static String DEFAULT_TEXT_FILE_NAME = "data.txt";
     public final static String OTHER_DEFAULT_TEXT_FILE_NAME = "data2.txt";
     public final static String DEFAULT_JSON_FILE_NAME = "data.json";
+    public final static String USER_FILE_NAME = "user.text";
 
     /**
      * the facade maintains references to any required model classes
@@ -117,6 +118,22 @@ public class ManagementFacade {
             BufferedReader lostReader = new BufferedReader(new FileReader(lost));
             BufferedReader foundReader = new BufferedReader(new FileReader(found));
             im.loadFromText(lostReader, foundReader);
+
+        } catch (FileNotFoundException e) {
+            Log.e("ModelSingleton", "Failed to open text file for loading!");
+            return false;
+        }
+
+        return true;
+    }
+
+    public boolean loadText(File lost, File found, File users) {
+        try {
+            //make an input object for reading
+            BufferedReader lostReader = new BufferedReader(new FileReader(lost));
+            BufferedReader foundReader = new BufferedReader(new FileReader(found));
+            BufferedReader userReader = new BufferedReader(new FileReader(users));
+            im.loadFromText(lostReader, foundReader, userReader);
 
         } catch (FileNotFoundException e) {
             Log.e("ModelSingleton", "Failed to open text file for loading!");
@@ -220,6 +237,27 @@ public class ManagementFacade {
         return true;
     }
 
+    public boolean saveText(File lost, File found, File users) {
+        System.out.println("Saving as a text file");
+        try {
+            PrintWriter pwLost = new PrintWriter(lost);
+            PrintWriter pwFound = new PrintWriter(found);
+            PrintWriter pwUsers = new PrintWriter(users);
+            im.saveAsText(pwLost);
+            im.saveAsFoundItems(pwFound);
+            im.saveAsUsers(pwUsers);
+            pwLost.close();
+            pwFound.close();
+            pwUsers.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            Log.d("ManagerFacade", "Error opening the text file for save!");
+            return false;
+        }
+
+        return true;
+    }
+
     public boolean saveFoundItems(File file) {
         System.out.println("Saving found items as a text file");
         try {
@@ -275,6 +313,14 @@ public class ManagementFacade {
 
     public void addFoundItem(FoundItem item) {
         im.addFoundItem(item);
+    }
+
+    public void addUser(User user) {
+        im.addUser(user);
+    }
+
+    public void removeUser(User user) {
+        im.removeUser(user);
     }
 
     public void removeItem(Item item) {

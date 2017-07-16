@@ -22,6 +22,7 @@ public class ItemManager implements Serializable {
     private final List<Item> items = new ArrayList<>();
     private final List<LostItem> lostItems = new ArrayList<>();
     private final List<FoundItem> foundItems = new ArrayList<>();
+    private final List<User> userList = new ArrayList<>();
     /**
      * A map of items by Key == user name Value == student object
      *
@@ -30,6 +31,7 @@ public class ItemManager implements Serializable {
      * need to be serialized.
      */
     private transient Map<String, Item> itemMap = new HashMap<>();
+    private transient Map<String, User> userMap = new HashMap<>();
 
 
     /**
@@ -71,6 +73,14 @@ public class ItemManager implements Serializable {
         commandManager.executeCommand(cmd);
     }
 
+    void addUser(String username, String firstName, String lastName, String password, String email,
+                 String phoneNumber, String type) {
+        User user = new User(username, firstName, lastName, password, email, phoneNumber, type);
+        //items.add(student);
+        //itemMap.put(name, student);
+        userList.add(user);
+    }
+
     /**
      * this is package vis because only model should be asking for this data
      *
@@ -102,6 +112,15 @@ public class ItemManager implements Serializable {
 
         for(LostItem s : lostItems) {
             s.saveAsText(writer);
+        }
+    }
+
+    void saveAsUsers(PrintWriter writer) {
+        System.out.println("Item Manager saving: " + (userList.size()) + " users" );
+        writer.println(userList.size());
+
+        for(User u : userList) {
+            u.saveAsText(writer);
         }
     }
 
@@ -177,6 +196,63 @@ public class ItemManager implements Serializable {
         }
         System.out.println("Done loading text file with " + foundItems.size() + "found items" +
         "and " + lostItems.size() + " lost items");
+
+    }
+
+    /**
+     *
+     * @param lost
+     * @param found
+     * @param users
+     */
+    void loadFromText(BufferedReader lost, BufferedReader found, BufferedReader users) {
+        System.out.println("Loading Text File");
+        Model model = Model.getInstance();
+        itemMap.clear();
+        items.clear();
+        foundItems.clear();
+        lostItems.clear();
+        userList.clear();
+        try {
+            String countStrLost = lost.readLine();
+            assert countStrLost != null;
+            String countStrFound = found.readLine();
+            assert countStrFound != null;
+            String countStrUsers = users.readLine();
+            assert countStrUsers != null;
+            int lostCount = Integer.parseInt(countStrLost);
+            int foundCount = Integer.parseInt(countStrFound);
+            int userCount = Integer.parseInt(countStrUsers);
+            //THE FUNCTION WHERE IT HAPPENS
+            //reads in each item to the model
+            for (int i = 0; i < lostCount; ++i) {
+                String line = lost.readLine();
+                LostItem l = LostItem.parseEntry(line);
+                lostItems.add(l);
+                model.addLostItem(l);
+            }
+            for (int i = 0; i < foundCount; ++i) {
+                String line = found.readLine();
+                FoundItem l = FoundItem.parseEntry(line);
+                foundItems.add(l);
+                model.addFoundItem(l);
+            }
+            for (int i = 0; i < userCount; ++i) {
+                String line = users.readLine();
+                User l = User.parseEntry(line);
+                userList.add(l);
+                model.addUser(l);
+            }
+
+            //be sure and close the file
+            users.close();
+            lost.close();
+            found.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Done loading text file with " + foundItems.size() + "found items" +
+                "and " + lostItems.size() + " lost items");
 
     }
 
@@ -264,5 +340,15 @@ public class ItemManager implements Serializable {
     void removeFoundItem(FoundItem item) {
         foundItems.remove(item);
         itemMap.remove(item.getName());
+    }
+
+    void addUser(User user) {
+        userList.add(user);
+        userMap.put(user.getUsername(), user);
+    }
+
+    void removeUser(User item) {
+        foundItems.remove(item);
+        userMap.remove(item.getUsername());
     }
 }
