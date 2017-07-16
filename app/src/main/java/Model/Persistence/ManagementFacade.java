@@ -97,11 +97,26 @@ public class ManagementFacade {
         return success;
     }
 
-    public boolean loadText(File file) {
+//    public boolean loadText(File file) {
+//        try {
+//            //make an input object for reading
+//            BufferedReader reader = new BufferedReader(new FileReader(file));
+//            im.loadFromText(reader);
+//
+//        } catch (FileNotFoundException e) {
+//            Log.e("ModelSingleton", "Failed to open text file for loading!");
+//            return false;
+//        }
+//
+//        return true;
+//    }
+
+    public boolean loadText(File lost, File found) {
         try {
             //make an input object for reading
-            BufferedReader reader = new BufferedReader(new FileReader(file));
-            im.loadFromText(reader);
+            BufferedReader lostReader = new BufferedReader(new FileReader(lost));
+            BufferedReader foundReader = new BufferedReader(new FileReader(found));
+            im.loadFromText(lostReader, foundReader);
 
         } catch (FileNotFoundException e) {
             Log.e("ModelSingleton", "Failed to open text file for loading!");
@@ -159,8 +174,6 @@ public class ManagementFacade {
 
                One thing to be careful of:  You cannot serialize static data.
              */
-
-
             ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file));
             // We basically can save our entire data model with one write, since this will follow
             // all the links and pointers to save everything.  Just save the top level object.
@@ -180,6 +193,24 @@ public class ManagementFacade {
             PrintWriter pw = new PrintWriter(file);
             im.saveAsText(pw);
             pw.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            Log.d("ManagerFacade", "Error opening the text file for save!");
+            return false;
+        }
+
+        return true;
+    }
+
+    public boolean saveText(File lost, File found) {
+        System.out.println("Saving as a text file");
+        try {
+            PrintWriter pwLost = new PrintWriter(lost);
+            PrintWriter pwFound = new PrintWriter(found);
+            im.saveAsText(pwLost);
+            im.saveAsFoundItems(pwFound);
+            pwLost.close();
+            pwFound.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             Log.d("ManagerFacade", "Error opening the text file for save!");
@@ -216,7 +247,6 @@ public class ManagementFacade {
                 Gson, like object serialization will take a single object and save all the objects
                 it refers to.  You can save everything by one reference, as long as it is the
                 top-level reference.
-
 
              */
             Gson gson = new Gson();

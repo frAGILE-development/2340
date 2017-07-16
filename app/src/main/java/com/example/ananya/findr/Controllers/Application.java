@@ -215,25 +215,31 @@ public class Application extends AppCompatActivity {
          * We just use the item id to decide which menu item was selected.
          */
         switch(item.getItemId()) {
-            case R.id.load_binary:
-                //create a file object in the local files section
-                file = new File(this.getFilesDir(), ManagementFacade.DEFAULT_BINARY_FILE_NAME);
-                //Log.d("MY APP", "Loading Binary Data");
-                mf.loadBinary(file);
-                //reset adapter to new data that has come in.
-                //myAdapter.updateList(mf.getStudentsAsList());
-                //Log.d("MY APP", "New Adaptor set");
-                return true;
-            case R.id.load_lost_items:
+
+//            case R.id.load_binary:
+//                //create a file object in the local files section
+//                file = new File(this.getFilesDir(), ManagementFacade.DEFAULT_BINARY_FILE_NAME);
+//                //Log.d("MY APP", "Loading Binary Data");
+//                mf.loadBinary(file);
+//                //reset adapter to new data that has come in.
+//                //myAdapter.updateList(mf.getStudentsAsList());
+//                //Log.d("MY APP", "New Adaptor set");
+//                return true;
+            case R.id.load_all_items://Currently load all items
                 file = new File(this.getFilesDir(), ManagementFacade.DEFAULT_TEXT_FILE_NAME);
-                mf.loadText(file);
-                //myAdapter.notifyDataSetChanged();
-                return true;
-            case R.id.load_found_items:
-                file = new File(this.getFilesDir(), ManagementFacade.OTHER_DEFAULT_TEXT_FILE_NAME);
-                mf.loadFoundItemText(file);
-                //myAdapter.notifyDataSetChanged();
-                return true;
+                file2 = new File(this.getFilesDir(), ManagementFacade.OTHER_DEFAULT_TEXT_FILE_NAME);
+                //"Other default" is found items
+                mf.loadText(file, file2);
+//            case R.id.load_lost_items:
+//                file = new File(this.getFilesDir(), ManagementFacade.DEFAULT_TEXT_FILE_NAME);
+//                mf.loadText(file);
+//                //myAdapter.notifyDataSetChanged();
+//                return true;
+//            case R.id.load_found_items:
+//                file = new File(this.getFilesDir(), ManagementFacade.OTHER_DEFAULT_TEXT_FILE_NAME);
+//                mf.loadFoundItemText(file);
+//                //myAdapter.notifyDataSetChanged();
+//                return true;
             case R.id.load_json:
                 file = new File(this.getFilesDir(), ManagementFacade.DEFAULT_JSON_FILE_NAME);
                 mf.loadJson(file);
@@ -245,12 +251,16 @@ public class Application extends AppCompatActivity {
             case R.id.save_json:
                 file = new File(this.getFilesDir(), ManagementFacade.DEFAULT_JSON_FILE_NAME);
                 return mf.saveJson(file);
-            case R.id.save_lost_items:
+//            case R.id.save_lost_items:
+//                file = new File(this.getFilesDir(), ManagementFacade.DEFAULT_TEXT_FILE_NAME);
+//                return mf.saveText(file);
+//            case R.id.save_found_items:
+//                file2 = new File(this.getFilesDir(), ManagementFacade.OTHER_DEFAULT_TEXT_FILE_NAME);
+//                return mf.saveFoundItems(file2);
+            case R.id.save_all_items:
                 file = new File(this.getFilesDir(), ManagementFacade.DEFAULT_TEXT_FILE_NAME);
-                return mf.saveText(file);
-            case R.id.save_found_items:
                 file2 = new File(this.getFilesDir(), ManagementFacade.OTHER_DEFAULT_TEXT_FILE_NAME);
-                return mf.saveFoundItems(file2);
+                return mf.saveText(file, file2);
             default:
                 return super.onOptionsItemSelected(item);
         }

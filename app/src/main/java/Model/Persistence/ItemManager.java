@@ -106,6 +106,23 @@ public class ItemManager implements Serializable {
     }
 
     /**
+     * Saves both lost and found items simultaneously
+     * @param lost
+     * @param found
+     */
+    void saveAsText(PrintWriter lost, PrintWriter found) {
+        System.out.println("Item Manager saving: " + (lostItems.size() + foundItems.size()) + " items" );
+        lost.println(lostItems.size());
+        found.print(foundItems.size());
+        for(LostItem s : lostItems) {
+            s.saveAsText(lost);
+        }
+        for(FoundItem s : foundItems) {
+            s.saveAsText(found);
+        }
+    }
+
+    /**
      *Saves Found items in their own file
      * @param writer
      */
@@ -118,11 +135,11 @@ public class ItemManager implements Serializable {
     }
 
     /**
-     * load the model from a custom text file
      *
-     * @param reader  the file to read from
+     * @param lost
+     * @param found
      */
-    void loadFromText(BufferedReader reader) {
+    void loadFromText(BufferedReader lost, BufferedReader found) {
         System.out.println("Loading Text File");
         Model model = Model.getInstance();
         itemMap.clear();
@@ -130,24 +147,36 @@ public class ItemManager implements Serializable {
         foundItems.clear();
         lostItems.clear();
         try {
-            String countStr = reader.readLine();
-            assert countStr != null;
-            int count = Integer.parseInt(countStr);
+            String countStrLost = lost.readLine();
+            assert countStrLost != null;
 
+            String countStrFound = found.readLine();
+            assert countStrFound != null;
+
+            int lostCount = Integer.parseInt(countStrLost);
+            int foundCount = Integer.parseInt(countStrFound);
             //THE FUNCTION WHERE IT HAPPENS
             //reads in each item to the model
-            for (int i = 0; i < count; ++i) {
-                String line = reader.readLine();
+            for (int i = 0; i < lostCount; ++i) {
+                String line = lost.readLine();
                 LostItem l = LostItem.parseEntry(line);
                 lostItems.add(l);
                 model.addLostItem(l);
             }
+            for (int i = 0; i < foundCount; ++i) {
+                String line = found.readLine();
+                FoundItem l = FoundItem.parseEntry(line);
+                foundItems.add(l);
+                model.addFoundItem(l);
+            }
             //be sure and close the file
-            reader.close();
+            lost.close();
+            found.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("Done loading text file with " + (items.size() + foundItems.size()) + " items");
+        System.out.println("Done loading text file with " + foundItems.size() + "found items" +
+        "and " + lostItems.size() + " lost items");
 
     }
 
