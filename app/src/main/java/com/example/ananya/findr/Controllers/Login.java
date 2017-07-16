@@ -34,11 +34,20 @@ import Model.Model;
 
 public class Login extends AppCompatActivity {
     private ArrayList<User> loginRecord = new ArrayList<User>();
-
+    /**
+     *updates login records
+     * @param username
+     * @param password
+     */
     private void updateLoginRecord(String username, String password) {
         loginRecord.add(new User(username, password));
     }
-
+    /**
+     *counts login attempts
+     * @param username
+     * @param password
+     * @return attempts
+     */
     private int countAttempts(String username, String password) {
         int count = 0;
         for (User u: loginRecord) {
@@ -48,7 +57,9 @@ public class Login extends AppCompatActivity {
         }
         return count;
     }
-
+    /**
+     *tries to login
+     */
     private void attemptLogin() {
         Boolean error = false;
 

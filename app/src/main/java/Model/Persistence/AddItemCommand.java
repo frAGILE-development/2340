@@ -8,25 +8,35 @@ import java.io.Serializable;
 
 public class AddItemCommand extends AbstractCommand{
 
-        Item item;
-
-        public AddItemCommand(Item i) {
+    Item item;
+    /**
+     *constructor
+     * @param i
+     *
+     */
+    public AddItemCommand(Item i) {
             item = i;
         }
-
-        @Override
-        public boolean execute() {
-            ManagementFacade mf = ManagementFacade.getInstance();
-            mf.addItem(item);
-            return true;
-        }
-
-        @Override
-        public boolean undo() {
-            ManagementFacade mf = ManagementFacade.getInstance();
-            mf.removeItem(item);
-            return true;
-        }
+    /**
+     *add item
+     * @return true when completed
+     */
+    @Override
+    public boolean execute() {
+        ManagementFacade mf = ManagementFacade.getInstance();
+        mf.addItem(item);
+        return true;
+    }
+    /**
+     *removes item
+     * @return true when completed
+     */
+    @Override
+    public boolean undo() {
+        ManagementFacade mf = ManagementFacade.getInstance();
+        mf.removeItem(item);
+        return true;
+    }
 
 
 

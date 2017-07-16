@@ -104,7 +104,10 @@ public class LostItem extends Item implements Parcelable, Serializable {
     public void setOwner(User u) {
         super.setOwner(u);
     }
-
+    /**
+     * getter for the type
+     * @return the type
+     */
     public String getType() {
         return type;
     }
@@ -120,7 +123,7 @@ public class LostItem extends Item implements Parcelable, Serializable {
         return "Lost Item: " + _name + "\n" + "Description: " + _description + "\n" + "Address: " + _address;
     }
 
-    /* *********************************
+    /*********************************
      * These methods are required by the parcelable interface
      *
      */
@@ -137,7 +140,7 @@ public class LostItem extends Item implements Parcelable, Serializable {
     }
 
 
-    /* *************************
+    /*************************
     /  If you add new instance vars to Student, you will need to add them to the write
     /*/
     @Override
@@ -147,7 +150,11 @@ public class LostItem extends Item implements Parcelable, Serializable {
         dest.writeString(_address);
         //dest.writeInt(_id);
     }
-
+    /**
+     * creates array and parcel for lost items
+     * @return parcel
+     * @return array of lost items
+     */
     public static final Parcelable.Creator<LostItem> CREATOR
             = new Parcelable.Creator<LostItem>() {
         public LostItem createFromParcel(Parcel in) {

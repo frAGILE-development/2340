@@ -195,6 +195,11 @@ public class Application extends AppCompatActivity {
     //Persistence Menu
     ///////////////////////////////////////////////////////////////////////////////////////////
     /* Next two methods handle the menu options */
+    /**
+     *creates menu
+     * @param menu
+     * @return true after completed
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -202,7 +207,11 @@ public class Application extends AppCompatActivity {
         inflater.inflate(R.menu.main_menu, menu);
         return true;
     }
-
+    /**
+     *item selected click
+     * @param item
+     * @reutrn true when completed
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         ManagementFacade mf = ManagementFacade.getInstance();

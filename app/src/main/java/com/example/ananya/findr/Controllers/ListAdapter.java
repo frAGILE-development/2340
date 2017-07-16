@@ -22,7 +22,11 @@ public class ListAdapter extends BaseAdapter {
     LayoutInflater inflater;
     private List<Item> namesList = null;
     private ArrayList<Item> arraylist;
-
+    /**
+     *constructor
+     * @param context
+     * @param namesList
+     */
     public ListAdapter(Context context, List<Item> namesList) {
         mContext = context;
         this.namesList = namesList;
@@ -30,26 +34,45 @@ public class ListAdapter extends BaseAdapter {
         this.arraylist = new ArrayList<Item>();
         this.arraylist.addAll(namesList);
     }
-
+    /**
+     *inner class
+     */
     public class ViewHolder {
         TextView name;
     }
-
+    /**
+     *getter for count
+     * @return count
+     */
     @Override
     public int getCount() {
         return namesList.size();
     }
-
+    /**
+     *getter for item
+     * @param position
+     * @return item
+     */
     @Override
     public String getItem(int position) {
         return namesList.get(position).getName();
     }
-
+    /**
+     *getter item id
+     * @param position
+     * @return position
+     */
     @Override
     public long getItemId(int position) {
         return position;
     }
-
+    /**
+     *gets view
+     * @param position
+     * @param view
+     * @param parent
+     * @return view
+     */
     public View getView(final int position, View view, ViewGroup parent) {
         Model model = Model.getInstance();
         final ViewHolder holder;

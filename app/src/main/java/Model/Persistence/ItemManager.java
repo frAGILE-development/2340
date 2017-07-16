@@ -63,7 +63,12 @@ public class ItemManager implements Serializable {
         CommandManager commandManager = AbstractCommand.manager;
         commandManager.executeCommand(cmd);
     }
-
+    /**
+     *add found item
+     * @param name
+     * @param description
+     * @param address
+     */
     void addFoundItem(String name, String description, String address) {
         FoundItem item = new FoundItem(name, description, address);
         //items.add(student);
@@ -72,7 +77,17 @@ public class ItemManager implements Serializable {
         CommandManager commandManager = AbstractCommand.manager;
         commandManager.executeCommand(cmd);
     }
-
+    /**
+     *add user
+     * @param username
+     * @param firstName
+     * @param lastName
+     * @param password
+     * @param email
+     * @param phoneNumber
+     * @param type
+     *
+     */
     void addUser(String username, String firstName, String lastName, String password, String email,
                  String phoneNumber, String type) {
         User user = new User(username, firstName, lastName, password, email, phoneNumber, type);
@@ -89,15 +104,27 @@ public class ItemManager implements Serializable {
     List<Item> getItems() {
         return items;
     }
-
+    /**
+     *getter lost item
+     * @return lsot item
+     *
+     */
     List<LostItem> getLostItems() {
         return lostItems;
     }
-
+    /**
+     *getter found item
+     * @return found item
+     *
+     */
     List<FoundItem> getFoundItems() {
         return foundItems;
     }
-
+    /**
+     *get tiem
+     * @param name
+     * @rseturn item
+     */
     Item getItemByName(String name) {
         return itemMap.get(name);
     }
@@ -114,7 +141,11 @@ public class ItemManager implements Serializable {
             s.saveAsText(writer);
         }
     }
-
+    /**
+     *asave user
+     * @param writer
+     *
+     */
     void saveAsUsers(PrintWriter writer) {
         System.out.println("Item Manager saving: " + (userList.size()) + " users" );
         writer.println(userList.size());
@@ -316,37 +347,65 @@ public class ItemManager implements Serializable {
         items.add(item);
         itemMap.put(item.getName(), item);
     }
-
+    /**
+     * used by command pattern, should be not called otherwise
+     *
+     * @param item the student to add
+     */
     void removeItem(Item item) {
         items.remove(item);
         itemMap.remove(item.getName());
     }
-
+    /**
+     * used by command pattern, should be not called otherwise
+     *
+     * @param item the student to add
+     */
     void addLostItem(LostItem item) {
         lostItems.add(item);
         itemMap.put(item.getName(), item);
     }
-
+    /**
+     * used by command pattern, should be not called otherwise
+     *
+     * @param item the student to add
+     */
     void removeLostItem(LostItem item) {
         lostItems.remove(item);
         itemMap.remove(item.getName());
     }
-
+    /**
+     * used by command pattern, should be not called otherwise
+     *
+     * @param item the student to add
+     */
     void addFoundItem(FoundItem item) {
         foundItems.add(item);
         itemMap.put(item.getName(), item);
     }
-
+    /**
+     * used by command pattern, should be not called otherwise
+     *
+     * @param item the student to add
+     */
     void removeFoundItem(FoundItem item) {
         foundItems.remove(item);
         itemMap.remove(item.getName());
     }
-
+    /**
+     * used by command pattern, should be not called otherwise
+     *
+     * @param user the student to add
+     */
     void addUser(User user) {
         userList.add(user);
         userMap.put(user.getUsername(), user);
     }
-
+    /**
+     * used by command pattern, should be not called otherwise
+     *
+     * @param item the student to add
+     */
     void removeUser(User item) {
         foundItems.remove(item);
         userMap.remove(item.getUsername());

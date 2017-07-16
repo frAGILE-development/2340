@@ -126,7 +126,10 @@ public class Item implements Parcelable, Serializable {
     public String toString() {
         return "Item: " + _name + "\n" + "Description: " + _description + "\n" + "Address: " + _address;
     }
-
+    /**
+     * gets the type
+     * @return type of item
+     */
     public String getType() {
         if (this.getClass().isInstance(FoundItem.class)) {
             _type = "Found Item";
@@ -136,7 +139,7 @@ public class Item implements Parcelable, Serializable {
         return _type;
     }
 
-    /* *********************************
+    /**********************************
      * These methods are required by the parcelable interface
      *
      */
@@ -153,7 +156,7 @@ public class Item implements Parcelable, Serializable {
     }
 
 
-    /* *************************
+    /*************************
     /  If you add new instance vars to Student, you will need to add them to the write
     /*/
     @Override
@@ -163,7 +166,11 @@ public class Item implements Parcelable, Serializable {
         dest.writeString(_address);
         //dest.writeInt(_id);
     }
-
+    /**
+     * creates new parcelable items array
+     * @return items in parcel
+     * @return array of items
+     */
     public static final Parcelable.Creator<Item> CREATOR
             = new Parcelable.Creator<Item>() {
         public Item createFromParcel(Parcel in) {

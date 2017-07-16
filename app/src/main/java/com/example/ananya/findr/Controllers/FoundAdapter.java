@@ -25,7 +25,11 @@ public class FoundAdapter extends BaseAdapter {
     LayoutInflater inflater;
     private List<FoundItem> namesList = null;
     private ArrayList<FoundItem> arraylist;
-
+    /**
+     *constructor
+     * @param context
+     * @param namesList
+     */
     public FoundAdapter(Context context, List<FoundItem> namesList) {
         mContext = context;
         this.namesList = namesList;
@@ -33,26 +37,45 @@ public class FoundAdapter extends BaseAdapter {
         this.arraylist = new ArrayList<FoundItem>();
         this.arraylist.addAll(namesList);
     }
-
+    /**
+     * inner class viewholder
+     */
     public class ViewHolder {
         TextView name;
     }
-
+    /**
+     *getter for count
+     * @return count
+     */
     @Override
     public int getCount() {
         return namesList.size();
     }
-
+    /**
+     *getter for item
+     * @param position
+     * @return item name
+     */
     @Override
     public String getItem(int position) {
         return namesList.get(position).getName();
     }
-
+    /**
+     *getter for item id
+     * @param position
+     * @return item id
+     */
     @Override
     public long getItemId(int position) {
         return position;
     }
-
+    /**
+     *gets the correct view
+     * @param position
+     * @param view
+     *@param parent
+     * @return view
+     */
     public View getView(final int position, View view, ViewGroup parent) {
         Model model = Model.getInstance();
         final ViewHolder holder;
@@ -71,7 +94,10 @@ public class FoundAdapter extends BaseAdapter {
         holder.name.setText(namesList.get(position).getName());
         return view;
     }
-
+    /**
+     *filters text
+     * @param charText
+     */
     // Filter Class
     public void filter(String charText) {
         charText = charText.toLowerCase(Locale.getDefault());

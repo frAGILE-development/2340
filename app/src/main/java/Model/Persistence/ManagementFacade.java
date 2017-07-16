@@ -53,28 +53,54 @@ public class ManagementFacade {
      * @return the one and only one instance of this facade
      */
     public static ManagementFacade getInstance() { return instance; }
-
+    /**
+     *getter itesm as list
+     * @return items in form of list
+     */
     public List<Item> getItemsAsList() {
         return im.getItems();
     }
-
+    /**
+     *getter for item by name
+     * @param name
+     * @return item
+     */
     public Item getItemByName(final String name) {
         return im.getItemByName(name);
     }
-
+    /**
+     *add items
+     * @param name
+     * @param description
+     * @param address
+     */
     public void addNewItem(final String name, final String description, final String address) {
         im.addItem(name, description, address);
     }
-
+    /**
+     *add lost item
+     * @param name
+     * @param description
+     * @param address
+     */
     public void addLostItem(final String name, final String description, final String address) {
         im.addLostItem(name, description, address);
     }
-
+    /**
+     *add found item
+     * @param name
+     * @param description
+     * @param address
+     */
     public void addFoundItem(final String name, final String description, final String address) {
         im.addFoundItem(name, description, address);
     }
 
-
+    /**
+     *loads binary
+     * @param file
+     * @return true when completed false if not
+     */
     public boolean loadBinary(File file) {
         boolean success = true;
         try {
@@ -111,7 +137,12 @@ public class ManagementFacade {
 //
 //        return true;
 //    }
-
+    /**
+     *loads text
+     * @param lost
+     * @param found
+     * @return true when completed false if not
+     */
     public boolean loadText(File lost, File found) {
         try {
             //make an input object for reading
@@ -126,7 +157,13 @@ public class ManagementFacade {
 
         return true;
     }
-
+    /**
+     *loads text
+     * @param lost
+     * @param found
+     * @param users
+     * @return true when completed false if not
+     */
     public boolean loadText(File lost, File found, File users) {
         try {
             //make an input object for reading
@@ -156,7 +193,11 @@ public class ManagementFacade {
 //
 //        return true;
 //    }
-
+    /**
+     *loads json
+     * @param file
+     * @return true when completed false if not
+     */
     public boolean loadJson(File file) {
         try {
             BufferedReader input = new BufferedReader(new FileReader(file));
@@ -177,7 +218,11 @@ public class ManagementFacade {
         return true;
 
     }
-
+    /**
+     *saves binary
+     * @param file
+     * @return true when completed false if not
+     */
     public boolean saveBinary(File file) {
         boolean success = true;
         try {
@@ -203,7 +248,11 @@ public class ManagementFacade {
         }
         return success;
     }
-
+    /**
+     *saves text
+     * @param file
+     * @return true when completed false if not
+     */
     public boolean saveText(File file) {
         System.out.println("Saving as a text file");
         try {
@@ -218,7 +267,12 @@ public class ManagementFacade {
 
         return true;
     }
-
+    /**
+     *saves text
+     * @param lost
+     * @param found
+     * @return true when completed false if not
+     */
     public boolean saveText(File lost, File found) {
         System.out.println("Saving as a text file");
         try {
@@ -236,7 +290,13 @@ public class ManagementFacade {
 
         return true;
     }
-
+    /**
+     *saves text
+     * @param lost
+     * @param found
+     * @param users
+     * @return true when completed false if not
+     */
     public boolean saveText(File lost, File found, File users) {
         System.out.println("Saving as a text file");
         try {
@@ -257,7 +317,11 @@ public class ManagementFacade {
 
         return true;
     }
-
+    /**
+     *saves found items
+     * @param file
+     * @return true when completed false if not
+     */
     public boolean saveFoundItems(File file) {
         System.out.println("Saving found items as a text file");
         try {
@@ -272,7 +336,11 @@ public class ManagementFacade {
 
         return true;
     }
-
+    /**
+     *saves json
+     * @param file
+     * @return true when completed false if not
+     */
     public boolean saveJson(File file ) {
 
         try {
@@ -302,33 +370,59 @@ public class ManagementFacade {
         return true;
     }
 
-
+    /**
+     *add item
+     * @param item
+     */
     public void addItem(Item item) {
         im.addItem(item);
     }
-
+    /**
+     *add lost item
+     * @param item
+     */
     public void addLostItem(LostItem item) {
         im.addLostItem(item);
     }
-
+    /**
+     *add found item
+     * @param item
+     */
     public void addFoundItem(FoundItem item) {
         im.addFoundItem(item);
     }
-
+    /**
+     *add user
+     * @param user
+     */
     public void addUser(User user) {
         im.addUser(user);
     }
-
+    /**
+     *removes user
+     * @param user
+     */
     public void removeUser(User user) {
         im.removeUser(user);
     }
-
+    /**
+     *remove item
+     * @param item
+     */
     public void removeItem(Item item) {
         im.removeItem(item);
     }
+    /**
+     *remove lost item
+     * @param item
+     */
     public void removeLostItem(LostItem item) {
         im.removeLostItem(item);
     }
+    /**
+     *remove found item
+     * @param item
+     */
     public void removeFoundItem(FoundItem item) {
         im.removeFoundItem(item);
     }

@@ -120,15 +120,24 @@ public class Model {
         }
         return false;
     }
-
+    /**
+     * getter for null user
+     * @return null user
+     */
     public User getNullUser() {
         return theNullUser;
     }
-
+    /**
+     * getter for null found item
+     * @return null found item
+     */
     public FoundItem getNullFoundItem() {
         return theNullFoundItem;
     }
-
+    /**
+     * getter for null lost item
+     * @return null lost item
+     */
     public LostItem getNullLostItem() {
         return theNullLostItem;
     }
@@ -322,7 +331,12 @@ public class Model {
         }
         return theNullUser;
     }
-
+    /**
+     * creates items out of the information
+     * @param found found item array
+     * @param lost lost item array
+     * @return list of items
+     */
     public static ArrayList<Item> convertToItem(List<FoundItem> found, List<LostItem> lost) {
         ArrayList<Item> list = new ArrayList<Item>();
         for (FoundItem f: found) {

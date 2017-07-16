@@ -103,7 +103,10 @@ public class FoundItem extends Item implements Parcelable, Serializable {
     public void setOwner(User u) {
         super.setOwner(u);
     }
-
+    /**
+     * getter for type
+     * @return type
+     */
     public String getType() {
         return type;
     }
@@ -119,7 +122,7 @@ public class FoundItem extends Item implements Parcelable, Serializable {
         return "Found Item: " + _name + "\n" + "Description: " + _description + "\n" + "Address: " + _address;
     }
 
-    /* *********************************
+    /*********************************
      * These methods are required by the parcelable interface
      *
      */
@@ -136,7 +139,7 @@ public class FoundItem extends Item implements Parcelable, Serializable {
     }
 
 
-    /* *************************
+    /*************************
     /  If you add new instance vars to Student, you will need to add them to the write
     /*/
     @Override

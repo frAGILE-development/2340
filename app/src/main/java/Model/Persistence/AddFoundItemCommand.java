@@ -9,18 +9,27 @@ import Model.LostItem;
 
 public class AddFoundItemCommand extends AbstractCommand {
     FoundItem item;
-
+    /**
+     *constructor
+     * @param i
+     */
     public AddFoundItemCommand(FoundItem i) {
         item = i;
     }
-
+    /**
+     *add item
+     * @return true when completed
+     */
     @Override
     public boolean execute() {
         ManagementFacade mf = ManagementFacade.getInstance();
         mf.addFoundItem(item);
         return true;
     }
-
+    /**
+     *removes item
+     * @return true when completed
+     */
     @Override
     public boolean undo() {
         ManagementFacade mf = ManagementFacade.getInstance();

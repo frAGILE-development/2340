@@ -78,9 +78,7 @@ public class User implements Parcelable , Serializable {
         this(username, "George", "P. Burdell", password , "george@gatech.edu", "0123456789", accountType.get(1));
     }
 
-        /* **********************
-         * Getters and setters
-         */
+
 
     /**
      * get's the user's usernmae
@@ -245,6 +243,11 @@ public class User implements Parcelable , Serializable {
         _adminType = type;
     }
 
+    /**
+     * finds what account type an account is
+     * @param code search for account type
+     * @return number of position
+     */
     public static int findPosition(String code) {
         int i = 0;
         while (i < accountType.size()) {
@@ -290,7 +293,7 @@ public class User implements Parcelable , Serializable {
     }
 
 
-    /* *********************************
+    /**********************************
      * These methods are required by the parcelable interface
      *
      */
@@ -309,7 +312,7 @@ public class User implements Parcelable , Serializable {
     }
 
 
-    /* *************************
+    /**************************
     /  If you add new instance vars to Student, you will need to add them to the write
     /*/
     @Override
