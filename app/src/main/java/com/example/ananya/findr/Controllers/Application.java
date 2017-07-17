@@ -253,17 +253,17 @@ public class Application extends AppCompatActivity {
 //                mf.loadFoundItemText(file);
 //                //myAdapter.notifyDataSetChanged();
 //                return true;
-            case R.id.load_json:
-                file = new File(this.getFilesDir(), ManagementFacade.DEFAULT_JSON_FILE_NAME);
-                mf.loadJson(file);
-                //myAdapter.updateList(mf.getStudentsAsList());
-                return true;
-            case R.id.save_binary:
-                file = new File(this.getFilesDir(), ManagementFacade.DEFAULT_BINARY_FILE_NAME);
-                return mf.saveBinary(file);
-            case R.id.save_json:
-                file = new File(this.getFilesDir(), ManagementFacade.DEFAULT_JSON_FILE_NAME);
-                return mf.saveJson(file);
+//            case R.id.load_json:
+//                file = new File(this.getFilesDir(), ManagementFacade.DEFAULT_JSON_FILE_NAME);
+//                mf.loadJson(file);
+//                //myAdapter.updateList(mf.getStudentsAsList());
+//                return true;
+//            case R.id.save_binary:
+//                file = new File(this.getFilesDir(), ManagementFacade.DEFAULT_BINARY_FILE_NAME);
+//                return mf.saveBinary(file);
+//            case R.id.save_json:
+//                file = new File(this.getFilesDir(), ManagementFacade.DEFAULT_JSON_FILE_NAME);
+//                return mf.saveJson(file);
 //            case R.id.save_lost_items:
 //                file = new File(this.getFilesDir(), ManagementFacade.DEFAULT_TEXT_FILE_NAME);
 //                return mf.saveText(file);
