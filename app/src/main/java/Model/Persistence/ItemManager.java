@@ -4,6 +4,7 @@ import com.example.ananya.findr.Controllers.AddLostItem;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InterruptedIOException;
 import java.io.PrintWriter;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -142,7 +143,19 @@ public class ItemManager implements Serializable {
         }
     }
     /**
-     *asave user
+     *This is really just for lost items
+     * @param writer
+     */
+    void saveAsBinary(PrintWriter writer) {
+        System.out.println("Item Manager saving: " + (lostItems.size()) + " items" );
+        writer.println(lostItems.size());
+
+        for (LostItem s : lostItems) {
+            s.saveAsBinary(writer);
+        }
+    }
+    /**
+     *save user
      * @param writer
      *
      */
@@ -152,6 +165,19 @@ public class ItemManager implements Serializable {
 
         for(User u : userList) {
             u.saveAsText(writer);
+        }
+    }
+    /**
+     *save user
+     * @param writer
+     *
+     */
+    void saveAsUsersBinary(PrintWriter writer) {
+        System.out.println("Item Manager saving: " + (userList.size()) + " users" );
+        writer.println(userList.size());
+
+        for(User u : userList) {
+            u.saveAsBinary(writer);
         }
     }
 
@@ -179,13 +205,68 @@ public class ItemManager implements Serializable {
     void saveAsFoundItems(PrintWriter writer) {
         System.out.println("Item Manager saving: " + (foundItems.size() + " found items" ));
         writer.println(foundItems.size());
-        for(FoundItem s : foundItems) {
+        for (FoundItem s : foundItems) {
             s.saveAsText(writer);
         }
     }
+    /**
+     *Saves Found items in their own file
+     * @param writer
+     */
+    void saveAsFoundItemsBinary(PrintWriter writer) {
+        System.out.println("Item Manager saving: " + (foundItems.size() + " found items" ));
+        writer.println(foundItems.size());
+        for (FoundItem s : foundItems) {
+            s.saveAsBinary(writer);
+        }
+    }
+    void loadFromBinary(BufferedReader lost, BufferedReader found) {
+        System.out.println("Loading Text File");
+        Model model = Model.getInstance();
+        itemMap.clear();
+        items.clear();
+        foundItems.clear();
+        lostItems.clear();
+        try {
+            String countStrLost = lost.readLine();
+            assert countStrLost != null;
+
+            String countStrFound = found.readLine();
+            assert countStrFound != null;
+
+            int lostCount = Integer.parseInt(countStrLost);
+            int foundCount = Integer.parseInt(countStrFound);
+            //THE FUNCTION WHERE IT HAPPENS
+            //reads in each item to the model
+            for (int i = 0; i < lostCount; ++i) {
+                String line = lost.readLine();
+                int conv = Integer.parseInt(line, 2);
+                String item = new Character((char)conv).toString();
+                LostItem l = LostItem.parseEntry(item);
+                lostItems.add(l);
+                model.addLostItem(l);
+            }
+            for (int i = 0; i < foundCount; ++i) {
+                String line = found.readLine();
+                int conv = Integer.parseInt(line, 2);
+                String item = new Character((char)conv).toString();
+                FoundItem l = FoundItem.parseEntry(item);
+                foundItems.add(l);
+                model.addFoundItem(l);
+            }
+            //be sure and close the file
+            lost.close();
+            found.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Done loading text file with " + foundItems.size() + "found items" +
+                "and " + lostItems.size() + " lost items");
+
+    }
 
     /**
-     *
+     * load from text
      * @param lost
      * @param found
      */
@@ -231,7 +312,7 @@ public class ItemManager implements Serializable {
     }
 
     /**
-     *
+     *loads form text
      * @param lost
      * @param found
      * @param users
@@ -286,6 +367,69 @@ public class ItemManager implements Serializable {
                 "and " + lostItems.size() + " lost items");
 
     }
+    /**
+     *loads form binary
+     * @param lost
+     * @param found
+     * @param users
+     */
+    void loadFromBinary(BufferedReader lost, BufferedReader found, BufferedReader users) {
+        System.out.println("Loading Text File");
+        Model model = Model.getInstance();
+        itemMap.clear();
+        items.clear();
+        foundItems.clear();
+        lostItems.clear();
+        userList.clear();
+        try {
+            String countStrLost = lost.readLine();
+            assert countStrLost != null;
+
+            String countStrFound = found.readLine();
+            assert countStrFound != null;
+            String countStrUsers = users.readLine();
+            assert countStrUsers != null;
+
+            int lostCount = Integer.parseInt(countStrLost);
+            int foundCount = Integer.parseInt(countStrFound);
+            int userCount = Integer.parseInt(countStrUsers);
+            //THE FUNCTION WHERE IT HAPPENS
+            //reads in each item to the model
+            for (int i = 0; i < lostCount; ++i) {
+                String line = lost.readLine();
+                int conv = Integer.parseInt(line, 2);
+                String item = new Character((char)conv).toString();
+                LostItem l = LostItem.parseEntry(item);
+                lostItems.add(l);
+                model.addLostItem(l);
+            }
+            for (int i = 0; i < foundCount; ++i) {
+                String line = found.readLine();
+                int conv = Integer.parseInt(line, 2);
+                String item = new Character((char)conv).toString();
+                FoundItem l = FoundItem.parseEntry(item);
+                foundItems.add(l);
+                model.addFoundItem(l);
+            }
+            for (int i = 0; i < userCount; ++i) {
+                String line = users.readLine();
+                int conv = Integer.parseInt(line, 2);
+                String item = new Character((char)conv).toString();
+                User l = User.parseEntry(item);
+                userList.add(l);
+                model.addUser(l);
+            }
+            //be sure and close the file
+            lost.close();
+            found.close();
+            users.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Done loading text file with " + foundItems.size() + "found items" +
+                "and " + lostItems.size() + " lost items");
+
+    }
 
     /**
      * load the model from a custom text file
@@ -309,6 +453,41 @@ public class ItemManager implements Serializable {
             for (int i = 0; i < count; ++i) {
                 String line = reader.readLine();
                 FoundItem s = FoundItem.parseEntry(line);
+                foundItems.add(s);
+                model.addFoundItem(s);
+            }
+            //be sure and close the file
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Done loading text file with " + (items.size() + foundItems.size()) + " found items");
+
+    }
+    /**
+     * load the model from a custom binary file
+     *
+     * @param reader  the file to read from
+     */
+    void loadFoundItemsFromTextBinary(BufferedReader reader) {
+        System.out.println("Loading Text File with Found items");
+        Model model = Model.getInstance();
+        itemMap.clear();
+        items.clear();
+        foundItems.clear();
+        lostItems.clear();
+        try {
+            String countStr = reader.readLine();
+            assert countStr != null;
+            int count = Integer.parseInt(countStr);
+
+            //THE FUNCTION WHERE IT HAPPENS
+            //reads in each item to the model
+            for (int i = 0; i < count; ++i) {
+                String line = reader.readLine();
+                int conv = Integer.parseInt(line, 2);
+                String item = new Character((char)conv).toString();
+                FoundItem s = FoundItem.parseEntry(item);
                 foundItems.add(s);
                 model.addFoundItem(s);
             }

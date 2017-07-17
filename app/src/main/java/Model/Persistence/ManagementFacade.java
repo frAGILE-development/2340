@@ -5,6 +5,7 @@ import android.util.Log;
 import com.google.gson.Gson;
 
 import java.io.BufferedReader;
+import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -98,26 +99,27 @@ public class ManagementFacade {
 
     /**
      *loads binary
-     * @param file
+     * @param lost
+     * @param found
      * @return true when completed false if not
      */
-    public boolean loadBinary(File file) {
+    public boolean loadBinary(File lost, File found) {
         boolean success = true;
         try {
-            /*
-              To read, we must use the ObjectInputStream since we want to read our model in with
-              a single read.
-             */
-            ObjectInputStream in = new ObjectInputStream(new FileInputStream(file));
-            // assuming we saved our top level object, we read it back in with one line of code.
-            im = (ItemManager) in.readObject();
-            im.regenMap();
-            in.close();
+            BufferedReader lostReader = new BufferedReader(new FileReader(lost));
+            BufferedReader foundReader = new BufferedReader(new FileReader(found));
+            im.loadFromBinary(lostReader, foundReader);
+//            /*
+//              To read, we must use the ObjectInputStream since we want to read our model in with
+//              a single read.
+//             */
+//            ObjectInputStream in = new ObjectInputStream(new FileInputStream(file));
+//            // assuming we saved our top level object, we read it back in with one line of code.
+//            im = (ItemManager) in.readObject();
+//            im.regenMap();
+//            in.close();
         } catch (IOException e) {
             Log.e("ManagementFacade", "Error reading an entry from binary file");
-            success = false;
-        } catch (ClassNotFoundException e) {
-            Log.e("ManagementFacade", "Error casting a class from the binary file");
             success = false;
         }
 
@@ -180,6 +182,29 @@ public class ManagementFacade {
         return true;
     }
 
+    /**
+     *loads binary
+     * @param lost
+     * @param found
+     * @param users
+     * @return true when completed false if not
+     */
+    public boolean loadBinary(File lost, File found, File users) {
+        try {
+            //make an input object for reading
+            BufferedReader lostReader = new BufferedReader(new FileReader(lost));
+            BufferedReader foundReader = new BufferedReader(new FileReader(found));
+            BufferedReader userReader = new BufferedReader(new FileReader(users));
+            im.loadFromBinary(lostReader, foundReader, userReader);
+
+        } catch (FileNotFoundException e) {
+            Log.e("ModelSingleton", "Failed to open text file for loading!");
+            return false;
+        }
+
+        return true;
+    }
+
 //    public boolean loadFoundItemText(File file) {
 //        try {
 //            //make an input object for reading
@@ -226,21 +251,24 @@ public class ManagementFacade {
     public boolean saveBinary(File file) {
         boolean success = true;
         try {
-            /*
-               For binary, we use Serialization, so everything we write has to implement
-               the Serializable interface.  Fortunately all the collection classes and APi classes
-               that we might use are already Serializable.  You just have to make sure your
-               classes implement Serializable.
-
-               We have to use an ObjectOutputStream to write objects.
-
-               One thing to be careful of:  You cannot serialize static data.
-             */
-            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file));
-            // We basically can save our entire data model with one write, since this will follow
-            // all the links and pointers to save everything.  Just save the top level object.
-            out.writeObject(im);
-            out.close();
+            PrintWriter pw = new PrintWriter(file);
+            im.saveAsBinary(pw);
+            pw.close();
+//            /*
+//               For binary, we use Serialization, so everything we write has to implement
+//               the Serializable interface.  Fortunately all the collection classes and APi classes
+//               that we might use are already Serializable.  You just have to make sure your
+//               classes implement Serializable.
+//
+//               We have to use an ObjectOutputStream to write objects.
+//
+//               One thing to be careful of:  You cannot serialize static data.
+//             */
+//            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file));
+//            // We basically can save our entire data model with one write, since this will follow
+//            // all the links and pointers to save everything.  Just save the top level object.
+//            out.writeObject(im);
+//            out.close();
 
         } catch (IOException e) {
             Log.e("ManagerFacade", "Error writing an entry from binary file");
@@ -291,6 +319,43 @@ public class ManagementFacade {
         return true;
     }
     /**
+     *saves binary
+     * @param lost
+     * @param found
+     * @return true when completed false if not
+     */
+    public boolean saveBinary(File lost, File found) {
+        boolean success = true;
+        try {
+            PrintWriter pwl = new PrintWriter(lost);
+            PrintWriter pwf = new PrintWriter(found);
+            im.saveAsBinary(pwl);
+            im.saveAsFoundItemsBinary(pwf);
+            pwl.close();
+            pwf.close();
+//            /*
+//               For binary, we use Serialization, so everything we write has to implement
+//               the Serializable interface.  Fortunately all the collection classes and APi classes
+//               that we might use are already Serializable.  You just have to make sure your
+//               classes implement Serializable.
+//
+//               We have to use an ObjectOutputStream to write objects.
+//
+//               One thing to be careful of:  You cannot serialize static data.
+//             */
+//            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file));
+//            // We basically can save our entire data model with one write, since this will follow
+//            // all the links and pointers to save everything.  Just save the top level object.
+//            out.writeObject(im);
+//            out.close();
+
+        } catch (IOException e) {
+            Log.e("ManagerFacade", "Error writing an entry from binary file");
+            success = false;
+        }
+        return success;
+    }
+    /**
      *saves text
      * @param lost
      * @param found
@@ -316,6 +381,47 @@ public class ManagementFacade {
         }
 
         return true;
+    }
+    /**
+     *saves binary
+     * @param lost
+     * @param found
+     * @param users
+     * @return true when completed false if not
+     */
+    public boolean saveBinary(File lost, File found, File users) {
+        boolean success = true;
+        try {
+            PrintWriter pwl = new PrintWriter(lost);
+            PrintWriter pwf = new PrintWriter(found);
+            PrintWriter pwu = new PrintWriter(users);
+            im.saveAsBinary(pwl);
+            im.saveAsFoundItemsBinary(pwf);
+            im.saveAsUsersBinary(pwu);
+            pwl.close();
+            pwf.close();
+            pwu.close();
+//            /*
+//               For binary, we use Serialization, so everything we write has to implement
+//               the Serializable interface.  Fortunately all the collection classes and APi classes
+//               that we might use are already Serializable.  You just have to make sure your
+//               classes implement Serializable.
+//
+//               We have to use an ObjectOutputStream to write objects.
+//
+//               One thing to be careful of:  You cannot serialize static data.
+//             */
+//            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file));
+//            // We basically can save our entire data model with one write, since this will follow
+//            // all the links and pointers to save everything.  Just save the top level object.
+//            out.writeObject(im);
+//            out.close();
+
+        } catch (IOException e) {
+            Log.e("ManagerFacade", "Error writing an entry from binary file");
+            success = false;
+        }
+        return success;
     }
     /**
      *saves found items
