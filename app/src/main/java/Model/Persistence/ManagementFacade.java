@@ -357,9 +357,9 @@ public class ManagementFacade {
 //    }
     /**
      *saves text
-     * @param lost
-     * @param found
-     * @param users
+     * @param lost lost item file
+     * @param found found item file
+     * @param users users file
      * @return true when completed false if not
      */
     public boolean saveText(File lost, File found, File users) {
