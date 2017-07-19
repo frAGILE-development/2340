@@ -79,7 +79,7 @@ public class User implements Parcelable , Serializable {
 
 
     /**
-     * get's the user's usernmae
+     * get's the user's username
      *
      * @return the user's username
      */
@@ -234,7 +234,7 @@ public class User implements Parcelable , Serializable {
     }
 
     /**
-     * Sets the privelege level of the user
+     * Sets the privilege level of the user
      * @param type admin or user
      */
     public void set_adminType(String type) {
@@ -260,7 +260,7 @@ public class User implements Parcelable , Serializable {
 
     /**
      * returns whether the user is banned or not
-     * @return
+     * @return true if banned
      */
     public Boolean getLockoutStatus() {
         return _lockoutStatus;
@@ -373,16 +373,16 @@ public class User implements Parcelable , Serializable {
 //        System.out.println("Saving Lost Item: " + _fullName);
 //        writer.println(binary);
 //    }
-    /**
-     * Constructor for the user class
-     *
-     * @param firstName   the user's first name
-     * @param lastName    the user's last name
-     * @param password    their password
-     * @param email       their email address
-     * @param phoneNumber their phone number
-     * @param type
-     */
+//    /**
+//     * Constructor for the user class
+//     *
+//     * @param firstName   the user's first name
+//     * @param lastName    the user's last name
+//     * @param password    their password
+//     * @param email       their email address
+//     * @param phoneNumber their phone number
+//     * @param type
+//     */
 
     /**
      * This is a static factory method that constructs a student given a text line in the correct format.

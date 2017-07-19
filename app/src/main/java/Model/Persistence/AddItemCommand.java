@@ -10,7 +10,7 @@ public class AddItemCommand extends AbstractCommand{
     private final Item item;
     /**
      *constructor
-     * @param i
+     * @param i item to be added
      *
      */
     public AddItemCommand(Item i) {

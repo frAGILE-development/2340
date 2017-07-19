@@ -8,7 +8,7 @@ public class Location {
     private final double _latitude;
     private final double _longitude;
     /**
-     * contructor for lacation
+     * constructor for location
      * @param lat latitude
      * @param longit longitude
      */

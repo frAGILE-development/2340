@@ -24,7 +24,7 @@ public class LostItem extends Item implements Parcelable, Serializable {
      * The constructor for the Lost Item class
      *
      * @param name        the name of the item
-     * @param description the decription of the lost item
+     * @param description the description of the lost item
      * @param address     the address of where the item was found
      */
     public LostItem(String name, String description, String address){
@@ -35,7 +35,7 @@ public class LostItem extends Item implements Parcelable, Serializable {
     }
 
     /**
-     * the Default contructor. For GUI use only
+     * the Default constructor. For GUI use only
      */
     public LostItem() {
         this("Default Lost Item", "No description", "221 Baker St");
@@ -153,8 +153,8 @@ public class LostItem extends Item implements Parcelable, Serializable {
     }
     /**
      * creates array and parcel for lost items
-     * @return parcel
-     * @return array of lost items
+     * return parcel
+     * return array of lost items
      */
     public static final Parcelable.Creator<LostItem> CREATOR
             = new Parcelable.Creator<LostItem>() {

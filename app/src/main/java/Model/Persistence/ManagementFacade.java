@@ -45,7 +45,7 @@ public class ManagementFacade {
      */
     public static ManagementFacade getInstance() { return instance; }
     /**
-     *getter itesm as list
+     *getter items as list
      * @return items in form of list
      */
     public List<Item> getItemsAsList() {
@@ -53,7 +53,7 @@ public class ManagementFacade {
     }
     /**
      *getter for item by name
-     * @param name
+     * @param name name of item
      * @return item
      */
     public Item getItemByName(final String name) {
@@ -61,27 +61,27 @@ public class ManagementFacade {
     }
     /**
      *add items
-     * @param name
-     * @param description
-     * @param address
+     * @param name name of item
+     * @param description description of item
+     * @param address address of item
      */
     public void addNewItem(final String name, final String description, final String address) {
         im.addItem(name, description, address);
     }
     /**
      *add lost item
-     * @param name
-     * @param description
-     * @param address
+     *@param name name of item
+     * @param description description of item
+     * @param address address of item
      */
     public void addLostItem(final String name, final String description, final String address) {
         im.addLostItem(name, description, address);
     }
     /**
      *add found item
-     * @param name
-     * @param description
-     * @param address
+     *@param name name of item
+     * @param description description of item
+     * @param address address of item
      */
     public void addFoundItem(final String name, final String description, final String address) {
         im.addFoundItem(name, description, address);
@@ -131,8 +131,8 @@ public class ManagementFacade {
 //    }
     /**
      *loads text
-     * @param lost
-     * @param found
+     * @param lost file for lost item
+     * @param found file for found item
      * @return true when completed false if not
      */
     public boolean loadText(File lost, File found) {
@@ -151,9 +151,9 @@ public class ManagementFacade {
     }
     /**
      *loads text
-     * @param lost
-     * @param found
-     * @param users
+     * @param lost file for lost item
+     * @param found file for found item
+     * @param users file for users
      * @return true when completed false if not
      */
     public boolean loadText(File lost, File found, File users) {
@@ -268,7 +268,7 @@ public class ManagementFacade {
 //    }
     /**
      *saves text
-     * @param file
+     * @param file file with data
      * @return true when completed false if not
      */
     public boolean saveText(File file) {
@@ -287,8 +287,8 @@ public class ManagementFacade {
     }
     /**
      *saves text
-     * @param lost
-     * @param found
+     * @param lost file for lost items
+     * @param found file for found items
      * @return true when completed false if not
      */
     public boolean saveText(File lost, File found) {
@@ -415,7 +415,7 @@ public class ManagementFacade {
 //    }
     /**
      *saves found items
-     * @param file
+     * @param file file for found items
      * @return true when completed false if not
      */
     public boolean saveFoundItems(File file) {
@@ -468,56 +468,56 @@ public class ManagementFacade {
 
     /**
      *add item
-     * @param item
+     * @param item item to be added
      */
     public void addItem(Item item) {
         im.addItem(item);
     }
     /**
      *add lost item
-     * @param item
+     * @param item item to be added
      */
     public void addLostItem(LostItem item) {
         im.addLostItem(item);
     }
     /**
      *add found item
-     * @param item
+     * @param item item to be added
      */
     public void addFoundItem(FoundItem item) {
         im.addFoundItem(item);
     }
     /**
      *add user
-     * @param user
+     * @param user user to be added
      */
     public void addUser(User user) {
         im.addUser(user);
     }
     /**
      *removes user
-     * @param user
+     * @param user user to be removed
      */
     public void removeUser(User user) {
         im.removeUser(user);
     }
     /**
      *remove item
-     * @param item
+     * @param item item to be removed
      */
     public void removeItem(Item item) {
         im.removeItem(item);
     }
     /**
      *remove lost item
-     * @param item
+     * @param item item to be removed
      */
     public void removeLostItem(LostItem item) {
         im.removeLostItem(item);
     }
     /**
      *remove found item
-     * @param item
+     * @param item item to be removed
      */
     public void removeFoundItem(FoundItem item) {
         im.removeFoundItem(item);

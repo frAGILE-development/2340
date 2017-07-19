@@ -12,9 +12,8 @@ import Model.LostItem;
 import Model.FoundItem;
 import Model.Model;
 
-/**
- * Created by bwatson35 on 6/29/17.
- */
+//Created by bwatson35 on 6/29/17.
+
 
 import android.view.View;
 import android.widget.AdapterView;
@@ -69,8 +68,8 @@ public class Search extends AppCompatActivity implements android.widget.SearchVi
 
     /**
      * On text submit
-     * @param query
-     * @return
+     * @param query query
+     * @return false
      */
     @Override
     public boolean onQueryTextSubmit(String query) {
@@ -80,8 +79,8 @@ public class Search extends AppCompatActivity implements android.widget.SearchVi
 
     /**
      * On addition or subtraction of new characters in the query
-     * @param newText
-     * @return
+     * @param newText characters being added to new text
+     * @return false
      */
     @Override
     public boolean onQueryTextChange(String newText) {

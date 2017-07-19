@@ -21,8 +21,8 @@ class ListAdapter extends BaseAdapter {
     private final ArrayList<Item> arraylist;
     /**
      *constructor
-     * @param context
-     * @param namesList
+     * @param context context
+     * @param namesList item names list
      */
     public ListAdapter(Context context, List<Item> namesList) {
         Context mContext = context;
@@ -47,7 +47,7 @@ class ListAdapter extends BaseAdapter {
     }
     /**
      *getter for item
-     * @param position
+     * @param position position of item
      * @return item
      */
     @Override
@@ -56,7 +56,7 @@ class ListAdapter extends BaseAdapter {
     }
     /**
      *getter item id
-     * @param position
+     * @param position position of item
      * @return position
      */
     @Override
@@ -65,9 +65,9 @@ class ListAdapter extends BaseAdapter {
     }
     /**
      *gets view
-     * @param position
-     * @param view
-     * @param parent
+     * @param position position of item
+     * @param view view
+     * @param parent view group
      * @return view
      */
     public View getView(final int position, View view, ViewGroup parent) {

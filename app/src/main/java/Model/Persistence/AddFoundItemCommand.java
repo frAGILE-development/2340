@@ -10,7 +10,7 @@ public class AddFoundItemCommand extends AbstractCommand {
     private final FoundItem item;
     /**
      *constructor
-     * @param i
+     * @param i found item
      */
     public AddFoundItemCommand(FoundItem i) {
         item = i;

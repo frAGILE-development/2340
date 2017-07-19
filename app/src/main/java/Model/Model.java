@@ -113,7 +113,7 @@ public class Model {
     /**
      * returns true if the user is banned, false otherwise
      * @param user the user to check its lockout status
-     * @return
+     * @return true if user banned else false
      */
     public boolean isBannedUser(User user) {
         for (User c : _bannedUsers) {
