@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Created by bwatson35 on 6/25/17.
+ * Created by Bryce Watson on 6/25/17.
  * Information Holder - represents a single user in model.
  * Is modeled in part on the student class from Lab 3.
  * We are passing this object in a bundle between intents, so we implement

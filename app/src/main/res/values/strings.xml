@@ -4,9 +4,9 @@
     <string name="name">Name</string>
     <string name="cancel">Cancel</string>
     <string name="ok">OK</string>
-    <string name="descr">Item Description</string>
+    <string name="description">Item Description</string>
     <string name="add_pic">Add a Picture</string>
-    <string name="addr_found">Address of where it was found</string>
+    <string name="address_found">Address of where it was found</string>
 
     <!-- Strings related to login -->
     <string name="log_in">Log In</string>

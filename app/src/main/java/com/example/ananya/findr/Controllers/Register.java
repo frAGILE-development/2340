@@ -16,7 +16,7 @@ import Model.User;
 import Model.Model;
 
 /**
- * Created by bwatson35 on 6/25/17.
+ * Created by Bryce Watson on 6/25/17.
  * Controller for registering a new User
  *
  * Ensures 3 things about the account created:

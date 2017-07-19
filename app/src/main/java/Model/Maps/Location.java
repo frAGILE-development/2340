@@ -1,7 +1,7 @@
 package Model.Maps;
 
 /**
- * Created by bwatson35 on 7/11/17.
+ * Created by Bryce Watson on 7/11/17.
  */
 
 public class Location {

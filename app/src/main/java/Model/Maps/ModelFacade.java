@@ -2,7 +2,7 @@ package Model.Maps;
 import java.util.List;
 
 /**
- * Created by bwatson35 on 2/21/17.
+ * Created by Bryce Watson on 2/21/17.
  */
 
 public class ModelFacade {
