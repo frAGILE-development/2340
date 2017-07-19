@@ -13,11 +13,10 @@ import java.io.Serializable;
 public class FoundItem extends Item implements Parcelable, Serializable {
 
     //instance variables
-    private String _name;
-    private String _description;
-    private String _address;
+    private final String _name;
+    private final String _description;
+    private final String _address;
     private User _owner;
-    private String type = "Found Item";
 
     /**
      * The constructor for the found Item class
@@ -108,6 +107,7 @@ public class FoundItem extends Item implements Parcelable, Serializable {
      * @return type
      */
     public String getType() {
+        String type = "Found Item";
         return type;
     }
 
@@ -213,9 +213,8 @@ public class FoundItem extends Item implements Parcelable, Serializable {
         assert line != null;
         String[] tokens = line.split("\t");
         assert tokens.length == 3;
-        FoundItem s = new FoundItem(tokens[0], tokens[1], tokens[2]);
+        return new FoundItem(tokens[0], tokens[1], tokens[2]);
 
-        return s;
     }
 
 

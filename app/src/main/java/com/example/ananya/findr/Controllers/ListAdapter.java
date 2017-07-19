@@ -10,25 +10,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import com.example.ananya.findr.R;
-import Model.Model;
-import Model.LostItem;
 import Model.Item;
 
-public class ListAdapter extends BaseAdapter {
+class ListAdapter extends BaseAdapter {
 
     // Declare Variables
 
-    Context mContext;
-    LayoutInflater inflater;
+    private final LayoutInflater inflater;
     private List<Item> namesList = null;
-    private ArrayList<Item> arraylist;
+    private final ArrayList<Item> arraylist;
     /**
      *constructor
      * @param context
      * @param namesList
      */
     public ListAdapter(Context context, List<Item> namesList) {
-        mContext = context;
+        Context mContext = context;
         this.namesList = namesList;
         inflater = LayoutInflater.from(mContext);
         this.arraylist = new ArrayList<Item>();
@@ -74,7 +71,6 @@ public class ListAdapter extends BaseAdapter {
      * @return view
      */
     public View getView(final int position, View view, ViewGroup parent) {
-        Model model = Model.getInstance();
         final ViewHolder holder;
         if (view == null) {
             holder = new ViewHolder();

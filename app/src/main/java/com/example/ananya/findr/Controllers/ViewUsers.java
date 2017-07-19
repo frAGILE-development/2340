@@ -18,7 +18,6 @@ import Model.*;
  */
 
 public class ViewUsers<T extends Comparable<? super T>> extends AppCompatActivity {
-    ListView listView ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +26,7 @@ public class ViewUsers<T extends Comparable<? super T>> extends AppCompatActivit
                 R.layout.activity_founditemlist);
 
         // Get ListView object from xml
-        listView = (ListView) findViewById(R.id.list);
+        ListView listView = (ListView) findViewById(R.id.list);
 
         // Define a new Adapter
         // First parameter - Context

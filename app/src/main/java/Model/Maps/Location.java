@@ -1,14 +1,12 @@
 package Model.Maps;
 
-import Model.Model;
-
 /**
  * Created by bwatson35 on 7/11/17.
  */
 
 public class Location {
-    private double _latitude;
-    private double _longitude;
+    private final double _latitude;
+    private final double _longitude;
     /**
      * contructor for lacation
      * @param lat latitude

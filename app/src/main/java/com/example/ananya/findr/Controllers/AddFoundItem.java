@@ -12,7 +12,6 @@ import com.example.ananya.findr.R;
 
 import Model.FoundItem;
 import Model.Model;
-import Model.Persistence.ItemManager;
 import Model.Persistence.ManagementFacade;
 
 /**
@@ -44,8 +43,8 @@ public class AddFoundItem extends AppCompatActivity{
                 EditText description = (EditText) findViewById(R.id.description);
                 EditText address = (EditText) findViewById(R.id.address);
 
-                if (name.getText().toString().equals(null) || description.getText().toString().equals(null) ||
-                        address.getText().toString().equals(null)) {
+                if (name.getText().toString().isEmpty() || description.getText().toString().isEmpty() ||
+                        address.getText().toString().isEmpty()) {
                     Toast.makeText(AddFoundItem.this, "Must input something into all text fields", Toast.LENGTH_SHORT).show();
                     errorFlag = true;
                 }

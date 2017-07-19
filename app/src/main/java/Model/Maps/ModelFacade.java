@@ -6,22 +6,20 @@ import java.util.List;
  */
 
 public class ModelFacade {
-    private static ModelFacade INSTANCE = new ModelFacade();
+    private static final ModelFacade INSTANCE = new ModelFacade();
     public static ModelFacade getInstance() { return INSTANCE; }
 
-    private ReportManager _reportManager;
+    private final ReportManager _reportManager;
 
     private ModelFacade() {
         _reportManager = new ReportManager();
     }
     /**
      * adds a report
-     * @param title the title
-     * @param desc description
      * @param loc location
      */
-    public void addReport(String title, String desc, Location loc) {
-        _reportManager.addReport(new Report(title, desc, loc));
+    public void addReport(Location loc) {
+        _reportManager.addReport(new Report("New Item", "Platform ", loc));
     }
 
     /**

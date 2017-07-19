@@ -11,7 +11,6 @@ import android.widget.Toast;
 import com.example.ananya.findr.R;
 
 import Model.Persistence.ManagementFacade;
-import Model.User;
 import Model.Model;
 import Model.LostItem;
 
@@ -44,8 +43,8 @@ public class AddLostItem  extends AppCompatActivity{
                 EditText description = (EditText) findViewById(R.id.description);
                 EditText address = (EditText) findViewById(R.id.address);
 
-                if (name.getText().toString().equals(null) || description.getText().toString().equals(null) ||
-                        address.getText().toString().equals(null)) {
+                if (name.getText().toString().isEmpty()|| description.getText().toString().isEmpty() ||
+                        address.getText().toString().isEmpty() ){
                     Toast.makeText(AddLostItem.this, "Must input something into all text fields", Toast.LENGTH_SHORT).show();
                     errorFlag = true;
                 }

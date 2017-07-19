@@ -10,7 +10,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import FloatingActionButton.FloatingActionsMenu;
@@ -21,7 +20,6 @@ import Model.Persistence.ManagementFacade;
 import com.example.ananya.findr.R;
 
 import java.io.File;
-import java.util.ArrayList;
 
 /**
  * Created by Ananya on 6/22/17.
@@ -58,7 +56,11 @@ public class Application extends AppCompatActivity {
         });
 
         if (!model.getCurrentUser().isAdmin()) {
-            admin.setVisibility(admin.GONE);
+            admin.setVisibility(View.GONE);
+        }
+
+        if (model.getCurrentUser().isAdmin()) {
+            admin.setVisibility(View.VISIBLE);
         }
 
         admin.setOnClickListener(new OnClickListener() {
@@ -97,8 +99,6 @@ public class Application extends AppCompatActivity {
         generate.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                ArrayList<LostItem> lostList = new ArrayList<LostItem>();
-                ArrayList<FoundItem> foundList = new ArrayList<FoundItem>();
                 ManagementFacade mf = ManagementFacade.getInstance();
                 Model model = Model.getInstance();
                 String[] lostNameList = new String[]{"A Tale of 2 Cities", "A Hitchhiker's Guide to the Galaxy",
@@ -125,7 +125,6 @@ public class Application extends AppCompatActivity {
                     model.addLostItem(new LostItem(lostNameList[i], "book", "somewhere"));
                     model.setCurrentLostItem(new LostItem(lostNameList[i], "book", "somewhere"));
                     //comment this out below along with its sister comment to turn on name generation
-                    lostList.add(model.getCurrentLostItem());
                     mf.addLostItem(model.getCurrentLostItem());
                 }
 
@@ -134,7 +133,6 @@ public class Application extends AppCompatActivity {
                     model.addFoundItem(new FoundItem(foundNameList[i], "book", "somewhere"));
                     model.setCurrentFoundItem(new FoundItem(foundNameList[i], "book", "somewhere"));
                     //comment this out below along with its sister comment to turn on name generation
-                    foundList.add(model.getCurrentFoundItem());
                     mf.addFoundItem(model.getCurrentFoundItem());
 
                 }

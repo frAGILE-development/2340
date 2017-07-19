@@ -33,7 +33,7 @@ import Model.Model;
  */
 
 public class Login extends AppCompatActivity {
-    private ArrayList<User> loginRecord = new ArrayList<User>();
+    private final ArrayList<User> loginRecord = new ArrayList<User>();
     /**
      *updates login records
      * @param username
@@ -118,7 +118,7 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        EditText username = (EditText) findViewById(R.id.name);
+//        EditText username = (EditText) findViewById(R.id.name);
         final EditText password = (EditText) findViewById(R.id.pass);
 
         Button login = (Button) findViewById(R.id.login);

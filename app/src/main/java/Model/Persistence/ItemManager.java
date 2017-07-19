@@ -1,10 +1,6 @@
 package Model.Persistence;
-
-import com.example.ananya.findr.Controllers.AddLostItem;
-
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InterruptedIOException;
 import java.io.PrintWriter;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -16,7 +12,7 @@ import Model.*;
  * Created by Bryce Watson on 7/14/2017.
  */
 
-public class ItemManager implements Serializable {
+class ItemManager implements Serializable {
     /**
      * A list of items
      */
@@ -578,7 +574,6 @@ public class ItemManager implements Serializable {
      */
     void addUser(User user) {
         userList.add(user);
-        userMap.put(user.getUsername(), user);
     }
     /**
      * used by command pattern, should be not called otherwise
@@ -586,7 +581,6 @@ public class ItemManager implements Serializable {
      * @param item the student to add
      */
     void removeUser(User item) {
-        foundItems.remove(item);
-        userMap.remove(item.getUsername());
+        userList.remove(item);
     }
 }

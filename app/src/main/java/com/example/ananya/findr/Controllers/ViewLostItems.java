@@ -7,23 +7,18 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-
 import FloatingActionButton.FloatingActionButton;
 import Model.Model;
 import Model.LostItem;
 import FloatingActionButton.*;
 import com.example.ananya.findr.R;
 
-import java.util.List;
-
 /**
  * Created by Ananya on 6/29/17.
  */
 
 public class ViewLostItems<T extends Comparable<? super T>> extends AppCompatActivity {
-    ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +27,7 @@ public class ViewLostItems<T extends Comparable<? super T>> extends AppCompatAct
                 R.layout.activity_lostitemlist);
 
         // Get ListView object from xml
-        listView = (ListView) findViewById(R.id.list);
+        ListView listView = (ListView) findViewById(R.id.list);
 
         // Define a new Adapter
         // First parameter - Context

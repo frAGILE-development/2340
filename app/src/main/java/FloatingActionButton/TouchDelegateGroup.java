@@ -8,7 +8,7 @@ import android.view.View;
 
 import java.util.ArrayList;
 
-public class TouchDelegateGroup extends TouchDelegate {
+class TouchDelegateGroup extends TouchDelegate {
   private static final Rect USELESS_HACKY_RECT = new Rect();
   private final ArrayList<TouchDelegate> mTouchDelegates = new ArrayList<TouchDelegate>();
   private TouchDelegate mCurrentTouchDelegate;

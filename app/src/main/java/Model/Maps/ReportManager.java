@@ -7,8 +7,8 @@ import java.util.List;
  * Created by bwatson35 on 7/11/17.
  */
 
-public class ReportManager {
-    private List<Report> _reports;
+class ReportManager {
+    private final List<Report> _reports;
     /**
      * constructor for report manager
      */

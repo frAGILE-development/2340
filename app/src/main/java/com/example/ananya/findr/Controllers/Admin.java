@@ -6,10 +6,8 @@ import com.example.ananya.findr.R;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -19,7 +17,6 @@ import Model.User;
 import Model.Model;
 import Model.FoundItem;
 import Model.LostItem;
-import Model.Item;
 /**
 
 /**
@@ -28,15 +25,9 @@ import Model.Item;
 
 public class Admin extends AppCompatActivity {
     //instance variables for data generation
-    ListView list;
-    ListView list_found;
-    ListAdapter adapter;
-    FoundAdapter adapter2;
-    android.widget.SearchView editsearch;
-    ArrayList<LostItem> lostList = new ArrayList<LostItem>();
-    ArrayList<FoundItem> foundList = new ArrayList<FoundItem>();
-    ArrayList<Item> totalList = new ArrayList<Item>();
-    Model model = Model.getInstance();
+    private final ArrayList<LostItem> lostList = new ArrayList<LostItem>();
+    private final ArrayList<FoundItem> foundList = new ArrayList<FoundItem>();
+    private final Model model = Model.getInstance();
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,8 +64,8 @@ public class Admin extends AppCompatActivity {
                 mf.addUser(user4);
 
                 // Locate the ListView in listview_main.xml
-                list = (ListView) findViewById(R.id.list_view);
-                list_found = (ListView) findViewById(R.id.list_view);
+//                list = (ListView) findViewById(R.id.list_view);
+//                list_found = (ListView) findViewById(R.id.list_view);
 
                 for (int i = 0; i < lostNameList.length; i++) {
                     // Binds all strings into an array
@@ -106,7 +97,6 @@ public class Admin extends AppCompatActivity {
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Model model = new Model().getInstance();
                 model.nuclearMeltdown();
                 Toast.makeText(Admin.this, "Data erased", Toast.LENGTH_SHORT).show();
             }

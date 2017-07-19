@@ -35,7 +35,7 @@ import com.example.ananya.findr.R;
 public class FloatingActionButton extends android.support.v7.widget.AppCompatImageButton {
 
     public static final int SIZE_NORMAL = 0;
-    public static final int SIZE_MINI = 1;
+    private static final int SIZE_MINI = 1;
 
     @Retention(RetentionPolicy.SOURCE)
     @IntDef({SIZE_NORMAL, SIZE_MINI})
@@ -44,8 +44,8 @@ public class FloatingActionButton extends android.support.v7.widget.AppCompatIma
 
     int mColorNormal;
     int mColorPressed;
-    int mColorDisabled;
-    String mTitle;
+    private int mColorDisabled;
+    private String mTitle;
     @DrawableRes
     private int mIcon;
     private Drawable mIconDrawable;
@@ -143,7 +143,7 @@ public class FloatingActionButton extends android.support.v7.widget.AppCompatIma
         setColorNormal(getColor(colorNormal));
     }
 
-    public void setColorNormal(int color) {
+    private void setColorNormal(int color) {
         if (mColorNormal != color) {
             mColorNormal = color;
             updateBackground();
@@ -179,7 +179,7 @@ public class FloatingActionButton extends android.support.v7.widget.AppCompatIma
         setColorDisabled(getColor(colorDisabled));
     }
 
-    public void setColorDisabled(int color) {
+    private void setColorDisabled(int color) {
         if (mColorDisabled != color) {
             mColorDisabled = color;
             updateBackground();
@@ -334,13 +334,13 @@ public class FloatingActionButton extends android.support.v7.widget.AppCompatIma
         paint.setStrokeWidth(strokeWidth);
         paint.setStyle(Style.STROKE);
         paint.setColor(Color.BLACK);
-        paint.setAlpha(opacityToAlpha(0.02f));
+        paint.setAlpha(opacityToAlpha());
 
         return shapeDrawable;
     }
 
-    private int opacityToAlpha(float opacity) {
-        return (int) (255f * opacity);
+    private int opacityToAlpha() {
+        return (int) (255f * 0.02f);
     }
 
     private int darkenColor(int argb) {

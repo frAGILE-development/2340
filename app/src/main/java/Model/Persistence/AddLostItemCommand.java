@@ -1,6 +1,5 @@
 package Model.Persistence;
 
-import Model.Item;
 import Model.LostItem;
 
 /**
@@ -8,7 +7,7 @@ import Model.LostItem;
  */
 
 public class AddLostItemCommand extends AbstractCommand {
-     LostItem item;
+     private final LostItem item;
     /**
      *constructor
      * @param i

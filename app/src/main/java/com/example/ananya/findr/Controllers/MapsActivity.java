@@ -68,8 +68,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 
                 // Clears the previously touched position
-                mMap.clear();
-                mFacade.addReport("New Item", "Platform ", new Location(latLng.latitude, latLng.longitude));
+                //mMap.clear();
+                mFacade.addReport(new Location(latLng.latitude, latLng.longitude));
 
                 // Setting the title for the marker.
                 // This will be displayed on taping the marker

@@ -1,14 +1,13 @@
 package Model.Persistence;
 
 import Model.FoundItem;
-import Model.LostItem;
 
 /**
  * Created by Bryce Watson on 7/14/2017.
  */
 
 public class AddFoundItemCommand extends AbstractCommand {
-    FoundItem item;
+    private final FoundItem item;
     /**
      *constructor
      * @param i

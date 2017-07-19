@@ -17,7 +17,7 @@ public class Item implements Parcelable, Serializable {
     private String _description;
     private String _address;
     private User _owner;
-    private String _type;
+
     /**
      * The constructor for the Lost Item class
      *
@@ -105,7 +105,7 @@ public class Item implements Parcelable, Serializable {
      * Gets the current user under which the lost item has been filed
      * @return the owner of the item
      */
-    public User getOwner() {
+    User getOwner() {
         return _owner;
     }
 
@@ -113,7 +113,7 @@ public class Item implements Parcelable, Serializable {
      * Sets a new owner of the lost item. Use with caution
      * @param u the new owner of the lost item
      */
-    public void setOwner(User u) {
+    void setOwner(User u) {
         _owner = u;
     }
 
@@ -131,6 +131,7 @@ public class Item implements Parcelable, Serializable {
      * @return type of item
      */
     public String getType() {
+        String _type;
         if (this.getClass().isInstance(FoundItem.class)) {
             _type = "Found Item";
         } else {
@@ -212,8 +213,7 @@ public class Item implements Parcelable, Serializable {
         assert line != null;
         String[] tokens = line.split("\t");
         assert tokens.length == 3;
-        LostItem s = new LostItem(tokens[0], tokens[1], tokens[2]);
+        return new LostItem(tokens[0], tokens[1], tokens[2]);
 
-        return s;
     }
 }

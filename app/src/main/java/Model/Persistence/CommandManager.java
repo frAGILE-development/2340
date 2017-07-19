@@ -12,13 +12,13 @@ public class CommandManager {
      * This maintains a list of commands executed in order
      * Front of list is oldest command, tail is newest
      */
-    private List<AbstractCommand> history = new LinkedList<>();
+    private final List<AbstractCommand> history = new LinkedList<>();
 
     /**
      * This maintains a list of commands that have been undone
      * Front of list is oldest command, tail is most recent
      */
-    private List<AbstractCommand> redoList = new LinkedList<> ();
+    private final List<AbstractCommand> redoList = new LinkedList<> ();
 
     /**
      * Execute a command and add to history if the command returned true
@@ -34,24 +34,24 @@ public class CommandManager {
         }
     }
 
-    /**
-     * undo the most recent command executed
-     */
-    public void undoCommand() {
-        assert history.size() > 0;
-        final AbstractCommand command = history.remove(history.size() - 1);
-        command.undo();
-        redoList.add(command);
-    }
-
-    /**
-     * execute the most recent command undone
-     */
-    public void redoCommand() {
-        assert redoList.size() > 0;
-        final AbstractCommand command = redoList.remove(redoList.size() - 1);
-        command.execute();
-        history.add(command);
-    }
+//    /**
+//     * undo the most recent command executed
+//     */
+//    public void undoCommand() {
+//        assert history.size() > 0;
+//        final AbstractCommand command = history.remove(history.size() - 1);
+//        command.undo();
+//        redoList.add(command);
+//    }
+//
+//    /**
+//     * execute the most recent command undone
+//     */
+//    public void redoCommand() {
+//        assert redoList.size() > 0;
+//        final AbstractCommand command = redoList.remove(redoList.size() - 1);
+//        command.execute();
+//        history.add(command);
+//    }
 
 }

@@ -8,7 +8,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import android.widget.Spinner;
-import android.widget.ArrayAdapter;
 
 import com.example.ananya.findr.R;
 
@@ -64,8 +63,8 @@ public class Register extends AppCompatActivity {
                     errorFlag = true;
                 }
                 //checks username, both password fields, and email for empty fields
-                if (username.getText().toString().equals(null) || password1.getText().toString().equals(null) ||
-                        password2.getText().toString().equals(null) || email.getText().toString().equals(null)) {
+                if (username.getText().toString().isEmpty() || password1.getText().toString().isEmpty() ||
+                        password2.getText().toString().isEmpty() || email.getText().toString().isEmpty()) {
                     Toast.makeText(Register.this, "Can't Register: Username, password, and email required", Toast.LENGTH_SHORT).show();
                     errorFlag = true;
                 }
@@ -91,7 +90,7 @@ public class Register extends AppCompatActivity {
                         _user.demoteToUser();
                     }
 
-                    if (phone.getText().toString().equals(null)) {
+                    if (phone.getText().toString().isEmpty()) {
                         _user.setPhoneNumber("0000000000");
                     } else {
                         _user.setPhoneNumber(phone.getText().toString().replaceAll("\\D+", ""));

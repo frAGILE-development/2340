@@ -15,11 +15,11 @@ import java.io.Serializable;
 public class LostItem extends Item implements Parcelable, Serializable {
 
     //instance variables
-    private String _name;
-    private String _description;
-    private String _address;
+    private final String _name;
+    private final String _description;
+    private final String _address;
     private User _owner;
-    private String type = "Lost Item";
+
     /**
      * The constructor for the Lost Item class
      *
@@ -109,6 +109,7 @@ public class LostItem extends Item implements Parcelable, Serializable {
      * @return the type
      */
     public String getType() {
+        String type = "Lost Item";
         return type;
     }
 
@@ -219,8 +220,7 @@ public class LostItem extends Item implements Parcelable, Serializable {
         assert line != null;
         String[] tokens = line.split("\t");
         assert tokens.length == 3;
-        LostItem s = new LostItem(tokens[0], tokens[1], tokens[2]);
+        return new LostItem(tokens[0], tokens[1], tokens[2]);
 
-        return s;
     }
 }

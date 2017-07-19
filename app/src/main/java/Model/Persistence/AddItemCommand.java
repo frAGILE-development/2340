@@ -1,6 +1,5 @@
 package Model.Persistence;
 import Model.*;
-import java.io.Serializable;
 
 /**
  * Created by Bryce Watson on 7/14/2017.
@@ -8,7 +7,7 @@ import java.io.Serializable;
 
 public class AddItemCommand extends AbstractCommand{
 
-    Item item;
+    private final Item item;
     /**
      *constructor
      * @param i

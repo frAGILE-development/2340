@@ -26,12 +26,12 @@ import android.widget.TextView;
 import com.example.ananya.findr.R;
 
 public class FloatingActionsMenu extends ViewGroup {
-  public static final int EXPAND_UP = 0;
-  public static final int EXPAND_DOWN = 1;
-  public static final int EXPAND_LEFT = 2;
-  public static final int EXPAND_RIGHT = 3;
+  private static final int EXPAND_UP = 0;
+  private static final int EXPAND_DOWN = 1;
+  private static final int EXPAND_LEFT = 2;
+  private static final int EXPAND_RIGHT = 3;
 
-  public static final int LABELS_ON_LEFT_SIDE = 0;
+  private static final int LABELS_ON_LEFT_SIDE = 0;
   public static final int LABELS_ON_RIGHT_SIDE = 1;
 
   private static final int ANIMATION_DURATION = 300;
@@ -51,8 +51,8 @@ public class FloatingActionsMenu extends ViewGroup {
 
   private boolean mExpanded;
 
-  private AnimatorSet mExpandAnimation = new AnimatorSet().setDuration(ANIMATION_DURATION);
-  private AnimatorSet mCollapseAnimation = new AnimatorSet().setDuration(ANIMATION_DURATION);
+  private final AnimatorSet mExpandAnimation = new AnimatorSet().setDuration(ANIMATION_DURATION);
+  private final AnimatorSet mCollapseAnimation = new AnimatorSet().setDuration(ANIMATION_DURATION);
   private AddFloatingActionButton mAddButton;
   private RotatingDrawable mRotatingDrawable;
   private int mMaxButtonWidth;
@@ -424,16 +424,16 @@ public class FloatingActionsMenu extends ViewGroup {
     return super.checkLayoutParams(p);
   }
 
-  private static Interpolator sExpandInterpolator = new OvershootInterpolator();
-  private static Interpolator sCollapseInterpolator = new DecelerateInterpolator(3f);
-  private static Interpolator sAlphaExpandInterpolator = new DecelerateInterpolator();
+  private static final Interpolator sExpandInterpolator = new OvershootInterpolator();
+  private static final Interpolator sCollapseInterpolator = new DecelerateInterpolator(3f);
+  private static final Interpolator sAlphaExpandInterpolator = new DecelerateInterpolator();
 
   private class LayoutParams extends ViewGroup.LayoutParams {
 
-    private ObjectAnimator mExpandDir = new ObjectAnimator();
-    private ObjectAnimator mExpandAlpha = new ObjectAnimator();
-    private ObjectAnimator mCollapseDir = new ObjectAnimator();
-    private ObjectAnimator mCollapseAlpha = new ObjectAnimator();
+    private final ObjectAnimator mExpandDir = new ObjectAnimator();
+    private final ObjectAnimator mExpandAlpha = new ObjectAnimator();
+    private final ObjectAnimator mCollapseDir = new ObjectAnimator();
+    private final ObjectAnimator mCollapseAlpha = new ObjectAnimator();
     private boolean animationsSetToPlay;
 
     public LayoutParams(ViewGroup.LayoutParams source) {
@@ -529,7 +529,7 @@ public class FloatingActionsMenu extends ViewGroup {
     }
   }
 
-  public void collapse() {
+  private void collapse() {
     collapse(false);
   }
 
@@ -551,7 +551,7 @@ public class FloatingActionsMenu extends ViewGroup {
     }
   }
 
-  public void toggle() {
+  private void toggle() {
     if (mExpanded) {
       collapse();
     } else {
@@ -559,7 +559,7 @@ public class FloatingActionsMenu extends ViewGroup {
     }
   }
 
-  public void expand() {
+  private void expand() {
     if (!mExpanded) {
       mExpanded = true;
       mTouchDelegateGroup.setEnabled(true);

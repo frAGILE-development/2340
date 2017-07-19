@@ -7,10 +7,9 @@ package Model.Maps;
 
 public class Report {
     private static int Next_ID = 1000;
-    private int _id;
-    private String _name;
-    private String _description;
-    private Location _location;
+    private final String _name;
+    private final String _description;
+    private final Location _location;
     /**
      * constructor for report
      * @param name name
@@ -21,7 +20,7 @@ public class Report {
         _name = name;
         _description = desc;
         _location = location;
-        _id = Next_ID++;
+        int _id = Next_ID++;
     }
     /**
      * to string method

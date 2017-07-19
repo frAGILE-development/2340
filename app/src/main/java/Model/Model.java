@@ -3,6 +3,8 @@ package Model;
 import java.util.ArrayList;
 import java.util.List;
 import Model.FoundItem;
+import Model.Persistence.ManagementFacade;
+
 /**
  * Created by bwatson35 on 6/25/17.
  * Based heavily on the model for Lab 3
@@ -31,7 +33,6 @@ public class Model {
     private List<LostItem> _lostItems;
     private List<FoundItem> _foundItems;
     private List<User> _bannedUsers;
-    private List<Item> _total_item_list;
     /**
      * the currently selected user, defaults to the first one
      */
@@ -48,7 +49,7 @@ public class Model {
     /**
      * makes a new model
      */
-    public Model() {
+    private Model() {
         _users = new ArrayList<>();
         _lostItems = new ArrayList<>();
         _foundItems = new ArrayList<>();
@@ -337,7 +338,7 @@ public class Model {
      * @param lost lost item array
      * @return list of items
      */
-    public static ArrayList<Item> convertToItem(List<FoundItem> found, List<LostItem> lost) {
+    private static ArrayList<Item> convertToItem(List<FoundItem> found, List<LostItem> lost) {
         ArrayList<Item> list = new ArrayList<Item>();
         for (FoundItem f: found) {
             Item newItem = new Item();
@@ -376,14 +377,17 @@ public class Model {
      * Completely wipes everything in the model
      */
     public void nuclearMeltdown() {
+        ManagementFacade mf = ManagementFacade.getInstance();
+        Model model = Model.getInstance();
+        mf.removeAllFoundItems();
+        mf.removeAllLostItems();
         _users = new ArrayList<>();
         _lostItems = new ArrayList<>();
         _foundItems = new ArrayList<>();
         _bannedUsers = new ArrayList<>();
-        _total_item_list = new ArrayList<>();
-        LostItem _currentLostItem = theNullLostItem;
-        FoundItem _currentFoundItem = theNullFoundItem;
-        Item _currentItem = theNullLostItem;
+        model.setCurrentLostItem(theNullLostItem);
+        model.setCurrentFoundItem(theNullFoundItem);
+        model.setCurrentItem(theNullFoundItem);
     }
 
     /**

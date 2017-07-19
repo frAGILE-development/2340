@@ -17,7 +17,7 @@ import java.util.List;
  */
 
 public class User implements Parcelable , Serializable {
-    public static List<String> accountType = Arrays.asList("Admin", "Normal");
+    public static final List<String> accountType = Arrays.asList("Admin", "Normal");
     //instance variables
     private int _id;
     private String _firstName;
@@ -25,7 +25,7 @@ public class User implements Parcelable , Serializable {
     private String _password;
     private String _email;
     private String _phoneNumber;
-    private Boolean _admin;
+    private Boolean _admin = false;
     private String _username;
     private String _adminType;
 
@@ -56,8 +56,6 @@ public class User implements Parcelable , Serializable {
         _adminType = type;
         if(type.equalsIgnoreCase("admin")) {
             _admin = true;
-        } else {
-            _admin = false;
         }
 
     }
@@ -243,20 +241,22 @@ public class User implements Parcelable , Serializable {
         _adminType = type;
     }
 
-    /**
-     * finds what account type an account is
-     * @param code search for account type
-     * @return number of position
-     */
-    public static int findPosition(String code) {
-        int i = 0;
-        while (i < accountType.size()) {
-            if (code.equals(accountType.get(i))) {
-                return i;
-            }
-        }
-        return 0;
-    }
+// --Commented out by Inspection START (7/18/2017 9:40 PM):
+//    /**
+//     * finds what account type an account is
+//     * @param code search for account type
+//     * @return number of position
+//     */
+//    public static int findPosition(String code) {
+//        int i = 0;
+//        while (i < accountType.size()) {
+//            if (code.equals(accountType.get(i))) {
+//                return i;
+//            }
+//        }
+//        return 0;
+//    }
+// --Commented out by Inspection STOP (7/18/2017 9:40 PM)
 
     /**
      * returns whether the user is banned or not
@@ -402,8 +402,8 @@ public class User implements Parcelable , Serializable {
         assert line != null;
         String[] tokens = line.split("\t");
         assert tokens.length == 7;
-        User u = new User(tokens[0], tokens[1], tokens[2], tokens[3],tokens[4], tokens[5], tokens[6]);
-        return u;
+        return new User(tokens[0], tokens[1], tokens[2], tokens[3],tokens[4], tokens[5], tokens[6]);
+
     }
 
 

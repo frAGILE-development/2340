@@ -22,24 +22,19 @@ import android.widget.ListView;
 
 public class Search extends AppCompatActivity implements android.widget.SearchView.OnQueryTextListener {
 
-    // Declare Variables
-    ListView list;
     ListView list_found;
-    ListAdapter adapter;
-    FoundAdapter adapter2;
-    android.widget.SearchView editsearch;
+    private ListAdapter adapter;
     ArrayList<LostItem> lostList = new ArrayList<LostItem>();
     ArrayList<FoundItem> foundList = new ArrayList<FoundItem>();
-    ArrayList<Item> totalList = new ArrayList<Item>();
-    Model model = Model.getInstance();
+    private final Model model = Model.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-        list = (ListView) findViewById(R.id.list_view);
+        ListView list = (ListView) findViewById(R.id.list_view);
 
-        totalList = model.getAllItems();
+        ArrayList<Item> totalList = model.getAllItems();
 
         //prints out the total list for debug purposes
         for(Item i: totalList) {
@@ -54,7 +49,7 @@ public class Search extends AppCompatActivity implements android.widget.SearchVi
         list.setAdapter(adapter);
         //list_found.setAdapter(adapter2);
         // Locate the EditText in listview_main.xml
-        editsearch = (android.widget.SearchView) findViewById(R.id.search);
+        android.widget.SearchView editsearch = (android.widget.SearchView) findViewById(R.id.search);
         editsearch.setOnQueryTextListener(this);
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -90,8 +85,7 @@ public class Search extends AppCompatActivity implements android.widget.SearchVi
      */
     @Override
     public boolean onQueryTextChange(String newText) {
-        String text = newText;
-        adapter.filter(text);
+        adapter.filter(newText);
         return false;
     }
 

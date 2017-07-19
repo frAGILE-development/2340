@@ -1,19 +1,9 @@
 package Model.Persistence;
-
 import android.util.Log;
-
-import com.google.gson.Gson;
-
 import java.io.BufferedReader;
-import java.io.DataInputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.util.List;
 import Model.*;
@@ -32,12 +22,12 @@ public class ManagementFacade {
     /**
      * the facade maintains references to any required model classes
      */
-    private ItemManager im;
+    private final ItemManager im;
 
     /**
      * Singleton pattern
      */
-    private static ManagementFacade instance = new ManagementFacade();
+    private static final ManagementFacade instance = new ManagementFacade();
 
 
     /**
@@ -531,6 +521,26 @@ public class ManagementFacade {
      */
     public void removeFoundItem(FoundItem item) {
         im.removeFoundItem(item);
+    }
+
+    /**
+     *removes all found items
+     */
+    public void removeAllFoundItems() {
+
+        for (FoundItem f : im.getFoundItems()){
+            im.removeFoundItem(f);
+        }
+    }
+
+    /**
+     *removes all found items
+     */
+    public void removeAllLostItems() {
+
+        for (LostItem l : im.getLostItems()){
+            im.removeLostItem(l);
+        }
     }
 
 }
