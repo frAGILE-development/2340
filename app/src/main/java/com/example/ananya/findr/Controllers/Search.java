@@ -33,7 +33,7 @@ public class Search extends AppCompatActivity implements android.widget.SearchVi
         setContentView(R.layout.activity_search);
         ListView list = (ListView) findViewById(R.id.list_view);
 
-        ArrayList<Item> totalList = model.getAllItems();
+        @SuppressWarnings("unchecked") ArrayList<Item> totalList = model.getAllItems();
 
         //prints out the total list for debug purposes
         for(Item i: totalList) {

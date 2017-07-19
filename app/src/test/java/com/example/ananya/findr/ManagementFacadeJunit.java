@@ -12,7 +12,6 @@ import Model.LostItem;
 import Model.Persistence.ManagementFacade;
 import Model.User;
 
-import static com.example.ananya.findr.ManagementFacadeJunit.to;
 import static junit.framework.Assert.assertEquals;
 
 /**
@@ -21,9 +20,6 @@ import static junit.framework.Assert.assertEquals;
 
 public class ManagementFacadeJunit {
     private ManagementFacade mf;
-    private User u;
-    private FoundItem f;
-    private LostItem l;
 
     private final File lost = new File("lost.txt");
     private final File found = new File("found.txt");
@@ -32,7 +28,7 @@ public class ManagementFacadeJunit {
     private final PrintWriter pwf = new PrintWriter("found.txt");
     private final PrintWriter pwl = new PrintWriter("lost.txt");
 
-    public static final int to = 200;
+    private static final int to = 200;
 
     public ManagementFacadeJunit() throws FileNotFoundException {
     }
@@ -40,11 +36,11 @@ public class ManagementFacadeJunit {
     @Before
     public void setUp() {
         mf = ManagementFacade.getInstance();
-        u = new User();
+        User u = new User();
         u.saveAsText(pwu);
-        f = new FoundItem();
+        FoundItem f = new FoundItem();
         f.saveAsText(pwf);
-        l = new LostItem();
+        LostItem l = new LostItem();
         l.saveAsText(pwl);
         mf.saveText(lost, found, user);
     }

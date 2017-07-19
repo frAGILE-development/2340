@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
-
     android:id="@+id/testButton"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/colorPrimaryDark"
+    >
 
     <Button
         android:id="@+id/login"
@@ -41,7 +41,6 @@
         android:hint="Login ID"
         android:inputType="textPersonName"
         android:selectAllOnFocus="false"
-        android:singleLine="false"
         android:textColor="@color/white"
         android:layout_marginBottom="112dp"
         android:layout_above="@+id/login"
