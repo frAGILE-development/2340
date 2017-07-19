@@ -350,29 +350,29 @@ public class User implements Parcelable , Serializable {
         + "\t" + _phoneNumber + "\t" + _adminType);
     }
 
-    /**
-     * Save this class in a custom save format
-     * I chose to use tab (\t) to make line splitting easy for loading
-     * If your data had tabs, you would need something else as a delimiter
-     *
-     * @param writer the file to write this student to
-     */
-    public void saveAsBinary(PrintWriter writer) {
-        String item = (_username + "\t" +_firstName + "\t" + _lastName + "\t" + _password + "\t" + _email
-                + "\t" + _phoneNumber + "\t" + _adminType);
-        byte[] data = item.getBytes();
-        StringBuilder binary = new StringBuilder();
-        for (byte b : data) {
-            int value = b;
-            for (int i = 0; i < 8; i++) {
-                binary.append((value & 128) == 0 ? 0 : 1);
-                value <<= 1;
-            }
-            binary.append(' ');
-        }
-        System.out.println("Saving Lost Item: " + _fullName);
-        writer.println(binary);
-    }
+//    /**
+//     * Save this class in a custom save format
+//     * I chose to use tab (\t) to make line splitting easy for loading
+//     * If your data had tabs, you would need something else as a delimiter
+//     *
+//     * @param writer the file to write this student to
+//     */
+//    public void saveAsBinary(PrintWriter writer) {
+//        String item = (_username + "\t" +_firstName + "\t" + _lastName + "\t" + _password + "\t" + _email
+//                + "\t" + _phoneNumber + "\t" + _adminType);
+//        byte[] data = item.getBytes();
+//        StringBuilder binary = new StringBuilder();
+//        for (byte b : data) {
+//            int value = b;
+//            for (int i = 0; i < 8; i++) {
+//                binary.append((value & 128) == 0 ? 0 : 1);
+//                value <<= 1;
+//            }
+//            binary.append(' ');
+//        }
+//        System.out.println("Saving Lost Item: " + _fullName);
+//        writer.println(binary);
+//    }
     /**
      * Constructor for the user class
      *
