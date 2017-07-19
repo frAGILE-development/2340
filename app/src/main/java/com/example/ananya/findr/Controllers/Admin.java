@@ -20,13 +20,11 @@ import Model.LostItem;
 /**
 
 /**
- * Created by bwatson35 on 7/7/17.
+ * Created by Bryce Watson on 7/7/17.
  */
 
 public class Admin extends AppCompatActivity {
     //instance variables for data generation
-    private final ArrayList<LostItem> lostList = new ArrayList<LostItem>();
-    private final ArrayList<FoundItem> foundList = new ArrayList<FoundItem>();
     private final Model model = Model.getInstance();
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +71,6 @@ public class Admin extends AppCompatActivity {
                     model.addLostItem(new LostItem(lostNameList[i], "book", "somewhere"));
                     model.setCurrentLostItem(new LostItem(lostNameList[i], "book", "somewhere"));
                     //comment this out below along with its sister comment to turn on name generation
-                    lostList.add(model.getCurrentLostItem());
                     LostItem item = model.getCurrentLostItem();
                     mf.addLostItem(item);
 
@@ -84,7 +81,6 @@ public class Admin extends AppCompatActivity {
                     model.addFoundItem(new FoundItem(foundNameList[i], "book", "somewhere"));
                     model.setCurrentFoundItem(new FoundItem(foundNameList[i], "book", "somewhere"));
                     //comment this out below along with its sister comment to turn on name generation
-                    foundList.add(model.getCurrentFoundItem());
                     FoundItem item = model.getCurrentFoundItem();
                     mf.addFoundItem(item);
 

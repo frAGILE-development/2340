@@ -13,7 +13,7 @@ import Model.Item;
 
 
 /**
- * Created by bwatson35 on 7/6/17.
+ * Created by Bryce Watson on 7/6/17.
  */
 
 public class ItemDetails extends AppCompatActivity {

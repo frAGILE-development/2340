@@ -38,7 +38,7 @@ public class Application extends AppCompatActivity {
         //Buttons
         ////////////////////////////////////////////////////////////////////////////
         Button logout = (Button) findViewById(R.id.logout);
-        Button lostitems = (Button) findViewById(R.id.lostitems);
+        Button lostItems = (Button) findViewById(R.id.lost_items);
         Button foundItems = (Button) findViewById(R.id.button_foundItemsList);
         Button map = (Button) findViewById(R.id.button_map);
         Button admin = (Button) findViewById(R.id.admin);
@@ -71,7 +71,7 @@ public class Application extends AppCompatActivity {
             }
         });
 
-        lostitems.setOnClickListener(new OnClickListener() {
+        lostItems.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Application.this, ViewLostItems.class);

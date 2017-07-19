@@ -55,7 +55,7 @@
         android:layout_marginEnd="24dp" />
 
     <Button
-        android:id="@+id/lostitems"
+        android:id="@+id/lost_items"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -69,7 +69,7 @@
         android:id="@+id/button_foundItemsList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/lostitems"
+        android:layout_below="@+id/lost_items"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="14dp"
         android:backgroundTint="@android:color/background_light"

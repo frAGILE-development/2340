@@ -236,16 +236,16 @@ class ItemManager implements Serializable {
 //            //reads in each item to the model
 //            for (int i = 0; i < lostCount; ++i) {
 //                String line = lost.readLine();
-//                int conv = Integer.parseInt(line, 2);
-//                String item = new Character((char)conv).toString();
+//                int conversion = Integer.parseInt(line, 2);
+//                String item = new Character((char)conversion).toString();
 //                LostItem l = LostItem.parseEntry(item);
 //                lostItems.add(l);
 //                model.addLostItem(l);
 //            }
 //            for (int i = 0; i < foundCount; ++i) {
 //                String line = found.readLine();
-//                int conv = Integer.parseInt(line, 2);
-//                String item = new Character((char)conv).toString();
+//                int conversion = Integer.parseInt(line, 2);
+//                String item = new Character((char)conversion).toString();
 //                FoundItem l = FoundItem.parseEntry(item);
 //                foundItems.add(l);
 //                model.addFoundItem(l);
@@ -393,24 +393,24 @@ class ItemManager implements Serializable {
 //            //reads in each item to the model
 //            for (int i = 0; i < lostCount; ++i) {
 //                String line = lost.readLine();
-//                int conv = Integer.parseInt(line, 2);
-//                String item = new Character((char)conv).toString();
+//                int conversion = Integer.parseInt(line, 2);
+//                String item = new Character((char)conversion).toString();
 //                LostItem l = LostItem.parseEntry(item);
 //                lostItems.add(l);
 //                model.addLostItem(l);
 //            }
 //            for (int i = 0; i < foundCount; ++i) {
 //                String line = found.readLine();
-//                int conv = Integer.parseInt(line, 2);
-//                String item = new Character((char)conv).toString();
+//                int conversion = Integer.parseInt(line, 2);
+//                String item = new Character((char)conversion).toString();
 //                FoundItem l = FoundItem.parseEntry(item);
 //                foundItems.add(l);
 //                model.addFoundItem(l);
 //            }
 //            for (int i = 0; i < userCount; ++i) {
 //                String line = users.readLine();
-//                int conv = Integer.parseInt(line, 2);
-//                String item = new Character((char)conv).toString();
+//                int conversion = Integer.parseInt(line, 2);
+//                String item = new Character((char)conversion).toString();
 //                User l = User.parseEntry(item);
 //                userList.add(l);
 //                model.addUser(l);
@@ -481,8 +481,8 @@ class ItemManager implements Serializable {
 //            //reads in each item to the model
 //            for (int i = 0; i < count; ++i) {
 //                String line = reader.readLine();
-//                int conv = Integer.parseInt(line, 2);
-//                String item = new Character((char)conv).toString();
+//                int conversion = Integer.parseInt(line, 2);
+//                String item = new Character((char)conversion).toString();
 //                FoundItem s = FoundItem.parseEntry(item);
 //                foundItems.add(s);
 //                model.addFoundItem(s);

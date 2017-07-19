@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Created by robertwaters on 3/11/16.
+ * Created by Bryce Watson on 7/01/2017
  */
 public class CommandManager {
 

@@ -7,7 +7,7 @@ import java.io.PrintWriter;
 import java.io.Serializable;
 
 /**
- * Created by bwatson35 on 6/29/17.
+ * Created by Bryce Watson on 6/29/17.
  */
 
 public class FoundItem extends Item implements Parcelable, Serializable {

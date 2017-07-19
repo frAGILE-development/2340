@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.io.PrintWriter;
 
 /**
- * Created by bwatson35 on 6/29/17.
+ * Created by Bryce Watson on 6/29/17.
  *
  * The parent class of both the lost and found items
  */
