@@ -260,7 +260,7 @@ public class User implements Parcelable , Serializable {
 
     /**
      * returns whether the user is banned or not
-     * @return
+     * @return true if banned
      */
     public Boolean getLockoutStatus() {
         return _lockoutStatus;

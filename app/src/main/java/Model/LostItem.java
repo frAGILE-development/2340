@@ -152,8 +152,8 @@ public class LostItem extends Item implements Parcelable, Serializable {
     }
     /**
      * creates array and parcel for lost items
-     * @return parcel
-     * @return array of lost items
+     * return parcel
+     * return array of lost items
      */
     public static final Parcelable.Creator<LostItem> CREATOR
             = new Parcelable.Creator<LostItem>() {

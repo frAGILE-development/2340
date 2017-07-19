@@ -132,7 +132,7 @@ public class ItemManager implements Serializable {
 
     /**
      *This is really just for lost items
-     * @param writer
+     * @param writer print writer
      */
     void saveAsText(PrintWriter writer) {
         System.out.println("Item Manager saving: " + (lostItems.size()) + " items" );

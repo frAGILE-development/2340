@@ -36,16 +36,16 @@ public class Login extends AppCompatActivity {
     private ArrayList<User> loginRecord = new ArrayList<User>();
     /**
      *updates login records
-     * @param username
-     * @param password
+     * @param username username of user
+     * @param password user's password
      */
     private void updateLoginRecord(String username, String password) {
         loginRecord.add(new User(username, password));
     }
     /**
      *counts login attempts
-     * @param username
-     * @param password
+     * @param username user's username
+     * @param password user's password
      * @return attempts
      */
     private int countAttempts(String username, String password) {

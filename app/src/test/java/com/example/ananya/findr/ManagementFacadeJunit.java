@@ -49,7 +49,7 @@ public class ManagementFacadeJunit {
         mf.saveText(lost, found, user);
     }
     /**
-     * @author jordan shartar
+     * author jordan shartar
      * test for loadText(File lost, File found, File users)
      * method in ManagementFacade
      */
