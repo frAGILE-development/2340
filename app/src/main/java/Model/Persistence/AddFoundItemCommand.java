@@ -11,7 +11,7 @@ public class AddFoundItemCommand extends AbstractCommand {
     FoundItem item;
     /**
      *constructor
-     * @param i
+     * @param i found item
      */
     public AddFoundItemCommand(FoundItem i) {
         item = i;

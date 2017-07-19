@@ -23,7 +23,7 @@ public class FoundItem extends Item implements Parcelable, Serializable {
      * The constructor for the found Item class
      *
      * @param name        the name of the item
-     * @param description the decription of the lost item
+     * @param description the description of the lost item
      * @param address     the address of where the item was found
      */
     public FoundItem(String name, String description, String address){
@@ -34,7 +34,7 @@ public class FoundItem extends Item implements Parcelable, Serializable {
     }
 
     /**
-     * the Default contructor. For GUI use only
+     * the Default constructor. For GUI use only
      */
     public FoundItem() {
         this("Default Found Item", "No description", "221 Baker St");

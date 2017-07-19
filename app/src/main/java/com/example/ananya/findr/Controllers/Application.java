@@ -197,7 +197,7 @@ public class Application extends AppCompatActivity {
     /* Next two methods handle the menu options */
     /**
      *creates menu
-     * @param menu
+     * @param menu the menu to be populated
      * @return true after completed
      */
     @Override
@@ -209,8 +209,8 @@ public class Application extends AppCompatActivity {
     }
     /**
      *item selected click
-     * @param item
-     * @reutrn true when completed
+     * @param item item to be selected
+     * @return true when completed
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -218,12 +218,9 @@ public class Application extends AppCompatActivity {
         File file;
         File file2;
         File file3;
-        /**
-         * I know switch statements are usually bad, but there in this case it is required
-         * by the api design.
-         *
-         * We just use the item id to decide which menu item was selected.
-         */
+//         I know switch statements are usually bad, but there in this case it is required
+//         by the api design,
+//         We just use the item id to decide which menu item was selected.
         switch(item.getItemId()) {
 
 //            case R.id.load_binary:

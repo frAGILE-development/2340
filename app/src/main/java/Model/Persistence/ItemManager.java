@@ -37,9 +37,9 @@ public class ItemManager implements Serializable {
 
     /**
      * adds an Item to the manager
-     * @param name
-     * @param description
-     * @param address
+     * @param name item name
+     * @param description description of item
+     * @param address address of item
      */
     void addItem(String name, String description, String address) {
         Item item = new Item(name, description, address);
@@ -52,9 +52,9 @@ public class ItemManager implements Serializable {
 
     /**
      * adds an Item to the manager
-     * @param name
-     * @param description
-     * @param address
+     * @param name item name
+     * @param description description of item
+     * @param address address of item
      */
     void addLostItem(String name, String description, String address) {
         LostItem item = new LostItem(name, description, address);
@@ -65,10 +65,10 @@ public class ItemManager implements Serializable {
         commandManager.executeCommand(cmd);
     }
     /**
-     *add found item
-     * @param name
-     * @param description
-     * @param address
+     * adds an Item to the manager
+     * @param name item name
+     * @param description description of item
+     * @param address address of item
      */
     void addFoundItem(String name, String description, String address) {
         FoundItem item = new FoundItem(name, description, address);
@@ -80,13 +80,13 @@ public class ItemManager implements Serializable {
     }
     /**
      *add user
-     * @param username
-     * @param firstName
-     * @param lastName
-     * @param password
-     * @param email
-     * @param phoneNumber
-     * @param type
+     * @param username username of user
+     * @param firstName user's first name
+     * @param lastName user's last name
+     * @param password password of user
+     * @param email user's email
+     * @param phoneNumber user's phone number
+     * @param type user type
      *
      */
     void addUser(String username, String firstName, String lastName, String password, String email,
@@ -100,14 +100,14 @@ public class ItemManager implements Serializable {
     /**
      * this is package vis because only model should be asking for this data
      *
-     * @return
+     * @return list of items
      */
     List<Item> getItems() {
         return items;
     }
     /**
      *getter lost item
-     * @return lsot item
+     * @return lost item
      *
      */
     List<LostItem> getLostItems() {
@@ -122,9 +122,9 @@ public class ItemManager implements Serializable {
         return foundItems;
     }
     /**
-     *get tiem
-     * @param name
-     * @rseturn item
+     *get time
+     * @param name name of item
+     * @return item
      */
     Item getItemByName(String name) {
         return itemMap.get(name);
@@ -156,7 +156,7 @@ public class ItemManager implements Serializable {
 //    }
     /**
      *save user
-     * @param writer
+     * @param writer print writer
      *
      */
     void saveAsUsers(PrintWriter writer) {
@@ -183,8 +183,8 @@ public class ItemManager implements Serializable {
 
     /**
      * Saves both lost and found items simultaneously
-     * @param lost
-     * @param found
+     * @param lost lost item details
+     * @param found found item details
      */
     void saveAsText(PrintWriter lost, PrintWriter found) {
         System.out.println("Item Manager saving: " + (lostItems.size() + foundItems.size()) + " items" );
@@ -200,7 +200,7 @@ public class ItemManager implements Serializable {
 
     /**
      *Saves Found items in their own file
-     * @param writer
+     * @param writer print writer
      */
     void saveAsFoundItems(PrintWriter writer) {
         System.out.println("Item Manager saving: " + (foundItems.size() + " found items" ));
@@ -267,8 +267,8 @@ public class ItemManager implements Serializable {
 
     /**
      * load from text
-     * @param lost
-     * @param found
+     * @param lost lost item
+     * @param found found item
      */
     void loadFromText(BufferedReader lost, BufferedReader found) {
         System.out.println("Loading Text File");
@@ -313,9 +313,9 @@ public class ItemManager implements Serializable {
 
     /**
      *loads form text
-     * @param lost
-     * @param found
-     * @param users
+     * @param lost lost item
+     * @param found found item
+     * @param users users
      */
     void loadFromText(BufferedReader lost, BufferedReader found, BufferedReader users) {
         System.out.println("Loading Text File");
@@ -369,7 +369,7 @@ public class ItemManager implements Serializable {
     }
 //    /**
 //     *loads form binary
-//     * @param lost
+//     * @param lost lost
 //     * @param found
 //     * @param users
 //     */

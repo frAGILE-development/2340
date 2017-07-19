@@ -27,8 +27,8 @@ public class FoundAdapter extends BaseAdapter {
     private ArrayList<FoundItem> arraylist;
     /**
      *constructor
-     * @param context
-     * @param namesList
+     * @param context context
+     * @param namesList list of names
      */
     public FoundAdapter(Context context, List<FoundItem> namesList) {
         mContext = context;
@@ -53,7 +53,7 @@ public class FoundAdapter extends BaseAdapter {
     }
     /**
      *getter for item
-     * @param position
+     * @param position position of item
      * @return item name
      */
     @Override
@@ -62,7 +62,7 @@ public class FoundAdapter extends BaseAdapter {
     }
     /**
      *getter for item id
-     * @param position
+     * @param position position of item
      * @return item id
      */
     @Override
@@ -71,9 +71,9 @@ public class FoundAdapter extends BaseAdapter {
     }
     /**
      *gets the correct view
-     * @param position
-     * @param view
-     *@param parent
+     * @param position position of item
+     * @param view view
+     *@param parent view group
      * @return view
      */
     public View getView(final int position, View view, ViewGroup parent) {
@@ -89,14 +89,13 @@ public class FoundAdapter extends BaseAdapter {
             holder = (ViewHolder) view.getTag();
         }
         TextView textView=(TextView) view.findViewById(android.R.id.text1);
-        textView.setTextColor((R.color.white));
         // Set the results into TextViews
         holder.name.setText(namesList.get(position).getName());
         return view;
     }
     /**
      *filters text
-     * @param charText
+     * @param charText character being typed in
      */
     // Filter Class
     public void filter(String charText) {

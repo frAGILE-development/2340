@@ -11,14 +11,14 @@ public class AddLostItemCommand extends AbstractCommand {
      LostItem item;
     /**
      *constructor
-     * @param i
+     * @param i item to be added
      */
     public AddLostItemCommand(LostItem i) {
         item = i;
     }
     /**
      *add lost item
-     * @return true when complteddd
+     * @return true when completed
      */
     @Override
     public boolean execute() {

@@ -22,7 +22,7 @@ public class Item implements Parcelable, Serializable {
      * The constructor for the Lost Item class
      *
      * @param name        the name of the item
-     * @param description the decription of the lost item
+     * @param description the description of the lost item
      * @param address     the address of where the item was found
      * @param owner       the user under which the item was originally entered
      */
@@ -37,7 +37,7 @@ public class Item implements Parcelable, Serializable {
      * The constructor for the Lost Item class
      *
      * @param name        the name of the item
-     * @param description the decription of the lost item
+     * @param description the description of the lost item
      * @param address     the address of where the item was found
      */
     public Item(String name, String description, String address) {
@@ -47,7 +47,7 @@ public class Item implements Parcelable, Serializable {
     }
 
     /**
-     * the Default contructor. For GUI use only
+     * the Default constructor. For GUI use only
      */
     public Item() {
         this("Default Item", "No description", "221 Baker St");
@@ -168,8 +168,8 @@ public class Item implements Parcelable, Serializable {
     }
     /**
      * creates new parcelable items array
-     * @return items in parcel
-     * @return array of items
+     * items in parcel
+     * array of items
      */
     public static final Parcelable.Creator<Item> CREATOR
             = new Parcelable.Creator<Item>() {

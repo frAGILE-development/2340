@@ -12,9 +12,8 @@ import Model.LostItem;
 import Model.FoundItem;
 import Model.Model;
 
-/**
- * Created by bwatson35 on 6/29/17.
- */
+//Created by bwatson35 on 6/29/17.
+
 
 import android.view.View;
 import android.widget.AdapterView;
