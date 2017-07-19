@@ -107,8 +107,7 @@ public class FoundItem extends Item implements Parcelable, Serializable {
      * @return type
      */
     public String getType() {
-        String type = "Found Item";
-        return type;
+        return "Found Item";
     }
 
 

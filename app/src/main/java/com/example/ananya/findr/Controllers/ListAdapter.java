@@ -25,10 +25,9 @@ class ListAdapter extends BaseAdapter {
      * @param namesList item names list
      */
     public ListAdapter(Context context, List<Item> namesList) {
-        Context mContext = context;
         this.namesList = namesList;
-        inflater = LayoutInflater.from(mContext);
-        this.arraylist = new ArrayList<Item>();
+        inflater = LayoutInflater.from(context);
+        this.arraylist = new ArrayList<>();
         this.arraylist.addAll(namesList);
     }
     /**

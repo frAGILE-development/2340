@@ -109,8 +109,7 @@ public class LostItem extends Item implements Parcelable, Serializable {
      * @return the type
      */
     public String getType() {
-        String type = "Lost Item";
-        return type;
+        return "Lost Item";
     }
 
 

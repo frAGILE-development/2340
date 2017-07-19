@@ -36,7 +36,7 @@ public class ViewUsers<T extends Comparable<? super T>> extends AppCompatActivit
 
         Model model = Model.getInstance();
         Object[] list = model.getUsers().toArray();
-        ArrayAdapter<Object> adapter = new ArrayAdapter<Object>(this,
+        ArrayAdapter<Object> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1, android.R.id.text1, list);
 
 

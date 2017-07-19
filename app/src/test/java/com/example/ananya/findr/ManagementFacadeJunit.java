@@ -25,12 +25,12 @@ public class ManagementFacadeJunit {
     private FoundItem f;
     private LostItem l;
 
-    private File lost = new File("lost.txt");
-    private File found = new File("found.txt");
-    private File user = new File("user.txt");
-    private PrintWriter pwu = new PrintWriter("user.txt");
-    private PrintWriter pwf = new PrintWriter("found.txt");
-    private PrintWriter pwl = new PrintWriter("lost.txt");
+    private final File lost = new File("lost.txt");
+    private final File found = new File("found.txt");
+    private final File user = new File("user.txt");
+    private final PrintWriter pwu = new PrintWriter("user.txt");
+    private final PrintWriter pwf = new PrintWriter("found.txt");
+    private final PrintWriter pwl = new PrintWriter("lost.txt");
 
     public static final int to = 200;
 

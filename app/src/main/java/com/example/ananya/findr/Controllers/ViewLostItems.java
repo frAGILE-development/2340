@@ -8,10 +8,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
-import FloatingActionButton.FloatingActionButton;
+import FloatingActionButton.*;
 import Model.Model;
 import Model.LostItem;
-import FloatingActionButton.*;
 import com.example.ananya.findr.R;
 
 /**
@@ -36,7 +35,7 @@ public class ViewLostItems<T extends Comparable<? super T>> extends AppCompatAct
         // Forth - the Array of data
         Model model = Model.getInstance();
         Object[] list = model.getLostItems().toArray();
-        ArrayAdapter<Object> adapter = new ArrayAdapter<Object>(this,
+        ArrayAdapter<Object> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1, android.R.id.text1, list);
         // Assign adapter to ListView
         listView.setAdapter(adapter);
