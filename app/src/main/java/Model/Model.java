@@ -105,7 +105,7 @@ public class Model {
             if (c.equals(user)){
                 _bannedUsers.remove(c);
                 return true;
-            };
+            }
         }
     return false;
     }
