@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -15,7 +16,8 @@
             android:layout_height="wrap_content"
             android:text="First Name"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/background" />
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="@color/black" />
 
         <EditText
             android:id="@+id/editText_firstName"
@@ -24,7 +26,8 @@
             android:ems="10"
             android:hint="first"
             android:inputType="textPersonName"
-            android:textColor="@android:color/white"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
             android:textSize="18sp" />
 
         <TextView
@@ -33,7 +36,7 @@
             android:layout_height="wrap_content"
             android:text="Last Name"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/background" />
+            android:textColor="@color/colorPrimaryDark" />
 
         <EditText
             android:id="@+id/editText_lastName"
@@ -42,7 +45,8 @@
             android:ems="10"
             android:hint="last"
             android:inputType="textPersonName"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
             android:textSize="18sp" />
 
         <TextView
@@ -52,7 +56,7 @@
             android:text="Username"
             android:textAlignment="viewStart"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:textColor="@color/background"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp" />
 
         <EditText
@@ -62,7 +66,8 @@
             android:ems="10"
             android:hint="username"
             android:inputType="textPersonName"
-            android:textColor="@color/white_pressed"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
             android:textSize="18sp" />
 
         <TextView
@@ -72,7 +77,7 @@
             android:layout_weight="0.04"
             android:lineSpacingExtra="8sp"
             android:text="Password"
-            android:textColor="@color/background"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp" />
 
         <EditText
@@ -82,7 +87,8 @@
             android:layout_weight="0.03"
             android:ems="10"
             android:inputType="textPassword"
-            android:textColor="@color/white" />
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
 
         <TextView
             android:id="@+id/text_confirmPassword"
@@ -91,7 +97,7 @@
             android:layout_weight="0.05"
             android:lineSpacingExtra="8sp"
             android:text="Confirm Password"
-            android:textColor="@color/background"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp" />
 
         <EditText
@@ -101,7 +107,8 @@
             android:layout_weight="0.03"
             android:ems="10"
             android:inputType="textPassword"
-            android:textColor="@color/white" />
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
 
         <TextView
             android:id="@+id/text_email"
@@ -110,7 +117,7 @@
             android:layout_weight="0.05"
             android:lineSpacingExtra="8sp"
             android:text="Email"
-            android:textColor="@color/background"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp" />
 
         <EditText
@@ -121,7 +128,8 @@
             android:ems="10"
             android:hint="fragile@gatech.edu"
             android:inputType="textEmailAddress"
-            android:textColor="@android:color/white" />
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
 
         <TextView
             android:id="@+id/text_phone"
@@ -130,7 +138,7 @@
             android:layout_weight="0.05"
             android:lineSpacingExtra="8sp"
             android:text="Phone Number"
-            android:textColor="@color/background"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp" />
 
         <EditText
@@ -141,7 +149,8 @@
             android:ems="10"
             android:hint="(404) 123-345"
             android:inputType="phone"
-            android:textColor="@color/white" />
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
 
         <TextView
             android:id="@+id/textView9"
@@ -150,7 +159,7 @@
             android:layout_weight="0.05"
             android:lineSpacingExtra="8sp"
             android:text="Account Privileges"
-            android:textColor="@color/background"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp" />
 
         <EditText
@@ -161,7 +170,8 @@
             android:ems="10"
             android:hint="User or Admin"
             android:inputType="text"
-            android:textColor="@color/white" />
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
 
         <Space
             android:layout_width="match_parent"

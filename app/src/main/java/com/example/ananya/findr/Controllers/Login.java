@@ -123,6 +123,7 @@ public class Login extends AppCompatActivity {
 
         Button login = (Button) findViewById(R.id.login);
         Button register = (Button) findViewById(R.id.register);
+        Button forget = (Button) findViewById(R.id.forgetPass);
 
         password.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -132,6 +133,14 @@ public class Login extends AppCompatActivity {
                     return true;
                 }
                 return false;
+            }
+        });
+
+        forget.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Login.this, Forget.class);
+                startActivity(intent);
             }
         });
 
