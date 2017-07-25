@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/textView_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+        android:textColor="@color/background" />
+
+    <EditText
+        android:id="@+id/editText_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Philosophers's stone"
+        android:inputType="textPersonName"
+        android:textColor="@color/background" />
+
+    <TextView
+        android:id="@+id/textView_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/descriptionTitle"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:textColor="@color/background" />
+
+    <EditText
+        android:id="@+id/editText_description"
+        style="@android:style/TextAppearance.Material.Medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Gives immortal life among other things"
+        android:inputType="textPersonName"
+        android:textColor="@color/background" />
+
+    <TextView
+        android:id="@+id/textView_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Address (Optional)"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:textColor="@color/background" />
+
+    <EditText
+        android:id="@+id/editText_address"
+        style="@style/Widget.AppCompat.AutoCompleteTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Somewhere in Hogwarts"
+        android:inputType="textPersonName"
+        android:singleLine="false"
+        android:textColor="@color/background" />
+
+    <TextView
+        android:id="@+id/textView_coordinatesTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Coordinates"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:textColor="@color/background" />
+
+    <TextView
+        android:id="@+id/textView_coordinates"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:textColor="@color/background" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Type of Item"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:textColor="@color/background" />
+
+    <EditText
+        android:id="@+id/editText_type"
+        style="@android:style/TextAppearance.Material.Medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Lost or Found"
+        android:inputType="textPersonName"
+        android:textColor="@color/background" />
+
+    <Button
+        android:id="@+id/button_add_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@android:color/holo_blue_bright"
+        android:text="Add Item"
+        android:textColor="@color/black" />
+
+    <Button
+        android:id="@+id/button_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/colorAccent"
+        android:text="@string/cancel" />
+</LinearLayout>

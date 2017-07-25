@@ -2,9 +2,11 @@ package model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+
+import com.google.android.gms.maps.model.LatLng;
+
 import java.io.Serializable;
 import java.io.PrintWriter;
-import model.maps.Location;
 
 /**
  * Created by Bryce Watson on 6/29/17.
@@ -18,7 +20,7 @@ public class Item implements Parcelable, Serializable {
     private String _description;
     private String _address;
     private User _owner;
-    private Location  _location = new Location(33.775078, -84.396401);//Default location is the culc
+    private LatLng _location = new LatLng(33.775078, -84.396401);//Default location is the culc
 
     /**
      * The constructor for the Lost Item class
@@ -133,7 +135,7 @@ public class Item implements Parcelable, Serializable {
      * Sets the location of the item
      * @param loc the location
      */
-    public void setLocation(Location loc) {
+    public void setLocation(LatLng loc) {
         _location = loc;
     }
 
@@ -141,11 +143,9 @@ public class Item implements Parcelable, Serializable {
      * returns the location of the item
      * @return the location
      */
-    public Location getLocation() {
+    public LatLng getLocation() {
         return _location;
     }
-
-
 
 
     /**

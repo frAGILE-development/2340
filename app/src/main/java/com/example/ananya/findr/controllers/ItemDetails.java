@@ -32,6 +32,8 @@ public class ItemDetails extends AppCompatActivity {
         TextView description_text = (TextView) findViewById(R.id.text_view_description);
         TextView address_text = (TextView) findViewById(R.id.text_view_address);
         TextView type_text = (TextView) findViewById(R.id.text_view_type);
+        TextView loc = (TextView) findViewById(R.id.textView_location);
+        loc.setText(item.getLocation().toString());
         name_text.setText(item.getName());
         description_text.setText(item.getDescription());
         address_text.setText(item.getAddress());

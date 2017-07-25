@@ -1,6 +1,10 @@
 package model;
 
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -35,6 +39,8 @@ public class Model {
     private ArrayList<LostItem> _lostItems;
     private ArrayList<FoundItem> _foundItems;
     private ArrayList<User> _bannedUsers;
+    private ArrayList<Marker> _markers;
+    private HashMap<Item, Marker> _hash;
     /**
      * the currently selected user, defaults to the first one
      */
@@ -43,11 +49,14 @@ public class Model {
     private LostItem _currentLostItem;
     private FoundItem _currentFoundItem;
     private Item _currentItem;
+    private Marker _currentMarker;
 
     //Null Users and items
     private final User theNullUser = new User("Null", "No", "Name", "passw0rd", "null@gatech.edu", "0000000000", User.accountType.get(1));
     private final LostItem theNullLostItem = new LostItem("NULL", "NULL", "NULL");
     private final FoundItem theNullFoundItem = new FoundItem("NULL", "NULL", "NULL");
+
+    private LatLng currentLocation;
     /**
      * makes a new model
      */
@@ -56,8 +65,82 @@ public class Model {
         _lostItems = new ArrayList<>();
         _foundItems = new ArrayList<>();
         _bannedUsers = new ArrayList<>();
-        //comment this out after full app developed
-        //loadDummyData();
+        _markers = new ArrayList<>();
+    }
+
+    /**
+     * Sets the current location
+     * @param loc the location to set
+     */
+    public void setCurrentLocation(LatLng loc) {
+        currentLocation = loc;
+    }
+
+    /**
+     * Gets the current location
+     * @return currentLocation
+     */
+    public LatLng getCurrentLocation() {
+        return currentLocation;
+    }
+
+    /**
+     * Gets the current marker
+     * @return currentLocation
+     */
+    public Marker getCurrentMarker() {
+        return _currentMarker;
+    }
+
+
+    /**
+     * Sets the current marker
+     * @param mk the marker to be set
+     */
+    public void setCurrentMarker(Marker mk) {
+        _currentMarker = mk;
+    }
+
+    /**
+     * Gets all the markers
+     * @return _markers
+     */
+    public ArrayList<Marker> getMarkers() {
+        return _markers;
+    }
+
+    /**
+     * Gets all the markers
+     * @@param item the item to add
+     * @param marker the marker to add
+     */
+    public void addMarkerToHash(Item item, Marker marker) {
+        _hash.put(item, marker);
+    }
+
+    /**
+     * Gets all the markers
+     * @return _markers
+     */
+    public Marker getMarkerFromHash(Item item) {
+        if (item != null) {
+            return _hash.get(item);
+        }
+        return null;
+    }
+
+    /**
+     * add a marker to the app.  checks if the user is already entered
+     * <p>
+     * uses O(n) linear search for course
+     *
+     * @param mk the marker to be added
+     */
+    public void addMarker(Marker mk) {
+        for (Marker m : _markers) {
+            if (m.equals(mk)) return;
+        }
+        _markers.add(mk);
     }
 
     /**

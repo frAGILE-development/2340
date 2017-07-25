@@ -15,7 +15,7 @@ import model.LostItem;
 
 /**
  * Created by Bryce Watson on 7/25/2017.
- * A junit test to test persistence
+ * A junit test to test persistence by saving a loading through text
  */
 
 @SuppressLint("Registered")

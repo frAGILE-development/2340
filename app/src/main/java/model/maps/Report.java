@@ -1,6 +1,8 @@
 package model.maps;
 
 
+import com.google.android.gms.maps.model.LatLng;
+
 /**
  * Created by Bryce Watson on 7/11/17.
  * Information holder for a maps report
@@ -21,6 +23,13 @@ public class Report {
         _name = name;
         _description = desc;
         _location = location;
+        int _id = Next_ID++;
+    }
+
+    public Report(String name, String desc, LatLng location) {
+        _name = name;
+        _description = desc;
+        _location = new Location(location.latitude, location.longitude);
         int _id = Next_ID++;
     }
     /**

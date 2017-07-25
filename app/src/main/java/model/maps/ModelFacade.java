@@ -1,4 +1,6 @@
 package model.maps;
+import com.google.android.gms.maps.model.LatLng;
+
 import java.util.List;
 
 /**
@@ -21,6 +23,14 @@ public class ModelFacade {
      */
     public void addReport(Location loc) {
         _reportManager.addReport(new Report("New Item", "Platform ", loc));
+    }
+
+    /**
+     * adds a report
+     * @param loc location
+     */
+    public void addReport(String name, String description, LatLng loc) {
+        _reportManager.addReport(new Report(name, description, loc));
     }
 
     /**
