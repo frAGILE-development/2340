@@ -10,6 +10,7 @@ import java.util.Map;
 import Model.*;
 /**
  * Created by Bryce Watson on 7/14/2017.
+ * Manages the lost & found items & users that have to be saved to text
  */
 
 class ItemManager implements Serializable {

@@ -11,6 +11,7 @@ import Model.*;
 
 /**
  * Created by Bryce Watson on 7/14/2017.
+ * Facade for managing persistence
  */
 
 public class ManagementFacade {

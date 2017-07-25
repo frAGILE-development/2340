@@ -4,6 +4,7 @@ import Model.LostItem;
 
 /**
  * Created by Bryce Watson on 7/14/2017.
+ * Command for adding a lost item
  */
 
 public class AddLostItemCommand extends AbstractCommand {

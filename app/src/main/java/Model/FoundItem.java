@@ -8,6 +8,7 @@ import java.io.Serializable;
 
 /**
  * Created by Bryce Watson on 6/29/17.
+ * Information holder for a lost item
  */
 
 public class FoundItem extends Item implements Parcelable, Serializable {

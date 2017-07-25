@@ -2,6 +2,7 @@ package Model.Maps;
 
 /**
  * Created by Bryce Watson on 7/11/17.
+ * Information holder for a location
  */
 
 public class Location {

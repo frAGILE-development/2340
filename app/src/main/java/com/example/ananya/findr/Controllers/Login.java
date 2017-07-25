@@ -170,9 +170,9 @@ public class Login extends AppCompatActivity {
                 }
             }
         });
-/**
- * If this wasn't here logout could be over ridden with the back button and would be a glaring
- * security flaw
+/*
+  If this wasn't here logout could be over ridden with the back button and would be a glaring
+  security flaw
  */
     }
     @Override

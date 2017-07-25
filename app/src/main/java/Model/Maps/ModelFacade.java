@@ -3,6 +3,7 @@ import java.util.List;
 
 /**
  * Created by Bryce Watson on 2/21/17.
+ * Facade for the google maps model
  */
 
 public class ModelFacade {

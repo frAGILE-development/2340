@@ -131,7 +131,7 @@ public class Item implements Parcelable, Serializable {
 
     /**
      * Sets the location of the item
-     * @param loc
+     * @param loc the location
      */
     public void setLocation(Location loc) {
         _location = loc;
@@ -139,7 +139,7 @@ public class Item implements Parcelable, Serializable {
 
     /**
      * returns the location of the item
-     * @return
+     * @return the location
      */
     public Location getLocation() {
         return _location;

@@ -4,6 +4,7 @@ import Model.FoundItem;
 
 /**
  * Created by Bryce Watson on 7/14/2017.
+ * Command for adding a found item
  */
 
 public class AddFoundItemCommand extends AbstractCommand {
