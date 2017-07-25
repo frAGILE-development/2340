@@ -37,10 +37,13 @@ public class ManagementFacadeJunit {
     public void setUp() {
         mf = ManagementFacade.getInstance();
         User u = new User();
+        mf.addUser(u);
         u.saveAsText(pwu);
         FoundItem f = new FoundItem();
+        mf.addFoundItem(f);
         f.saveAsText(pwf);
         LostItem l = new LostItem();
+        mf.addLostItem(l);
         l.saveAsText(pwl);
         mf.saveText(lost, found, user);
     }
