@@ -1,42 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <!--<item-->
-        <!--android:id="@+id/save_lost_items"-->
-        <!--android:checkable="false"-->
-        <!--android:title="Save Lost Items" />-->
-    <!--<item-->
-        <!--android:id="@+id/save_found_items"-->
-        <!--android:title="Save Found Items"-->
-        <!--/>-->
+
     <item
         android:id="@+id/save_all_items"
         android:checkable="false"
-        android:title="Save Text" />
-    <!--<item-->
-        <!--android:id="@+id/save_binary"-->
-        <!--android:title="Save Binary (BETA)"-->
-
-        <!--/>-->
-    <!--<item-->
-        <!--android:id="@+id/save_json"-->
-        <!--android:title="Save Json (BETA)"-->
-        <!--/>-->
-    <!--<item-->
-        <!--android:id="@+id/load_lost_items"-->
-        <!--android:title="Load Lost Items"-->
-    <!--/>-->
+        android:title="@string/save" />
 
     <item
         android:id="@+id/load_all_items"
-        android:title="Load Text"
+        android:title="@string/load"
         />
-    <!--<item-->
-        <!--android:id="@+id/load_binary"-->
-        <!--android:title="Load Binary (BETA)"-->
-    <!--/>-->
-    <!--<item-->
-        <!--android:id="@+id/load_json"-->
-        <!--android:title="Load Json (BETA)"-->
-        <!--/>-->
 
 </menu>

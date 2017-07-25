@@ -29,14 +29,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         fab:fab_addButtonColorNormal="@color/white"
         fab:fab_addButtonColorPressed="@color/white_pressed"
         fab:fab_addButtonPlusIconColor="@color/colorPrimaryDark"
         fab:fab_labelStyle="@style/menu_labels_style"
         android:layout_marginBottom="16dp"
-        android:layout_marginRight="16dp"
         android:layout_marginEnd="16dp" >
 
 
@@ -49,7 +47,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/colorAccent"
         android:elevation="0dp"
-        android:text="Logout"
+        android:text="@string/logout"
         android:textColor="@android:color/background_light"
         android:layout_alignBottom="@+id/multiple_actions"
         android:layout_toStartOf="@+id/button_map"
@@ -61,7 +59,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:backgroundTint="@color/white"
-        android:text="LOST ITEMs"
+        android:text="@string/lost_items"
         android:textColor="@android:color/background_dark"
         android:layout_below="@+id/app_bar"
         android:layout_centerHorizontal="true" />
@@ -74,7 +72,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="14dp"
         android:backgroundTint="@android:color/background_light"
-        android:text="Found ITEMs"
+        android:text="@string/found_items"
         android:textColor="@android:color/black" />
 
     <Button
@@ -85,7 +83,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
         android:backgroundTint="@android:color/background_light"
-        android:text="Map"
+        android:text="@string/map"
         android:textColor="@android:color/black" />
 
     <Button
@@ -97,7 +95,7 @@
         android:layout_alignStart="@+id/logout"
         android:layout_marginBottom="13dp"
         android:backgroundTint="@android:color/holo_orange_dark"
-        android:text="Admin"
+        android:text="@string/admin"
         android:textColor="@color/common_google_signin_btn_text_dark_default" />
 
     <Button
@@ -106,7 +104,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@android:color/holo_green_dark"
-        android:text="Gen Data"
+        android:text="@string/gen_data"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:layout_marginBottom="14dp"
         android:layout_above="@+id/admin"

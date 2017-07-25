@@ -6,24 +6,70 @@
     <string name="ok">OK</string>
     <string name="description">Item Description</string>
     <string name="descriptionTitle">Description</string>
-    <string name="add_pic">Add a Picture</string>
     <string name="address_found">Address of where it was found</string>
+
+    //Strings related to the homepage
+    <string name="logout">Logout</string>
+    <string name="lost_items">Lost Items</string>
+    <string name="found_items">Found Items</string>
+    <string name="map">Map</string>
+    <string name="admin">Admin</string>
+    <string name="gen_data">Gen Data</string>
+
+    //Strings related to forget
+    <string name="login_id">Login ID</string>
+    <string name="Enter">Enter</string>
+
+    //Strings related to the admin page
+    <string name="generate">Generates a list of lost and found items and users</string>
+    <string name="erase">Wipe the back end clean</string>
+    <string name="erase_button">Erase All Data</string>
+    <string name="users">A list of all users currently in the system</string>
+    <string name="generate_button">Generate Sample Data</string>
+    <string name="view_users"> View Users</string>
+    <string name="back"> Back</string>
+
+    //String related to item details
+    <string name="address">address</string>
+    <string name="description_hint">description</string>
+    <string name="type">type</string>
+    <string name="type_of_item"> Type of Item</string>
+    <string name="Address">address</string>
+
+    //Strings related to login
+    <string name="Password">Password</string>
+    <string name="forgot_password">Forgot Password</string>
+
+    //Strings related to registering
+    <string name="First_name">First Name</string>
+    <string name="first">first</string>
+    <string name="Last_name">Last Name</string>
+    <string name="last">last</string>
+    <string name="Username">Username</string>
+    <string name="username">username</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="email">Email</string>
+    <string name="sample_email_address">jsmith@gatech.edu</string>
+    <string name="Phone_number">Phone Number</string>
+    <string name="phone_hint">(404)123–4567</string>
+    <string name="Account_privileges">Account Privileges</string>
+    <string name="admin_hint">User or Admin</string>
+
+    //Strings related to user account management
+    <string name="account_locked">Account Locked?</string>
+    <string name="lock_user_account">Lock User Account</string>
+    <string name="unlock_user_account">Unlock User Account</string>
+
+    //Strings to related to persistence
+    <string name="save">Save</string>
+    <string name="load">Load</string>
+
 
     <!-- Strings related to login -->
     <string name="log_in">Log In</string>
     <string name="register">Register</string>
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password (optional)</string>
-    <string name="pass">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
     <string name="error_invalid_username">This username is invalid</string>
-    <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email
-        completions."
-    </string>
     <string name="title_activity_maps">Map</string>
-    <string name="action_settings">Settings</string>
 </resources>

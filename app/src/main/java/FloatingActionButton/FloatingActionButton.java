@@ -18,8 +18,6 @@ import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.ShapeDrawable.ShaderFactory;
 import android.graphics.drawable.StateListDrawable;
 import android.graphics.drawable.shapes.OvalShape;
-import android.os.Build;
-import android.os.Build.VERSION_CODES;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DimenRes;
 import android.support.annotation.DrawableRes;
@@ -410,11 +408,7 @@ public class FloatingActionButton extends android.support.v7.widget.AppCompatIma
     @SuppressWarnings("deprecation")
     @SuppressLint("NewApi")
     private void setBackgroundCompat(Drawable drawable) {
-        if (Build.VERSION.SDK_INT >= VERSION_CODES.JELLY_BEAN) {
-            setBackground(drawable);
-        } else {
-            setBackgroundDrawable(drawable);
-        }
+        setBackground(drawable);
     }
 
     @Override

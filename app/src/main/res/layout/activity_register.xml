@@ -10,10 +10,9 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/text_username"
             android:layout_width="367dp"
             android:layout_height="wrap_content"
-            android:text="First Name"
+            android:text="@string/First_name"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/colorPrimaryDark"
             android:textColorHint="@color/black" />
@@ -23,17 +22,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="first"
+            android:hint="@string/first"
             android:inputType="textPersonName"
             android:textColor="@color/black"
             android:textColorHint="@color/black"
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Last Name"
+            android:text="@string/Last_name"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/colorPrimaryDark" />
 
@@ -42,17 +40,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="last"
+            android:hint="@string/last"
             android:inputType="textPersonName"
             android:textColor="@color/black"
             android:textColorHint="@color/black"
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Username"
+            android:text="@string/Username"
             android:textAlignment="viewStart"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:textColor="@color/colorPrimaryDark"
@@ -63,19 +60,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="username"
+            android:hint="@string/username"
             android:inputType="textPersonName"
             android:textColor="@color/black"
             android:textColorHint="@color/black"
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/text_enterPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.04"
             android:lineSpacingExtra="8sp"
-            android:text="Password"
+            android:text="@string/Password"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp" />
 
@@ -90,12 +86,11 @@
             android:textColorHint="@color/black" />
 
         <TextView
-            android:id="@+id/text_confirmPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.05"
             android:lineSpacingExtra="8sp"
-            android:text="Confirm Password"
+            android:text="@string/confirm_password"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp" />
 
@@ -110,12 +105,11 @@
             android:textColorHint="@color/black" />
 
         <TextView
-            android:id="@+id/text_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.05"
             android:lineSpacingExtra="8sp"
-            android:text="Email"
+            android:text="@string/email"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp" />
 
@@ -125,18 +119,17 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.05"
             android:ems="10"
-            android:hint="fragile@gatech.edu"
+            android:hint="@string/sample_email_address"
             android:inputType="textEmailAddress"
             android:textColor="@color/black"
             android:textColorHint="@color/black" />
 
         <TextView
-            android:id="@+id/text_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.05"
             android:lineSpacingExtra="8sp"
-            android:text="Phone Number"
+            android:text="@string/Phone_number"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp" />
 
@@ -146,18 +139,17 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.05"
             android:ems="10"
-            android:hint="(404) 123-345"
+            android:hint="@string/phone_hint"
             android:inputType="phone"
             android:textColor="@color/black"
             android:textColorHint="@color/black" />
 
         <TextView
-            android:id="@+id/textView9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.05"
             android:lineSpacingExtra="8sp"
-            android:text="Account Privileges"
+            android:text="@string/Account_privileges"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp" />
 
@@ -167,7 +159,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.05"
             android:ems="10"
-            android:hint="User or Admin"
+            android:hint="@string/admin_hint"
             android:inputType="text"
             android:textColor="@color/black"
             android:textColorHint="@color/black" />
@@ -183,7 +175,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@android:color/holo_green_dark"
             android:elevation="23dp"
-            android:text="Register"
+            android:text="@string/register"
             android:textColor="@android:color/background_light" />
 
         <Button
@@ -192,7 +184,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/colorAccent"
-            android:text="Cancel"
+            android:text="@string/cancel"
             android:textColor="@android:color/background_light" />
 
 

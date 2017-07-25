@@ -4,8 +4,8 @@ package com.example.ananya.findr;
 
 import org.junit.Test;
 
-import Model.FoundItem;
-import Model.LostItem;
+import model.FoundItem;
+import model.LostItem;
 
 import static org.junit.Assert.*;
 

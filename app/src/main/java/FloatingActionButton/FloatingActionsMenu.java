@@ -419,10 +419,10 @@ public class FloatingActionsMenu extends ViewGroup {
     return new LayoutParams(super.generateLayoutParams(p));
   }
 
-  @Override
-  protected boolean checkLayoutParams(ViewGroup.LayoutParams p) {
-    return super.checkLayoutParams(p);
-  }
+//  @Override
+//  protected boolean checkLayoutParams(ViewGroup.LayoutParams p) {
+//    return super.checkLayoutParams(p);
+//  }
 
   private static final Interpolator sExpandInterpolator = new OvershootInterpolator();
   private static final Interpolator sCollapseInterpolator = new DecelerateInterpolator(3f);

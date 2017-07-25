@@ -1,142 +1,86 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
+
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ananya.findr">
-
-    <!--
-         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
-         Google Maps Android API v2, but you must specify either coarse or fine
-         location permissions for the 'MyLocation' functionality. 
-    -->
+    <!-- The ACCESS_COARSE/FINE_LOCATION permissions are not required to use Google Maps Android API v2, but you must specify either coarse or fine location permissions for the 'MyLocation' functionality. -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
-
-    <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:supportsRtl="true"
+    <application android:allowBackup="true" android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name" android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".Controllers.Login"
-            android:label="Findr">
+        <activity android:name=".controllers.Login" android:label="Findr">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!--<activity-->
-            <!--android:name=".Controllers.Login"-->
-            <!--android:label="Login to Findr">-->
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.DEFAULT" />-->
-            <!--</intent-filter>-->
-        <!--</activity>-->
-        <activity
-            android:name=".Controllers.Application"
-            android:label="Findr Homepage">
+        <activity android:name=".controllers.Application" android:label="Findr Homepage">
             <intent-filter>
                 <action android:name="android.intent.action.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Controllers.Register"
-            android:label="Registration">
+        <activity android:name=".controllers.Register" android:label="Registration">
             <intent-filter>
                 <action android:name="android.intent.action.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Controllers.AddLostItem"
-            android:label="Add a lost item">
+        <activity android:name=".controllers.AddLostItem" android:label="Add a lost item">
             <intent-filter>
                 <action android:name="android.intent.action.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Controllers.ViewLostItems"
-            android:label="View your lost items">
+        <activity android:name=".controllers.ViewLostItems" android:label="View your lost items">
             <intent-filter>
                 <action android:name="android.intent.action.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Controllers.AddFoundItem"
-            android:label="Add a Found item">
+        <activity android:name=".controllers.AddFoundItem" android:label="Add a Found item">
             <intent-filter>
                 <action android:name="android.intent.action.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Controllers.ViewFoundItems"
-            android:label="View your found items">
+        <activity android:name=".controllers.ViewFoundItems" android:label="View your found items">
             <intent-filter>
                 <action android:name="android.intent.action.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Controllers.Search"
-            android:label="Search">
+        <activity android:name=".controllers.Search" android:label="Search">
             <intent-filter>
                 <action android:name="android.intent.action.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Controllers.ItemDetails"
-            android:label="Item Description">
+        <activity android:name=".controllers.ItemDetails" android:label="Item Description">
             <intent-filter>
                 <action android:name="android.intent.action.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Controllers.Admin"
-            android:label="Admin Settings">
+        <activity android:name=".controllers.Admin" android:label="Admin Settings">
             <intent-filter>
                 <action android:name="android.intent.action.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Controllers.ViewUsers"
-            android:label="Account Management">
+        <activity android:name=".controllers.ViewUsers" android:label="Account Management">
             <intent-filter>
                 <action android:name="android.intent.action.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Controllers.UserDetails"
-            android:label="User Details">
+        <activity android:name=".controllers.UserDetails" android:label="User Details">
             <intent-filter>
                 <action android:name="android.intent.action.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Controllers.Forget"
-            android:label="Forget Password">
+        <activity android:name=".controllers.Forget" android:label="Forget Password">
             <intent-filter>
                 <action android:name="android.intent.action.DEFAULT" />
             </intent-filter>
         </activity>
-
-
-        <!--
-             The API key for Google Maps-based APIs is defined as a string resource.
-             (See the file "res/values/google_maps_api.xml").
-             Note that the API key is linked to the encryption key used to sign the APK.
-             You need a different API key for each encryption key, including the release key that is used to
-             sign the APK for publishing.
-             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
-        -->
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
+        <!-- The API key for Google Maps-based APIs is defined as a string resource. (See the file "res/values/google_maps_api.xml"). Note that the API key is linked to the encryption key used to sign the APK. You need a different API key for each encryption key, including the release key that is used to sign the APK for publishing. You can define the keys for the debug and release targets in src/debug/ and src/release/. -->
+        <meta-data android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
-
-        <activity
-            android:name=".Controllers.MapsActivity"
+        <activity android:name=".controllers.MapsActivity"
             android:label="@string/title_activity_maps">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.ananya.findr.Controllers.Application" />
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.ananya.findr.controllers.Application" />
         </activity>
     </application>
-
 </manifest>

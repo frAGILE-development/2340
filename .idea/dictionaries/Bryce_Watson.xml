@@ -16,21 +16,27 @@
       <w>findr</w>
       <w>fullname</w>
       <w>gatech</w>
+      <w>gmail</w>
       <w>grantcharov</w>
       <w>gson</w>
       <w>ijis</w>
       <w>jaegar</w>
+      <w>jsse</w>
       <w>listview</w>
       <w>longit</w>
       <w>mikasa</w>
       <w>passw</w>
+      <w>patidar</w>
       <w>reiner</w>
       <w>shartar</w>
       <w>signin</w>
       <w>signup</w>
+      <w>smtp</w>
+      <w>starttls</w>
       <w>text</w>
       <w>textview</w>
       <w>unban</w>
+      <w>xnet</w>
     </words>
   </dictionary>
 </component>

@@ -7,10 +7,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
-import Model.FoundItem;
-import Model.LostItem;
-import Model.Persistence.ManagementFacade;
-import Model.User;
+import model.FoundItem;
+import model.LostItem;
+import model.persistence.ManagementFacade;
+import model.User;
 
 import static junit.framework.Assert.assertEquals;
 
