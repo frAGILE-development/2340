@@ -1,5 +1,4 @@
 package com.example.ananya.findr.controllers;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,14 +10,11 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Toast;
-
 import FloatingActionButton.FloatingActionsMenu;
 import FloatingActionButton.FloatingActionButton;
 import model.*;
 import model.persistence.ManagementFacade;
-
 import com.example.ananya.findr.R;
-
 import java.io.File;
 
 /**
@@ -47,14 +43,16 @@ import java.io.File;
  */
 
 public class Application extends AppCompatActivity {
+
     protected void onCreate(Bundle savedInstanceState) {
+
         Model model = Model.getInstance();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_application);
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle(getTitle());
+
         ///////////////////////////////////////////////////////////////////////////
         //Buttons
         ////////////////////////////////////////////////////////////////////////////
@@ -238,13 +236,15 @@ public class Application extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         ManagementFacade mf = ManagementFacade.getInstance();
-        File file;
-        File file2;
-        File file3;
+        File file;//lost item file
+        File file2;//found item file
+        File file3;//user file
 
         switch (item.getItemId()) {
             //Loads the serializable Lost & Found Items and Users through 3 different text files
             case R.id.load_all_items:
+                Model model = Model.getInstance();
+                model.nuclearMeltdown();
                 file = new File(this.getFilesDir(), ManagementFacade.DEFAULT_TEXT_FILE_NAME);
                 file2 = new File(this.getFilesDir(), ManagementFacade.OTHER_DEFAULT_TEXT_FILE_NAME);
                 file3 = new File(this.getFilesDir(), ManagementFacade.USER_FILE_NAME);

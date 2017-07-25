@@ -38,7 +38,7 @@ class ItemManager implements Serializable {
      * @param description description of item
      * @param address address of item
      */
-    void addItem(String name, String description, String address) {
+    public void addItem(String name, String description, String address) {
         Item item = new Item(name, description, address);
         //items.add(student);
         //itemMap.put(name, student);
@@ -53,7 +53,7 @@ class ItemManager implements Serializable {
      * @param description description of item
      * @param address address of item
      */
-    void addLostItem(String name, String description, String address) {
+    public void addLostItem(String name, String description, String address) {
         LostItem item = new LostItem(name, description, address);
         //items.add(student);
         //itemMap.put(name, student);
@@ -67,7 +67,7 @@ class ItemManager implements Serializable {
      * @param description description of item
      * @param address address of item
      */
-    void addFoundItem(String name, String description, String address) {
+    public void addFoundItem(String name, String description, String address) {
         FoundItem item = new FoundItem(name, description, address);
         //items.add(student);
         //itemMap.put(name, student);
@@ -86,7 +86,7 @@ class ItemManager implements Serializable {
      * @param type user type
      *
      */
-    void addUser(String username, String firstName, String lastName, String password, String email,
+    public void addUser(String username, String firstName, String lastName, String password, String email,
                  String phoneNumber, String type) {
         User user = new User(username, firstName, lastName, password, email, phoneNumber, type);
         //items.add(student);
@@ -99,7 +99,7 @@ class ItemManager implements Serializable {
      *
      * @return list of items
      */
-    List<Item> getItems() {
+    public List<Item> getItems() {
         return items;
     }
     /**
@@ -107,7 +107,7 @@ class ItemManager implements Serializable {
      * @return lost item
      *
      */
-    List<LostItem> getLostItems() {
+    public List<LostItem> getLostItems() {
         return lostItems;
     }
     /**
@@ -115,7 +115,7 @@ class ItemManager implements Serializable {
      * @return found item
      *
      */
-    List<FoundItem> getFoundItems() {
+    public List<FoundItem> getFoundItems() {
         return foundItems;
     }
     /**
@@ -123,7 +123,7 @@ class ItemManager implements Serializable {
      * @param name name of item
      * @return item
      */
-    Item getItemByName(String name) {
+    public Item getItemByName(String name) {
         return itemMap.get(name);
     }
 
@@ -131,7 +131,7 @@ class ItemManager implements Serializable {
      *This is really just for lost items
      * @param writer print writer
      */
-    void saveAsText(PrintWriter writer) {
+    public void saveAsText(PrintWriter writer) {
         System.out.println("Item Manager saving: " + (lostItems.size()) + " items" );
         writer.println(lostItems.size());
 
@@ -139,24 +139,13 @@ class ItemManager implements Serializable {
             s.saveAsText(writer);
         }
     }
-//    /**
-//     *This is really just for lost items
-//     * @param writer
-//     */
-//    void saveAsBinary(PrintWriter writer) {
-//        System.out.println("Item Manager saving: " + (lostItems.size()) + " items" );
-//        writer.println(lostItems.size());
-//
-//        for (LostItem s : lostItems) {
-//            s.saveAsBinary(writer);
-//        }
-//    }
+
     /**
      *save user
      * @param writer print writer
      *
      */
-    void saveAsUsers(PrintWriter writer) {
+    public void saveAsUsers(PrintWriter writer) {
         System.out.println("Item Manager saving: " + (userList.size()) + " users" );
         writer.println(userList.size());
 
@@ -164,157 +153,26 @@ class ItemManager implements Serializable {
             u.saveAsText(writer);
         }
     }
-//    /**
-//     *save user
-//     * @param writer
-//     *
-//     */
-//    void saveAsUsersBinary(PrintWriter writer) {
-//        System.out.println("Item Manager saving: " + (userList.size()) + " users" );
-//        writer.println(userList.size());
-//
-//        for(User u : userList) {
-//            u.saveAsBinary(writer);
-//        }
-//    }
-
-    /**
-     * Saves both lost and found items simultaneously
-     * @param lost lost item details
-     * @param found found item details
-     */
-    void saveAsText(PrintWriter lost, PrintWriter found) {
-        System.out.println("Item Manager saving: " + (lostItems.size() + foundItems.size()) + " items" );
-        lost.println(lostItems.size());
-        found.print(foundItems.size());
-        for(LostItem s : lostItems) {
-            s.saveAsText(lost);
-        }
-        for(FoundItem s : foundItems) {
-            s.saveAsText(found);
-        }
-    }
 
     /**
      *Saves Found items in their own file
      * @param writer print writer
      */
-    void saveAsFoundItems(PrintWriter writer) {
+    public void saveAsFoundItems(PrintWriter writer) {
         System.out.println("Item Manager saving: " + (foundItems.size() + " found items" ));
         writer.println(foundItems.size());
         for (FoundItem s : foundItems) {
             s.saveAsText(writer);
         }
     }
-//    /**
-//     *Saves Found items in their own file
-//     * @param writer
-//     */
-//    void saveAsFoundItemsBinary(PrintWriter writer) {
-//        System.out.println("Item Manager saving: " + (foundItems.size() + " found items" ));
-//        writer.println(foundItems.size());
-//        for (FoundItem s : foundItems) {
-//            s.saveAsBinary(writer);
-//        }
-//    }
-//    void loadFromBinary(BufferedReader lost, BufferedReader found) {
-//        System.out.println("Loading Text File");
-//        Model model = Model.getInstance();
-//        itemMap.clear();
-//        items.clear();
-//        foundItems.clear();
-//        lostItems.clear();
-//        try {
-//            String countStrLost = lost.readLine();
-//            assert countStrLost != null;
-//
-//            String countStrFound = found.readLine();
-//            assert countStrFound != null;
-//
-//            int lostCount = Integer.parseInt(countStrLost);
-//            int foundCount = Integer.parseInt(countStrFound);
-//            //THE FUNCTION WHERE IT HAPPENS
-//            //reads in each item to the model
-//            for (int i = 0; i < lostCount; ++i) {
-//                String line = lost.readLine();
-//                int conversion = Integer.parseInt(line, 2);
-//                String item = new Character((char)conversion).toString();
-//                LostItem l = LostItem.parseEntry(item);
-//                lostItems.add(l);
-//                model.addLostItem(l);
-//            }
-//            for (int i = 0; i < foundCount; ++i) {
-//                String line = found.readLine();
-//                int conversion = Integer.parseInt(line, 2);
-//                String item = new Character((char)conversion).toString();
-//                FoundItem l = FoundItem.parseEntry(item);
-//                foundItems.add(l);
-//                model.addFoundItem(l);
-//            }
-//            //be sure and close the file
-//            lost.close();
-//            found.close();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        System.out.println("Done loading text file with " + foundItems.size() + "found items" +
-//                "and " + lostItems.size() + " lost items");
-//
-//    }
 
     /**
-     * load from text
-     * @param lost lost item
-     * @param found found item
-     */
-    void loadFromText(BufferedReader lost, BufferedReader found) {
-        System.out.println("Loading Text File");
-        Model model = Model.getInstance();
-        itemMap.clear();
-        items.clear();
-        foundItems.clear();
-        lostItems.clear();
-        try {
-            String countStrLost = lost.readLine();
-            assert countStrLost != null;
-
-            String countStrFound = found.readLine();
-            assert countStrFound != null;
-
-            int lostCount = Integer.parseInt(countStrLost);
-            int foundCount = Integer.parseInt(countStrFound);
-            //THE FUNCTION WHERE IT HAPPENS
-            //reads in each item to the model
-            for (int i = 0; i < lostCount; ++i) {
-                String line = lost.readLine();
-                LostItem l = LostItem.parseEntry(line);
-                lostItems.add(l);
-                model.addLostItem(l);
-            }
-            for (int i = 0; i < foundCount; ++i) {
-                String line = found.readLine();
-                FoundItem l = FoundItem.parseEntry(line);
-                foundItems.add(l);
-                model.addFoundItem(l);
-            }
-            //be sure and close the file
-            lost.close();
-            found.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        System.out.println("Done loading text file with " + foundItems.size() + "found items" +
-        "and " + lostItems.size() + " lost items");
-
-    }
-
-    /**
-     *loads form text
+     *loads data from text
      * @param lost lost item
      * @param found found item
      * @param users users
      */
-    void loadFromText(BufferedReader lost, BufferedReader found, BufferedReader users) {
+    public void loadFromText(BufferedReader lost, BufferedReader found, BufferedReader users) {
         System.out.println("Loading Text File");
         Model model = Model.getInstance();
         itemMap.clear();
@@ -364,139 +222,6 @@ class ItemManager implements Serializable {
                 "and " + lostItems.size() + " lost items");
 
     }
-//    /**
-//     *loads form binary
-//     * @param lost lost
-//     * @param found
-//     * @param users
-//     */
-//    void loadFromBinary(BufferedReader lost, BufferedReader found, BufferedReader users) {
-//        System.out.println("Loading Text File");
-//        Model model = Model.getInstance();
-//        itemMap.clear();
-//        items.clear();
-//        foundItems.clear();
-//        lostItems.clear();
-//        userList.clear();
-//        try {
-//            String countStrLost = lost.readLine();
-//            assert countStrLost != null;
-//
-//            String countStrFound = found.readLine();
-//            assert countStrFound != null;
-//            String countStrUsers = users.readLine();
-//            assert countStrUsers != null;
-//
-//            int lostCount = Integer.parseInt(countStrLost);
-//            int foundCount = Integer.parseInt(countStrFound);
-//            int userCount = Integer.parseInt(countStrUsers);
-//            //THE FUNCTION WHERE IT HAPPENS
-//            //reads in each item to the model
-//            for (int i = 0; i < lostCount; ++i) {
-//                String line = lost.readLine();
-//                int conversion = Integer.parseInt(line, 2);
-//                String item = new Character((char)conversion).toString();
-//                LostItem l = LostItem.parseEntry(item);
-//                lostItems.add(l);
-//                model.addLostItem(l);
-//            }
-//            for (int i = 0; i < foundCount; ++i) {
-//                String line = found.readLine();
-//                int conversion = Integer.parseInt(line, 2);
-//                String item = new Character((char)conversion).toString();
-//                FoundItem l = FoundItem.parseEntry(item);
-//                foundItems.add(l);
-//                model.addFoundItem(l);
-//            }
-//            for (int i = 0; i < userCount; ++i) {
-//                String line = users.readLine();
-//                int conversion = Integer.parseInt(line, 2);
-//                String item = new Character((char)conversion).toString();
-//                User l = User.parseEntry(item);
-//                userList.add(l);
-//                model.addUser(l);
-//            }
-//            //be sure and close the file
-//            lost.close();
-//            found.close();
-//            users.close();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        System.out.println("Done loading text file with " + foundItems.size() + "found items" +
-//                "and " + lostItems.size() + " lost items");
-//
-//    }
-
-    /**
-     * load the model from a custom text file
-     *
-     * @param reader  the file to read from
-     */
-    void loadFoundItemsFromText(BufferedReader reader) {
-        System.out.println("Loading Text File with Found items");
-        Model model = Model.getInstance();
-        itemMap.clear();
-        items.clear();
-        foundItems.clear();
-        lostItems.clear();
-        try {
-            String countStr = reader.readLine();
-            assert countStr != null;
-            int count = Integer.parseInt(countStr);
-
-            //THE FUNCTION WHERE IT HAPPENS
-            //reads in each item to the model
-            for (int i = 0; i < count; ++i) {
-                String line = reader.readLine();
-                FoundItem s = FoundItem.parseEntry(line);
-                foundItems.add(s);
-                model.addFoundItem(s);
-            }
-            //be sure and close the file
-            reader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        System.out.println("Done loading text file with " + (items.size() + foundItems.size()) + " found items");
-
-    }
-//    /**
-//     * load the model from a custom binary file
-//     *
-//     * @param reader  the file to read from
-//     */
-//    void loadFoundItemsFromTextBinary(BufferedReader reader) {
-//        System.out.println("Loading Text File with Found items");
-//        Model model = Model.getInstance();
-//        itemMap.clear();
-//        items.clear();
-//        foundItems.clear();
-//        lostItems.clear();
-//        try {
-//            String countStr = reader.readLine();
-//            assert countStr != null;
-//            int count = Integer.parseInt(countStr);
-//
-//            //THE FUNCTION WHERE IT HAPPENS
-//            //reads in each item to the model
-//            for (int i = 0; i < count; ++i) {
-//                String line = reader.readLine();
-//                int conversion = Integer.parseInt(line, 2);
-//                String item = new Character((char)conversion).toString();
-//                FoundItem s = FoundItem.parseEntry(item);
-//                foundItems.add(s);
-//                model.addFoundItem(s);
-//            }
-//            //be sure and close the file
-//            reader.close();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        System.out.println("Done loading text file with " + (items.size() + foundItems.size()) + " found items");
-//
-//    }
-
 
     /**
      * This should only be called during serialization (reading in).
