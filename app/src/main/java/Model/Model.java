@@ -82,12 +82,11 @@ public class Model {
      * @param user the user to be added
      * @return true if added, false if a duplicate
      */
-    public boolean addBannedUser(User user) {
+    public void addBannedUser(User user) {
         for (User c : _bannedUsers) {
-            if (c.equals(user)) return false;
+            if (c.equals(user)) return;
         }
         _bannedUsers.add(user);
-        return true;
     }
 
 
@@ -99,14 +98,13 @@ public class Model {
      * @param user the user to be removed
      * @return true if removed, false not there
      */
-    public boolean removeBannedUser(User user) {
+    public void removeBannedUser(User user) {
         for (User c : _bannedUsers) {
             if (c.equals(user)){
                 _bannedUsers.remove(c);
-                return true;
+                return;
             }
         }
-    return false;
     }
 
     /**
@@ -185,12 +183,11 @@ public class Model {
      * @param user the user to be added
      * @return true if added, false if a duplicate
      */
-    public boolean addUser(User user) {
+    public void addUser(User user) {
         for (User c : _users) {
-            if (c.equals(user)) return false;
+            if (c.equals(user)) return;
         }
         _users.add(user);
-        return true;
     }
 
     /**
@@ -201,12 +198,11 @@ public class Model {
      * @param item the user to be added
      * @return true if added, false if a duplicate
      */
-    public boolean addLostItem(LostItem item) {
+    public void addLostItem(LostItem item) {
         for (LostItem c : _lostItems) {
-            if (c.equals(item)) return false;
+            if (c.equals(item)) return;
         }
         _lostItems.add(item);
-        return true;
     }
 
     /**
@@ -241,12 +237,11 @@ public class Model {
      * @param item the found item to be added
      * @return true if added, false if a duplicate
      */
-    public boolean addFoundItem(FoundItem item) {
+    public void addFoundItem(FoundItem item) {
         for (FoundItem c : _foundItems) {
-            if (c.equals(item)) return false;
+            if (c.equals(item)) return;
         }
         _foundItems.add(item);
-        return true;
     }
 
     /**

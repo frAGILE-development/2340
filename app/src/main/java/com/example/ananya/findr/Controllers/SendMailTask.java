@@ -7,7 +7,7 @@ import android.util.Log;
 
 import java.util.List;
 
-public class SendMailTask extends AsyncTask {
+class SendMailTask extends AsyncTask {
 
     private ProgressDialog statusDialog;
     private Activity sendMailActivity;
