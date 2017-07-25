@@ -17,7 +17,6 @@ import static junit.framework.Assert.assertEquals;
 /**
  * Created by jordan on 7/18/2017.
  */
-
 public class ManagementFacadeJunit {
     private ManagementFacade mf;
 

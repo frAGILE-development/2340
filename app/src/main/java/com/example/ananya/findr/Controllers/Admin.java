@@ -63,21 +63,21 @@ public class Admin extends AppCompatActivity {
 //                list = (ListView) findViewById(R.id.list_view);
 //                list_found = (ListView) findViewById(R.id.list_view);
 
-                for (int i = 0; i < lostNameList.length; i++) {
+                for (String aLostNameList : lostNameList) {
                     // Binds all strings into an array
 
-                    model.addLostItem(new LostItem(lostNameList[i], "book", "somewhere"));
-                    model.setCurrentLostItem(new LostItem(lostNameList[i], "book", "somewhere"));
+                    model.addLostItem(new LostItem(aLostNameList, "book", "somewhere"));
+                    model.setCurrentLostItem(new LostItem(aLostNameList, "book", "somewhere"));
                     //comment this out below along with its sister comment to turn on name generation
                     LostItem item = model.getCurrentLostItem();
                     mf.addLostItem(item);
 
                 }
 
-                for (int i = 0; i < foundNameList.length; i++) {
+                for (String aFoundNameList : foundNameList) {
                     // Binds all strings into an array
-                    model.addFoundItem(new FoundItem(foundNameList[i], "book", "somewhere"));
-                    model.setCurrentFoundItem(new FoundItem(foundNameList[i], "book", "somewhere"));
+                    model.addFoundItem(new FoundItem(aFoundNameList, "book", "somewhere"));
+                    model.setCurrentFoundItem(new FoundItem(aFoundNameList, "book", "somewhere"));
                     //comment this out below along with its sister comment to turn on name generation
                     FoundItem item = model.getCurrentFoundItem();
                     mf.addFoundItem(item);

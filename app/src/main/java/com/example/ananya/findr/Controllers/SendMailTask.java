@@ -10,7 +10,7 @@ import java.util.List;
 class SendMailTask extends AsyncTask {
 
     private ProgressDialog statusDialog;
-    private Activity sendMailActivity;
+    private final Activity sendMailActivity;
 
     public SendMailTask(Activity activity) {
         sendMailActivity = activity;

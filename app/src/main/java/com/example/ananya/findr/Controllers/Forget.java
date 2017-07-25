@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import android.net.Uri;
 import android.util.Log;
 
 import com.example.ananya.findr.R;

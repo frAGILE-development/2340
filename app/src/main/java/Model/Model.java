@@ -80,7 +80,6 @@ public class Model {
      * uses O(n) linear search for course
      *
      * @param user the user to be added
-     * @return true if added, false if a duplicate
      */
     public void addBannedUser(User user) {
         for (User c : _bannedUsers) {
@@ -96,7 +95,6 @@ public class Model {
      * uses O(n) linear search for course
      *
      * @param user the user to be removed
-     * @return true if removed, false not there
      */
     public void removeBannedUser(User user) {
         for (User c : _bannedUsers) {
@@ -181,7 +179,6 @@ public class Model {
      * uses O(n) linear search for course
      *
      * @param user the user to be added
-     * @return true if added, false if a duplicate
      */
     public void addUser(User user) {
         for (User c : _users) {
@@ -196,7 +193,6 @@ public class Model {
      * uses O(n) linear search for course
      *
      * @param item the user to be added
-     * @return true if added, false if a duplicate
      */
     public void addLostItem(LostItem item) {
         for (LostItem c : _lostItems) {
@@ -235,7 +231,6 @@ public class Model {
      * uses O(n) linear search for course
      *
      * @param item the found item to be added
-     * @return true if added, false if a duplicate
      */
     public void addFoundItem(FoundItem item) {
         for (FoundItem c : _foundItems) {

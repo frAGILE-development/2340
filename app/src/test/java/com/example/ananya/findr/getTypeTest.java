@@ -1,10 +1,7 @@
 package com.example.ananya.findr;
 
-/**
- * Created by Ananya on 7/24/17.
- */
 
-import org.junit.Before;
+
 import org.junit.Test;
 
 import Model.FoundItem;
@@ -12,20 +9,24 @@ import Model.LostItem;
 
 import static org.junit.Assert.*;
 
+/**
+ * Created by Ananya on 7/24/17.
+ * Junit test for the getType() method
+ */
 public class getTypeTest {
 
-    private FoundItem found = new FoundItem();
+    private final FoundItem found = new FoundItem();
 
-    private LostItem lost = new LostItem();
+    private final LostItem lost = new LostItem();
 
     @Test(timeout = 200)
-    public void testFoundgetType() {
+    public void testFoundGetType() {
         String foundType = found.getType();
         assertEquals("Found Item", foundType);
     }
 
     @Test(timeout = 200)
-    public void testLostgetType() {
+    public void testLostGetType() {
         String lostType = lost.getType();
         assertEquals("Lost Item", lostType);
     }

@@ -12,6 +12,7 @@ public class CommandManager {
      * This maintains a list of commands executed in order
      * Front of list is oldest command, tail is newest
      */
+    @SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
     private final List<AbstractCommand> history = new LinkedList<>();
 
     /**
