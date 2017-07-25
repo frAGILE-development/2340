@@ -195,18 +195,21 @@ class ItemManager implements Serializable {
             for (int i = 0; i < lostCount; ++i) {
                 String line = lost.readLine();
                 LostItem l = LostItem.parseEntry(line);
+                System.out.println("Loading Lost Item: " + l.getName());
                 lostItems.add(l);
                 model.addLostItem(l);
             }
             for (int i = 0; i < foundCount; ++i) {
                 String line = found.readLine();
                 FoundItem l = FoundItem.parseEntry(line);
+                System.out.println("Loading Found Item: " + l.getName());
                 foundItems.add(l);
                 model.addFoundItem(l);
             }
             for (int i = 0; i < userCount; ++i) {
                 String line = users.readLine();
                 User l = User.parseEntry(line);
+                System.out.println("Loading User: " + l.getFullName());
                 userList.add(l);
                 model.addUser(l);
             }
@@ -218,8 +221,8 @@ class ItemManager implements Serializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("Done loading text file with " + foundItems.size() + "found items" +
-                "and " + lostItems.size() + " lost items");
+        System.out.println("Done loading text file - items loaded:\n" + foundItems.size() + " found items\n" +
+                lostItems.size() + " lost items\n" + userList.size() + " Users.");
 
     }
 

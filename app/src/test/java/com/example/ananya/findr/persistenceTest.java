@@ -22,12 +22,12 @@ import model.LostItem;
 public class persistenceTest extends AppCompatActivity{
 
     //Instance Variables
-    private ManagementFacade mf = ManagementFacade.getInstance();
-    private Model model = Model.getInstance();
-    private String[] lostNameList = new String[]{"A Tale of 2 Cities", "A Hitchhiker's Guide to the Galaxy",
+    private final ManagementFacade mf = ManagementFacade.getInstance();
+    private final Model model = Model.getInstance();
+    private final String[] lostNameList = new String[]{"A Tale of 2 Cities", "A Hitchhiker's Guide to the Galaxy",
             "The Lord of the Rings", "The Things They Carried",
             "The Three Body Problem"};
-    private String[] foundNameList = new String[]{"1984", "Brave New World",
+    private final String[] foundNameList = new String[]{"1984", "Brave New World",
             "Animal Farm", "Dune", "The Princess Bride"};
     private final File lost = new File("lost.txt");
     private final File found = new File("found.txt");
