@@ -32,7 +32,10 @@ dependencies {
     compile 'com.google.android.gms:play-services-maps:11.0.2'
     compile 'com.google.code.gson:gson:2.8.0'
     testCompile 'junit:junit:4.12'
-    compile files('C:/Users/jordan/cs2340/2340/libs/activation.jar')
-    compile files('C:/Users/jordan/cs2340/2340/libs/mail.jar')
-    compile files('C:/Users/jordan/cs2340/2340/libs/additionnal.jar')
+//    compile files('C:/Users/jordan/cs2340/2340/libs/activation.jar')
+//    compile files('C:/Users/jordan/cs2340/2340/libs/mail.jar')
+//    compile files('C:/Users/jordan/cs2340/2340/libs/additionnal.jar')
+    compile files('C:/Users/Bryce Watson/Documents/2340-master/libs/activation.jar')
+    compile files('C:/Users/Bryce Watson/Documents/2340-master/libs/mail.jar')
+    compile files('C:/Users/Bryce Watson/Documents/2340-master/libs/additionnal.jar')
 }

@@ -3,7 +3,6 @@ package Model;
 import java.util.ArrayList;
 import java.util.List;
 import Model.FoundItem;
-import Model.Persistence.ManagementFacade;
 
 /**
  * Created by Bryce Watson on 6/25/17.
@@ -29,10 +28,10 @@ public class Model {
     /**
      * holds the list of all users, lost & found items
      */
-    private List<User> _users;
-    private List<LostItem> _lostItems;
-    private List<FoundItem> _foundItems;
-    private List<User> _bannedUsers;
+    private ArrayList<User> _users;
+    private ArrayList<LostItem> _lostItems;
+    private ArrayList<FoundItem> _foundItems;
+    private ArrayList<User> _bannedUsers;
     /**
      * the currently selected user, defaults to the first one
      */
@@ -148,7 +147,7 @@ public class Model {
      *
      * @return a list of the lost items for that user
      */
-    public List<LostItem> getLostItems() {
+    public ArrayList<LostItem> getLostItems() {
         return _lostItems;
     }
 
@@ -157,7 +156,7 @@ public class Model {
      *
      * @return a list of the found items for that user
      */
-    public List<FoundItem> getFoundItems() {
+    public ArrayList<FoundItem> getFoundItems() {
         return _foundItems;
     }
 
@@ -377,10 +376,10 @@ public class Model {
      * Completely wipes everything in the model
      */
     public void nuclearMeltdown() {
-        ManagementFacade mf = ManagementFacade.getInstance();
+//        ManagementFacade mf = ManagementFacade.getInstance();
         Model model = Model.getInstance();
-        mf.removeAllFoundItems();
-        mf.removeAllLostItems();
+//        mf.removeAllFoundItems();
+//        mf.removeAllLostItems();
         _users = new ArrayList<>();
         _lostItems = new ArrayList<>();
         _foundItems = new ArrayList<>();

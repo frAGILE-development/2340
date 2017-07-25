@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.PrintWriter;
+import java.util.Iterator;
 import java.util.List;
 import Model.*;
 
@@ -527,19 +528,22 @@ public class ManagementFacade {
      *removes all found items
      */
     public void removeAllFoundItems() {
+        List<FoundItem> foundItems = im.getFoundItems();
 
-        for (FoundItem f : im.getFoundItems()){
-            im.removeFoundItem(f);
+        for (Iterator<FoundItem> iterator = foundItems.iterator(); iterator.hasNext(); ) {
+            iterator.remove();
         }
     }
+
+
 
     /**
      *removes all found items
      */
     public void removeAllLostItems() {
-
-        for (LostItem l : im.getLostItems()){
-            im.removeLostItem(l);
+        List<LostItem> lostItems = im.getLostItems();
+        for (Iterator<LostItem> iterator = lostItems.iterator(); iterator.hasNext(); ) {
+            iterator.remove();
         }
     }
 
