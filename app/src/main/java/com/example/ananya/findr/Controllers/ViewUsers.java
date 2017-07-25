@@ -15,6 +15,7 @@ import Model.*;
 
 /**
  * Created by Bryce on 6/29/17.
+ * Controller for the list of users
  */
 
 public class ViewUsers<T extends Comparable<? super T>> extends AppCompatActivity {

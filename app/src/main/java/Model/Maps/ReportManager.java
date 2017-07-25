@@ -5,6 +5,7 @@ import java.util.List;
 
 /**
  * Created by Bryce Watson on 7/11/17.
+ * Manages the reports on maps
  */
 
 class ReportManager {

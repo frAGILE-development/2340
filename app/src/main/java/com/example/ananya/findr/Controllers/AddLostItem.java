@@ -16,6 +16,7 @@ import Model.LostItem;
 
 /**
  * Created by Bryce on 6/29/2017.
+ * Controller for adding a lost item by adding to the model and the management facade
  */
 
 public class AddLostItem  extends AppCompatActivity{

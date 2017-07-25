@@ -13,6 +13,7 @@ import Model.*;
 
 /**
  * Created by Bryce Watson on 7/13/2017.
+ * Controller for the user detailed view
  */
 
 public class UserDetails extends AppCompatActivity {

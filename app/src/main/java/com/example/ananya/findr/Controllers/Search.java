@@ -19,6 +19,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+/**
+ * Written by Bryce Watson
+ */
 public class Search extends AppCompatActivity implements android.widget.SearchView.OnQueryTextListener {
 
     ListView list_found;
@@ -39,10 +42,6 @@ public class Search extends AppCompatActivity implements android.widget.SearchVi
         for(Item i: totalList) {
             System.out.print(i);
         }
-
-        // Pass results to ListViewAdapter Class
-//        adapter = new ListAdapter(this, totalList);
-//        adapter2 = new FoundAdapter(this, foundList);
         adapter = new ListAdapter(this, totalList);
         // Binds the Adapter to the ListView
         list.setAdapter(adapter);

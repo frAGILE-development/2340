@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import java.io.Serializable;
 import java.io.PrintWriter;
+import Model.Maps.Location;
 
 /**
  * Created by Bryce Watson on 6/29/17.
@@ -17,6 +18,7 @@ public class Item implements Parcelable, Serializable {
     private String _description;
     private String _address;
     private User _owner;
+    private Location  _location = new Location(33.775078, -84.396401);//Default location is the culc
 
     /**
      * The constructor for the Lost Item class
@@ -126,6 +128,26 @@ public class Item implements Parcelable, Serializable {
     public String toString() {
         return "Item: " + _name + "\n" + "Description: " + _description + "\n" + "Address: " + _address;
     }
+
+    /**
+     * Sets the location of the item
+     * @param loc
+     */
+    public void setLocation(Location loc) {
+        _location = loc;
+    }
+
+    /**
+     * returns the location of the item
+     * @return
+     */
+    public Location getLocation() {
+        return _location;
+    }
+
+
+
+
     /**
      * gets the type
      * @return type of item
@@ -214,6 +236,7 @@ public class Item implements Parcelable, Serializable {
         String[] tokens = line.split("\t");
         assert tokens.length == 3;
         return new LostItem(tokens[0], tokens[1], tokens[2]);
-
     }
+
+
 }

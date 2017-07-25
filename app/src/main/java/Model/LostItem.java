@@ -178,29 +178,6 @@ public class LostItem extends Item implements Parcelable, Serializable {
         writer.println(_name + "\t" + _description + "\t" + _address + "\t");
     }
 
-//    /**
-//     * Save this class in a custom save format
-//     * I chose to use tab (\t) to make line splitting easy for loading
-//     * If your data had tabs, you would need something else as a delimiter
-//     *
-//     * @param writer the file to write this student to
-//     */
-//    public void saveAsBinary(PrintWriter writer) {
-//        String item = _name + "\t" + _description + "\t" + _address + "\t";
-//        byte[] data = item.getBytes();
-//        StringBuilder binary = new StringBuilder();
-//        for (byte b : data) {
-//            int value = b;
-//            for (int i = 0; i < 8; i++) {
-//                binary.append((value & 128) == 0 ? 0 : 1);
-//                value <<= 1;
-//            }
-//            binary.append(' ');
-//        }
-//        System.out.println("Saving Lost Item: " + _name);
-//        writer.println(binary);
-//    }
-
     /**
      * This is a static factory method that constructs a student given a text line in the correct format.
      * It assumes that a student is in a single string with each attribute separated by a tab character

@@ -23,6 +23,27 @@ import java.io.File;
 
 /**
  * Created by Ananya on 6/22/17.
+ * The homepage v4.0ish
+ * ////////////////////////////////////////////////
+ * List of functions and menus:
+ * ////////////////////////////////////////////////
+ * 1. View Lost Items list
+ * 2. View Found Items list
+ * 3. View the map
+ * 4. Generate sample data
+ * 5. Logout
+ * 6. Admin settings (only accessible to admins)
+ * ------------------------------------------
+ * 7. Floating action button menu
+ * ------------------------------------------
+ * 7a. Search
+ * 7b. Add a Found Item
+ * 7c. Add a Lost Item
+ * --------------------------------------------
+ * 8. Persistence Menu
+ *----------------------------------------------
+ * 8a. Save data as text
+ * 8b. Load data from text
  */
 
 public class Application extends AppCompatActivity {
@@ -105,7 +126,7 @@ public class Application extends AppCompatActivity {
                         "The Lord of the Rings", "The Things They Carried",
                         "The Three Body Problem"};
                 String[] foundNameList = new String[]{"1984", "Brave New World",
-                        "Animal Farm","Dune","The Princess Bride"};
+                        "Animal Farm", "Dune", "The Princess Bride"};
 
                 User user1 = new User("user1", "Eren", "Jaegar", "aot", "user1@gatech.edu", "0123456789", "user");
                 User user2 = new User("user2", "Mikasa", "Ackerman", "aot", "user2@gatech.edu", "0123456789", "admin");
@@ -140,6 +161,7 @@ public class Application extends AppCompatActivity {
                 Toast.makeText(Application.this, "Sample data successfully generated", Toast.LENGTH_SHORT).show();
             }
         });
+
         //////////////////////////////////////////////////////////////////////////////
         //Floating Action Button
         //////////////////////////////////////////////////////////////////////////////
@@ -186,15 +208,16 @@ public class Application extends AppCompatActivity {
         menuMultipleActions.addButton(searchButton);
         menuMultipleActions.addButton(lostItem);
         menuMultipleActions.addButton(foundItem);
-
-
     }
+
     ///////////////////////////////////////////////////////////////////////////////////////////
     //Persistence Menu
     ///////////////////////////////////////////////////////////////////////////////////////////
     /* Next two methods handle the menu options */
+
     /**
-     *creates menu
+     * creates menu
+     *
      * @param menu the menu to be populated
      * @return true after completed
      */
@@ -205,8 +228,10 @@ public class Application extends AppCompatActivity {
         inflater.inflate(R.menu.main_menu, menu);
         return true;
     }
+
     /**
-     *item selected click
+     * item selected click
+     *
      * @param item item to be selected
      * @return true when completed
      */
@@ -216,21 +241,10 @@ public class Application extends AppCompatActivity {
         File file;
         File file2;
         File file3;
-//         I know switch statements are usually bad, but there in this case it is required
-//         by the api design,
-//         We just use the item id to decide which menu item was selected.
-        switch(item.getItemId()) {
 
-//            case R.id.load_binary:
-//                //create a file object in the local files section
-//                file = new File(this.getFilesDir(), ManagementFacade.DEFAULT_BINARY_FILE_NAME);
-//                //Log.d("MY APP", "Loading Binary Data");
-//                mf.loadBinary(file);
-//                //reset adapter to new data that has come in.
-//                //myAdapter.updateList(mf.getStudentsAsList());
-//                //Log.d("MY APP", "New Adaptor set");
-//                return true;
-            case R.id.load_all_items://Currently load all items
+        switch (item.getItemId()) {
+            //Loads the serializable Lost & Found Items and Users through 3 different text files
+            case R.id.load_all_items:
                 file = new File(this.getFilesDir(), ManagementFacade.DEFAULT_TEXT_FILE_NAME);
                 file2 = new File(this.getFilesDir(), ManagementFacade.OTHER_DEFAULT_TEXT_FILE_NAME);
                 file3 = new File(this.getFilesDir(), ManagementFacade.USER_FILE_NAME);
@@ -238,33 +252,8 @@ public class Application extends AppCompatActivity {
                 mf.loadText(file, file2, file3);
                 Toast.makeText(Application.this, "Data loaded from text", Toast.LENGTH_SHORT).show();
                 return true;
-//            case R.id.load_lost_items:
-//                file = new File(this.getFilesDir(), ManagementFacade.DEFAULT_TEXT_FILE_NAME);
-//                mf.loadText(file);
-//                //myAdapter.notifyDataSetChanged();
-//                return true;
-//            case R.id.load_found_items:
-//                file = new File(this.getFilesDir(), ManagementFacade.OTHER_DEFAULT_TEXT_FILE_NAME);
-//                mf.loadFoundItemText(file);
-//                //myAdapter.notifyDataSetChanged();
-//                return true;
-//            case R.id.load_json:
-//                file = new File(this.getFilesDir(), ManagementFacade.DEFAULT_JSON_FILE_NAME);
-//                mf.loadJson(file);
-//                //myAdapter.updateList(mf.getStudentsAsList());
-//                return true;
-//            case R.id.save_binary:
-//                file = new File(this.getFilesDir(), ManagementFacade.DEFAULT_BINARY_FILE_NAME);
-//                return mf.saveBinary(file);
-//            case R.id.save_json:
-//                file = new File(this.getFilesDir(), ManagementFacade.DEFAULT_JSON_FILE_NAME);
-//                return mf.saveJson(file);
-//            case R.id.save_lost_items:
-//                file = new File(this.getFilesDir(), ManagementFacade.DEFAULT_TEXT_FILE_NAME);
-//                return mf.saveText(file);
-//            case R.id.save_found_items:
-//                file2 = new File(this.getFilesDir(), ManagementFacade.OTHER_DEFAULT_TEXT_FILE_NAME);
-//                return mf.saveFoundItems(file2);
+
+            //Saves the serializable Lost & Found Items and Users through 3 different text files
             case R.id.save_all_items:
                 file = new File(this.getFilesDir(), ManagementFacade.DEFAULT_TEXT_FILE_NAME);
                 file2 = new File(this.getFilesDir(), ManagementFacade.OTHER_DEFAULT_TEXT_FILE_NAME);
@@ -276,7 +265,6 @@ public class Application extends AppCompatActivity {
         }
 
     }
-
 
 
     @Override

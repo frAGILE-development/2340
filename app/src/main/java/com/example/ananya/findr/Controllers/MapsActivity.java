@@ -20,6 +20,9 @@ import Model.Maps.Location;
 import Model.Maps.Report;
 import Model.Maps.ModelFacade;
 
+/**
+ * Controller for the maps functionality
+ */
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;

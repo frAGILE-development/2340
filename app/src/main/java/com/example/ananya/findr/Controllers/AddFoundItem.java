@@ -16,6 +16,7 @@ import Model.Persistence.ManagementFacade;
 
 /**
  * Created by Bryce on 6/29/2017.
+ * Controller for adding a found item by adding to the model and the management facade
  */
 
 public class AddFoundItem extends AppCompatActivity{

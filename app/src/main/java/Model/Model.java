@@ -2,12 +2,15 @@ package Model;
 
 import java.util.ArrayList;
 import java.util.List;
-import Model.FoundItem;
 
 /**
  * Created by Bryce Watson on 6/25/17.
- * Based heavily on the model for Lab 3
- * Keeps track of a list of users at the moment
+ * This model is kind of also a item and user management system.
+ * It is a singleton with getters and setters for current lost, found, & generic items & users
+ * It can also add and remove items, as well as find items and users by name with O(n) time
+ * It is ultimately responsible for handling user lockouts if they are banned or fail 3 password
+ * attempts. If an admin decides to erase all data from the backend, that button press is a direct
+ * call to the function nuclearMeltdown() and will purge the system.
  */
 
 public class Model {

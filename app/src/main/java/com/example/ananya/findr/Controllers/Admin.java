@@ -19,6 +19,12 @@ import Model.LostItem;
 
 /**
  * Created by Bryce Watson on 7/7/17.
+ * Controller for the admin page, which has the following functions:
+ * 1. Generate sample content using preset Strings
+ * 2. Erase all Found & Lost Items and Users from the backend
+ * 3. Access the user management system, where you can block and unblock individual users
+ * 4. A Back button
+ * This menu is not possible to access unless the user's privilege level is Admin
  */
 
 public class Admin extends AppCompatActivity {

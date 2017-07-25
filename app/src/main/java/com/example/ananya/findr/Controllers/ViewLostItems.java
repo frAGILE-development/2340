@@ -15,6 +15,7 @@ import com.example.ananya.findr.R;
 
 /**
  * Created by Ananya on 6/29/17.
+ * Controller for the list of lost items
  */
 
 public class ViewLostItems<T extends Comparable<? super T>> extends AppCompatActivity {

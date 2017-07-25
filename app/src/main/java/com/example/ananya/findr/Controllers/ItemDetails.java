@@ -14,6 +14,7 @@ import Model.Item;
 
 /**
  * Created by Bryce Watson on 7/6/17.
+ * Controller for a view of item properties
  */
 
 public class ItemDetails extends AppCompatActivity {

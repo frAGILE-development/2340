@@ -21,7 +21,6 @@ import Model.Model;
 
 /**
  * Created by Ananya on 6/21/17.
- * Completely redone by Bryce
  * Controller for the login screen
  * <p>
  * Cancel button goes back to the first page of the app,
@@ -171,7 +170,13 @@ public class Login extends AppCompatActivity {
                 }
             }
         });
-
+/**
+ * If this wasn't here logout could be over ridden with the back button and would be a glaring
+ * security flaw
+ */
+    }
+    @Override
+    public void onBackPressed() {
     }
 }
 
