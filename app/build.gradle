@@ -36,6 +36,5 @@ dependencies {
     compile files('app/libs/activation.jar')
     compile files('app/libs/mail.jar')
     compile files('app/libs/additional.jar')
-
-
+    compile files('libs/mail.jar')
 }
